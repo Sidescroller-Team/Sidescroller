@@ -1,39 +1,109 @@
-﻿var canvas;
+﻿'use strict';
+
+var canvas;
 var ctx;
 
 var countBlocksX; 
 var countBlocksY;
-
 var blockSizeX;
 var blockSizeY;
 
+var levelRawData;
+var levelRowArray;
+
+var shift = 0;
+var speed = 5;
+var backgroundSpeed = -1;
+var backgroundPosition = -100;
+
+var grassBlock;
+var earthBlock;
+var lava;
+var background;
+
 function init() {
-   
     setVariables();
-    addListener();
-
-    draw();
-    console.log("initfinished");
-
+	addListener();
+	loadLevel('levelOne.txt');
 }
 
 function addListener() {
-    window.addEventListener('resize', function () {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    })
+	window.addEventListener('resize', function () {
+		//@TODO
+		//aktuell Welt und Größen statisch, erfolgt später
+        //canvas.width = window.innerWidth;
+        //canvas.height = window.innerHeight;
+		
+	})
+
+	//Timo hatte bestimmt einen schöneren Weg?
+	document.addEventListener('keydown', function (evt) {
+		console.log(evt.keyCode);
+		switch (evt.keyCode) {
+
+			case 37:
+				console.log("Pfeiltaste nach links");
+				shift += speed;
+				backgroundPosition -= backgroundSpeed;
+				return false;
+				break;
+			case 39:
+				console.log("Pfeiltaste nach rechts");
+				shift -= speed;
+				backgroundPosition += backgroundSpeed;
+				return false;
+				break;
+		}
+	})
 }
 
 function setVariables() {
     canvas = document.getElementById("mainCan");
     ctx = canvas.getContext('2d');
-    countBlocksX = 32;
-    countBlocksY = 24;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    blockSizeX = ctx.innerWidth / countBlocksX;
-    blockSizeY = ctx.innerHeight / countBlocksY;
 
+
+	//alle blockelemente sind png mit 20x20px
+	grassBlock = new Image();
+	background = new Image();
+	lava = new Image();
+	earthBlock = new Image();
+	earthBlock.src = 'erdblock.png';
+	grassBlock.src = 'block.png';
+	lava.src = 'lava.png';
+	background.src = 'heavenlarge.png';
+
+
+	//muss wahrscheinlich auch noch dynamisch angepasst werden 
+    countBlocksX = 50
+    countBlocksY = 10;
+	canvas.width = 1000;
+	canvas.height = 200;
+    blockSizeX = 20;
+    blockSizeY = 20;
+
+}
+
+function loadLevel(levelName) {
+	console.log("loadLevel")
+	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+
+	xmlhttp.onreadystatechange = function () {
+		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
+
+
+		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			levelRawData = xmlhttp.responseText;
+			console.log(levelRawData);
+			levelRowArray = levelRawData.split("\r\n");
+			console.log("level loaded");
+			draw();
+			gameLoop();
+		}
+	}
+
+	xmlhttp.open("GET", levelName, true);
+	xmlhttp.send();
 }
 
 
@@ -41,22 +111,41 @@ function setVariables() {
 function update() {
 
 }
-
+/* @TODO
+ * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
+ * sichtbar ist alles was sich innerhalb von 0 <= x <= 1000 && 0 <= y <= 200 befindet 
+ * die Variable shift wird bei jedem drücken der links-rechts tasten größer / kleiner um die Welt zu verschieben
+ */
 function draw() {
+	ctx.clearRect(0, 0, 1000, 200);
+	ctx.drawImage(background, backgroundPosition, 0);
+	for (var i = 0; i < levelRowArray.length; i++) {
+		for (var j = 0; j < levelRowArray[i].length; j++) {
 
-    for (var i = 0; i < countBlocksY; i++) {
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(blockSizeX * i, 200, 25, 25);
-        console.log(i);
-    }
-
-  
+			switch (levelRowArray[i].charAt(j)) {
+				case '.':
+					break;
+				case 'b':
+					//ctx.fillStyle = "#000000";
+					//ctx.fillRect(j * blockSizeX + verschiebungDerWelt, i * blockSizeY, blockSizeX, blockSizeY);
+					ctx.drawImage(earthBlock, j * blockSizeX + shift, i * blockSizeY)
+					break;
+				case 'f':
+					ctx.drawImage(grassBlock, j * blockSizeX + shift, i * blockSizeY);
+					break;
+				case 'l':
+					ctx.drawImage(lava, j * blockSizeX + shift, i * blockSizeY);
+				default: break;
+			}
+			
+		}
+	}
 }
 
 function gameLoop() {
 
-//    update();
-    draw();
-
-    setTimeout(gameLoop, 20);
+    update();
+	draw();
+	//timeout muss man wahrscheinlich noch bearbeiten.....
+    setTimeout(gameLoop, 1);
 }

@@ -67,17 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\App_LocalResources\spielfigur.png" />
+    <Content Include="erdblock.png" />
+    <Content Include="block.png" />
     <Content Include="GameCanvas.html" />
     <Content Include="GameCanvas_Main.js" />
     <Content Include="GameCanvas_Sheet.css" />
+    <Content Include="heaven.jpg" />
+    <Content Include="heavenlarge.png" />
     <Content Include="Index.html" />
     <Content Include="Index_Sheet.css" />
+    <Content Include="lava.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="levelOne.txt" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -87,7 +94,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\App_LocalResources\" />
+    <Folder Include="App_Data\levels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

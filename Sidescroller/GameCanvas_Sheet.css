@@ -1,12 +1,12 @@
 ﻿body {
 
-    margin: 0;
+    margin: 25px;
     padding: 0;
 }
-#mainCan{
+#mainCan {
+    width: 900px;
+    height: 200px;
 
-  
-    background-color: antiquewhite;
     border: groove;
     border-width: 5px;
 }

@@ -1,13 +1,5 @@
 ﻿'use strict';
 
-var canvas;
-var ctx;
-
-var countBlocksX; 
-var countBlocksY;
-var blockSizeX;
-var blockSizeY;
-
 var levelRawData;
 var levelRowArray;
 
@@ -16,15 +8,11 @@ var speed = 5;
 var backgroundSpeed = -1;
 var backgroundPosition = -100;
 
-var grassBlock;
-var earthBlock;
-var lava;
-var background;
-
 function init() {
-    setVariables();
+    setConfigs();
+    fillImages();
 	addListener();
-	loadLevel('levelOne.txt');
+    loadLevel('../level/levelOne.txt');
 }
 
 function addListener() {
@@ -57,31 +45,6 @@ function addListener() {
 	})
 }
 
-function setVariables() {
-    canvas = document.getElementById("mainCan");
-    ctx = canvas.getContext('2d');
-
-
-	//alle blockelemente sind png mit 20x20px
-	grassBlock = new Image();
-	background = new Image();
-	lava = new Image();
-	earthBlock = new Image();
-	earthBlock.src = 'erdblock.png';
-	grassBlock.src = 'block.png';
-	lava.src = 'lava.png';
-	background.src = 'heavenlarge.png';
-
-
-	//muss wahrscheinlich auch noch dynamisch angepasst werden 
-    countBlocksX = 50
-    countBlocksY = 10;
-	canvas.width = 1000;
-	canvas.height = 200;
-    blockSizeX = 20;
-    blockSizeY = 20;
-
-}
 
 function loadLevel(levelName) {
 	console.log("loadLevel")

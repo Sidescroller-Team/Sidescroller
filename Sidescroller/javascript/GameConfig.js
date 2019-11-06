@@ -11,11 +11,14 @@ var blockSizeY;
 function setConfigs() {
     game_field = document.getElementById("mainCan");
 
-    countBlocksX = 50
-    countBlocksY = 10;
+    countBlocksX = 32
+	countBlocksY = 18;
+
+	/*Bitte nicht hierüber machen sondern im html oder css,
+	 * sonst wird die dort angegebene Größe nur verzerrt.
     game_field.width = 1000;
-    game_field.height = 200;
-    blockSizeX = 20;
-    blockSizeY = 20;
+    game_field.height = 200;*/
+    blockSizeX = 50;
+    blockSizeY = 50;
 }
 

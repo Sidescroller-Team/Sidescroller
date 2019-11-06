@@ -53,7 +53,7 @@ function loadLevel(levelName) {
 	xmlhttp.onreadystatechange = function () {
 		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
 
-
+		
 		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			levelRawData = xmlhttp.responseText;
@@ -84,14 +84,14 @@ function draw() {
 	ctx.drawImage(background, backgroundPosition, 0);
 	for (var i = 0; i < levelRowArray.length; i++) {
 		for (var j = 0; j < levelRowArray[i].length; j++) {
-
+			
 			switch (levelRowArray[i].charAt(j)) {
 				case '.':
 					break;
 				case 'b':
 					//ctx.fillStyle = "#000000";
 					//ctx.fillRect(j * blockSizeX + verschiebungDerWelt, i * blockSizeY, blockSizeX, blockSizeY);
-					ctx.drawImage(earthBlock, j * blockSizeX + shift, i * blockSizeY)
+					ctx.drawImage(earthBlock, j * blockSizeX + shift, i * blockSizeY);
 					break;
 				case 'f':
 					ctx.drawImage(grassBlock, j * blockSizeX + shift, i * blockSizeY);
@@ -100,6 +100,8 @@ function draw() {
 					ctx.drawImage(lava, j * blockSizeX + shift, i * blockSizeY);
 				default: break;
 			}
+			
+			ctx.drawImage(quadrat, j * blockSizeX + shift, i * blockSizeY);
 			
 		}
 	}

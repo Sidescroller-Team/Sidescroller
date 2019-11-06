@@ -67,10 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\App_LocalResources\spielfigur.png" />
     <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
+    <Content Include="images\rahmen.png" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />
     <Content Include="images\heaven.jpg" />
@@ -95,9 +95,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\levels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

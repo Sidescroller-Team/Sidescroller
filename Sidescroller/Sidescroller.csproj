@@ -80,6 +80,7 @@
     <Content Include="images\lava.png" />
     <Content Include="javascript\GameConfig.js" />
     <Content Include="javascript\Imagefiller.js" />
+    <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,7 @@ function init() {
     fillImages();
 	addListener();
     loadLevel('../level/levelOne.txt');
+    setPlayerData();
 }
 
 function addListener() {
@@ -88,7 +89,8 @@ function draw() {
 function gameLoop() {
 
     update();
-	draw();
+    draw();
+    player_loop();
 	//timeout muss man wahrscheinlich noch bearbeiten.....
     setTimeout(gameLoop, 1);
 }

@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
+    <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
+    <Content Include="images\Bildelemente\Palmenstamm.png" />
     <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
@@ -95,9 +98,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\Bildelemente\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -3,8 +3,6 @@
 var levelRawData;
 var levelRowArray;
 
-var shift = 0;
-var speed = 5;
 var backgroundSpeed = -1;
 var backgroundPosition = -100;
 
@@ -22,26 +20,6 @@ function addListener() {
         //canvas.width = window.innerWidth;
         //canvas.height = window.innerHeight;
 		
-	})
-
-	//Timo hatte bestimmt einen schöneren Weg?
-	document.addEventListener('keydown', function (evt) {
-		console.log(evt.keyCode);
-		switch (evt.keyCode) {
-
-			case 37:
-				console.log("Pfeiltaste nach links");
-				shift += speed;
-				backgroundPosition -= backgroundSpeed;
-				return false;
-				break;
-			case 39:
-				console.log("Pfeiltaste nach rechts");
-				shift -= speed;
-				backgroundPosition += backgroundSpeed;
-				return false;
-				break;
-		}
 	})
 }
 

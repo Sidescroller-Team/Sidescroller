@@ -78,7 +78,7 @@
     <Content Include="css\GameCanvas_Sheet.css" />
     <Content Include="images\heaven.jpg" />
     <Content Include="images\heavenlarge.png" />
-    <Content Include="html\Index.html" />
+    <Content Include="Index.html" />
     <Content Include="css\Index_Sheet.css" />
     <Content Include="images\lava.png" />
     <Content Include="javascript\GameConfig.js" />

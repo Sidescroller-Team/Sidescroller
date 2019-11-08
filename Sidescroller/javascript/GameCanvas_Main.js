@@ -5,6 +5,7 @@ var levelRowArray;
 
 var backgroundSpeed = -1;
 var backgroundPosition = -100;
+var frame = 0;
 
 var shift = 0;
 
@@ -53,7 +54,7 @@ function loadLevel(levelName) {
 
 
 function update() {
-
+	frame += 0.1;
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
@@ -63,16 +64,16 @@ function update() {
 function draw() {
 	ctx.clearRect(0, 0, 1000, 200);
 	ctx.drawImage(background, backgroundPosition, 0);
-	for (var i = 0; i < levelRowArray.length; i++) {
-		for (var j = 0; j < levelRowArray[i].length; j++) {
+	for (var y = 0; y < levelRowArray.length; y++) {
+		for (var x = 0; x < levelRowArray[y].length; x++) {
 			
-			switch (levelRowArray[i].charAt(j)) {
+			switch (levelRowArray[y].charAt(x)) {
 				case '.':
 					break;
 				case 'b':
 					//ctx.fillStyle = "#000000";
 					//ctx.fillRect(j * blockSizeX + verschiebungDerWelt, i * blockSizeY, blockSizeX, blockSizeY);
-					ctx.drawImage(earthBlock, j * blockSizeX + shift, i * blockSizeY);
+					ctx.drawImage(earthBlock, x * blockSizeX + shift, y * blockSizeY);
 					break;
 				case 'f':
                     ctx.drawImage(grassBlock, j * blockSizeX + shift, i * blockSizeY);

@@ -6,6 +6,8 @@ var levelRowArray;
 var backgroundSpeed = -1;
 var backgroundPosition = -100;
 
+var shift = 0;
+
 function init() {
     setConfigs();
     fillImages();
@@ -73,17 +75,19 @@ function draw() {
 					ctx.drawImage(earthBlock, j * blockSizeX + shift, i * blockSizeY);
 					break;
 				case 'f':
-					ctx.drawImage(grassBlock, j * blockSizeX + shift, i * blockSizeY);
+                    ctx.drawImage(grassBlock, j * blockSizeX + shift, i * blockSizeY);
 					break;
 				case 'l':
-					ctx.drawImage(lava, j * blockSizeX + shift, i * blockSizeY);
+                    ctx.drawImage(lava, j * blockSizeX + shift, i * blockSizeY);
 				default: break;
 			}
 			
-			ctx.drawImage(quadrat, j * blockSizeX + shift, i * blockSizeY);
+            ctx.drawImage(quadrat, j * blockSizeX + shift, i * blockSizeY);
 			
 		}
-	}
+    }
+    shift -= shiftChange;
+    playerNotAutoshifting();
 }
 
 function gameLoop() {

@@ -15,8 +15,7 @@ controller = {
     up: false,
 }
 
-var shift = 0;
-
+//setzt die Position des Spielers, da nicht im Object mit Variablen definiert werden darf
 function setPlayerData() {
     main_character.height = -2 * blockSizeY;
     main_character.width = -1 * blockSizeX;
@@ -24,6 +23,7 @@ function setPlayerData() {
     main_character.x_position = 5 * blockSizeX;
 }
 
+//wenn eine Taste gedrückt wird, wird geprüft, welche
 document.addEventListener('keydown', function (evt) {
     console.log(evt.keyCode);
     switch (evt.keyCode) {
@@ -39,6 +39,7 @@ document.addEventListener('keydown', function (evt) {
     }
 }, false);
 
+//Drücken wird aufgehoben
 document.addEventListener('keyup', function (evt) {
     switch (evt.keyCode) {
         case 37:
@@ -53,6 +54,7 @@ document.addEventListener('keyup', function (evt) {
     }
 }, false);
 
+//Bewegung der Figur
 function player_loop() {
     if (controller.up && main_character.jumping == false) {
         main_character.jumpingpower += 50;
@@ -83,6 +85,10 @@ function player_loop() {
         main_character.speed = 0;
         main_character.x_position = blockSizeX;
     }
+    if (main_character.x_position > blockSizeX * 32) {
+        main_character.speed = 0;
+        main_character.x_position = blockSizeX * 32;
+    }
     draw_player();
 };
 
@@ -93,3 +99,6 @@ function draw_player() {
     ctx.fill();
 };
 
+function playerNotAutoshifting() {
+    main_character.x_position -= shiftChange;
+}

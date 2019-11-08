@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="level\levelOne.txt" />
+    <Content Include="favicon.ico" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -5,6 +5,7 @@ var countBlocksY;
 var blockSizeX;
 var blockSizeY;
 
+var shiftChange;
 
 //muss wahrscheinlich auch noch dynamisch angepasst werden
 
@@ -20,5 +21,7 @@ function setConfigs() {
     game_field.height = 200;*/
     blockSizeX = 50;
     blockSizeY = 50;
+
+    shiftChange = blockSizeX / 50;
 }
 

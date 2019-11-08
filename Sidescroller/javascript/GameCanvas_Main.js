@@ -76,14 +76,14 @@ function draw() {
 					ctx.drawImage(earthBlock, x * blockSizeX + shift, y * blockSizeY);
 					break;
 				case 'f':
-                    ctx.drawImage(grassBlock, j * blockSizeX + shift, i * blockSizeY);
+                    ctx.drawImage(grassBlock, x * blockSizeX + shift, y * blockSizeY);
 					break;
 				case 'l':
-                    ctx.drawImage(lava, j * blockSizeX + shift, i * blockSizeY);
+                    ctx.drawImage(lava, x * blockSizeX + shift, y * blockSizeY);
 				default: break;
 			}
 			
-            ctx.drawImage(quadrat, j * blockSizeX + shift, i * blockSizeY);
+            ctx.drawImage(quadrat, x * blockSizeX + shift, y * blockSizeY);
 			
 		}
     }

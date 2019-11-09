@@ -58,7 +58,7 @@ function update() {
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
- * sichtbar ist alles was sich innerhalb von 0 <= x <= 1000 && 0 <= y <= 200 befindet 
+ * sichtbar ist alles was sich innerhalb von 0 <= x <= 1600 && 0 <= y <= 900 befindet 
  * die Variable shift wird bei jedem drücken der links-rechts tasten größer / kleiner um die Welt zu verschieben
  */
 function draw() {
@@ -67,9 +67,7 @@ function draw() {
 	for (var y = 0; y < levelRowArray.length; y++) {
 		for (var x = 0; x < levelRowArray[y].length; x++) {
 			
-			switch (levelRowArray[y].charAt(x)) {
-				case '.':
-					break;
+			switch (levelRowArray[y].charAt(x)) { 
 				case 'b':
 					//ctx.fillStyle = "#000000";
 					//ctx.fillRect(j * blockSizeX + verschiebungDerWelt, i * blockSizeY, blockSizeX, blockSizeY);
@@ -82,7 +80,7 @@ function draw() {
                     ctx.drawImage(lava, x * blockSizeX + shift, y * blockSizeY);
 				default: break;
 			}
-			
+				
             ctx.drawImage(quadrat, x * blockSizeX + shift, y * blockSizeY);
 			
 		}

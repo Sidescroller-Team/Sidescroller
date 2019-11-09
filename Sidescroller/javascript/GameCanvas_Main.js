@@ -85,8 +85,9 @@ function draw() {
 			
 		}
     }
-    shift -= shiftChange;
-    playerNotAutoshifting();
+        shift -= shiftChange;
+        playerNotAutoshifting();
+    
 }
 
 function gameLoop() {

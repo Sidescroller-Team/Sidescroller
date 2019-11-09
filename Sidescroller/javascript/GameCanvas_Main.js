@@ -118,5 +118,5 @@ function gameLoop() {
 	draw();
     player_loop();
 	//timeout muss man wahrscheinlich noch bearbeiten.....
-    setTimeout(gameLoop, 1);
+    setTimeout(gameLoop, 20);
 }

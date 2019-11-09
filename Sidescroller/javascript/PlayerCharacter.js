@@ -6,7 +6,8 @@ main_character = {
     x_position: 0,
     speed: 0,
     jumpingpower: 0,
-    jumping: false
+    jumping: false,
+    add_jumpingpower: 0
 }
 
 controller = {
@@ -15,10 +16,13 @@ controller = {
     up: false,
 }
 
+var frame_running = 0;
+var frame_running_change = 0;
+
 //setzt die Position des Spielers, da nicht im Object mit Variablen definiert werden darf
 function setPlayerData() {
-    main_character.height = -2 * blockSizeY;
-    main_character.width = -1 * blockSizeX;
+    main_character.height = -4 * blockSizeY;
+    main_character.width = -2 * blockSizeX;
     main_character.y_position = countBlocksY * blockSizeY - 1 * blockSizeY;
     main_character.x_position = 5 * blockSizeX;
 }
@@ -57,19 +61,28 @@ document.addEventListener('keyup', function (evt) {
 //Bewegung der Figur
 function player_loop() {
     if (controller.up && main_character.jumping == false) {
-        main_character.jumpingpower += 50;
+        main_character.add_jumpingpower += 25;
         main_character.jumping = true;
     }
 
     if (controller.left) {
-        main_character.speed -= 0.8;
+        main_character.speed -= 1.2;
     }
 
     if (controller.right) {
-        main_character.speed += 0.8
+        main_character.speed += 1.2;
     }
+    if (main_character.add_jumpingpower > 0) {
+        main_character.add_jumpingpower -= 3.5;
+    }
+    if (main_character.add_jumpingpower < 0) {
+        main_character.add_jumpingpower = 0;
+    }
+    console.log(main_character.jumpingpower);
+    main_character.jumpingpower += main_character.add_jumpingpower;
+    
 
-    main_character.jumpingpower -= 1.2; //gravity
+    main_character.jumpingpower -= 4; //gravity
     main_character.x_position += main_character.speed;
     main_character.y_position -= main_character.jumpingpower;
     main_character.speed *= 0.9; //friction
@@ -93,10 +106,22 @@ function player_loop() {
 };
 
 function draw_player() {
-    ctx.fillStyle = "#ff0000";
-    ctx.beginPath();
-    ctx.rect(main_character.x_position, main_character.y_position, main_character.width, main_character.height);
-    ctx.fill();
+    if (controller.right) {
+        ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
+    } else if (controller.left) {
+        ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250 + 1250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
+    } else {
+        ctx.drawImage(main_character_image, 500, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
+    }
+
+    if (frame_running > 4.99) {
+        frame_running_change = -0.15;
+    }
+    if (frame_running < 0.01) {
+        frame_running_change = 0.15;
+    }
+    frame_running += frame_running_change;
+    
 };
 
 function playerNotAutoshifting() {

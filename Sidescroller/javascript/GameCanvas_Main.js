@@ -7,6 +7,7 @@ var backgroundSpeed = -1;
 var backgroundPosition = -100;
 
 var shift = 0;
+var start = false;
 
 function init() {
     setConfigs();
@@ -65,7 +66,6 @@ function draw() {
 	ctx.drawImage(background, backgroundPosition, 0);
 	for (var i = 0; i < levelRowArray.length; i++) {
 		for (var j = 0; j < levelRowArray[i].length; j++) {
-			
 			switch (levelRowArray[i].charAt(j)) {
 				case '.':
 					break;
@@ -86,8 +86,19 @@ function draw() {
 			
 		}
     }
-    shift -= shiftChange;
-    playerNotAutoshifting();
+    document.addEventListener('keydown', function (evt) {
+        console.log(evt.keyCode);
+        if (evt.keyCode == 39) {
+            start = true;
+        }
+
+    }, false);
+
+    if (start == true) {
+        shift -= shiftChange;
+        playerNotAutoshifting();
+    };
+    
 }
 
 function gameLoop() {

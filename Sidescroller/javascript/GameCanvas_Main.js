@@ -1,4 +1,6 @@
-﻿'use strict';
+﻿/// <reference path="physicalobject.js" />
+/// <reference path="physicalobject.js" />
+'use strict';
 
 var levelRawData;
 var levelRowArray;
@@ -9,7 +11,11 @@ var frame = 0;
 
 var shift = 0;
 
+var physicalObjectArray = [];
+
 function init() {
+
+
     setConfigs();
     fillImages();
 	addListener();
@@ -42,7 +48,7 @@ function loadLevel(levelName) {
 			console.log(levelRawData);
 			levelRowArray = levelRawData.split("\r\n");
 			console.log("level loaded");
-			draw();
+			createWorldObjects();
 			gameLoop();
 		}
 	}
@@ -54,35 +60,40 @@ function loadLevel(levelName) {
 
 
 function update() {
+	for (var i = 0; i < physicalObjectArray.length; i++) {
+		physicalObjectArray[i].updateObject(shift);
+	} 
 	frame += 0.1;
+}
+
+function draw() {
+	ctx.clearRect(0, 0, 1000, 200);
+	ctx.drawImage(background, backgroundPosition, 0);
+	for (var i = 0; i < physicalObjectArray.length; i++) {
+		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].minX, physicalObjectArray[i].minY);
+	} 
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
  * sichtbar ist alles was sich innerhalb von 0 <= x <= 1600 && 0 <= y <= 900 befindet 
  * die Variable shift wird bei jedem drücken der links-rechts tasten größer / kleiner um die Welt zu verschieben
  */
-function draw() {
-	ctx.clearRect(0, 0, 1000, 200);
-	ctx.drawImage(background, backgroundPosition, 0);
+function createWorldObjects() {
 	for (var y = 0; y < levelRowArray.length; y++) {
-		for (var x = 0; x < levelRowArray[y].length; x++) {
-			
+		for (var x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 
 				case 'b':
-					//ctx.fillStyle = "#000000";
-					//ctx.fillRect(j * blockSizeX + verschiebungDerWelt, i * blockSizeY, blockSizeX, blockSizeY);
-					ctx.drawImage(earthBlock, x * blockSizeX + shift, y * blockSizeY);
+					physicalObjectArray.push(new PhysicalObject(earthBlock, x * blockSizeX + shift, y * blockSizeY + shift, blockSizeX, blockSizeY));
 					break;
 				case 'f':
-                    ctx.drawImage(grassBlock, x * blockSizeX + shift, y * blockSizeY);
+					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX + shift, y * blockSizeY + shift, blockSizeX, blockSizeY));
 					break;
 				case 'l':
-                    ctx.drawImage(lava, x * blockSizeX + shift, y * blockSizeY);
-				default: break;
+					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX + shift, y * blockSizeY + shift, blockSizeX, blockSizeY));
+				default: 
+					break;
 			}
-				
-            ctx.drawImage(quadrat, x * blockSizeX + shift, y * blockSizeY);
-			
+
 		}
     }
         shift -= shiftChange;
@@ -93,7 +104,7 @@ function draw() {
 function gameLoop() {
 
     update();
-    draw();
+	draw();
     player_loop();
 	//timeout muss man wahrscheinlich noch bearbeiten.....
     setTimeout(gameLoop, 1);

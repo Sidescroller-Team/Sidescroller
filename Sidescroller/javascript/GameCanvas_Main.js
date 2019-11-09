@@ -8,6 +8,7 @@ var backgroundPosition = -100;
 var frame = 0;
 
 var shift = 0;
+var start = false;
 
 function init() {
     setConfigs();
@@ -24,7 +25,14 @@ function addListener() {
         //canvas.width = window.innerWidth;
         //canvas.height = window.innerHeight;
 		
-	})
+    })
+    document.addEventListener('keydown', function (evt) {
+        console.log(evt.keyCode);
+        if (evt.keyCode == 39) {
+            start = true;
+        }
+
+    }, false);
 }
 
 
@@ -85,8 +93,11 @@ function draw() {
 			
 		}
     }
+    if (start == true) {
         shift -= shiftChange;
         playerNotAutoshifting();
+    };
+        
     
 }
 

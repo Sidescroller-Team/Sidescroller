@@ -7,7 +7,6 @@ var backgroundSpeed = -1;
 var backgroundPosition = -100;
 
 var shift = 0;
-var start = false;
 
 function init() {
     setConfigs();
@@ -86,18 +85,8 @@ function draw() {
 			
 		}
     }
-    document.addEventListener('keydown', function (evt) {
-        console.log(evt.keyCode);
-        if (evt.keyCode == 39) {
-            start = true;
-        }
-
-    }, false);
-
-    if (start == true) {
         shift -= shiftChange;
         playerNotAutoshifting();
-    };
     
 }
 

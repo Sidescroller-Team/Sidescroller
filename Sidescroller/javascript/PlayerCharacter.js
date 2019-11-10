@@ -7,7 +7,8 @@ main_character = {
     speed: 0,
     jumpingpower: 0,
     jumping: false,
-    add_jumpingpower: 0
+    add_jumpingpower: 0,
+    alive: true
 }
 
 controller = {
@@ -96,6 +97,7 @@ function player_loop() {
     if (main_character.x_position < blockSizeX) {
         main_character.speed = 0;
         main_character.x_position = blockSizeX;
+        showDefeatScreen();
     }
     if (main_character.x_position > blockSizeX * 32) {
         main_character.speed = 0;

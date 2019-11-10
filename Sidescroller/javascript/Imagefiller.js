@@ -6,6 +6,9 @@ var earthBlock;
 var lava;
 var background;
 
+var defeatScreen;
+var reloadImage;
+var homeImage;
 //nur ein rahmen um die einzelnen quadrate
 var quadrat;
 
@@ -19,7 +22,11 @@ function fillImages() {
     background = new Image();
     lava = new Image();
 	earthBlock = new Image();
-	quadrat = new Image();
+    quadrat = new Image();
+
+    defeatScreen = new Image();
+    reloadImage = new Image();
+    homeImage = new Image();
 
     main_character_image.src = '../images/Pirat_Laufen.png';
 
@@ -27,5 +34,9 @@ function fillImages() {
     grassBlock.src = '../images/block.png';
     lava.src = '../images/lava.png';
 	background.src = '../images/heavenlarge.png';
-	quadrat.src = '../images/rahmen.png';
+    quadrat.src = '../images/rahmen.png';
+
+    defeatScreen.src = '../images/Defeatscreen.png';
+    reloadImage.src = '../images/Wiederholungssymbol.png';
+    homeImage.src = '../images/Homebutton.png';
 }

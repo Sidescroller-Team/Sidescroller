@@ -118,5 +118,8 @@ function gameLoop() {
 	draw();
     player_loop();
 	//timeout muss man wahrscheinlich noch bearbeiten.....
-    setTimeout(gameLoop, 20);
+    if (main_character.alive) {
+        setTimeout(gameLoop, 20);
+    }
+    
 }

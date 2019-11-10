@@ -78,9 +78,8 @@ function player_loop() {
     if (main_character.add_jumpingpower < 0) {
         main_character.add_jumpingpower = 0;
     }
-    console.log(main_character.jumpingpower);
+
     main_character.jumpingpower += main_character.add_jumpingpower;
-    
 
     main_character.jumpingpower -= 4; //gravity
     main_character.x_position += main_character.speed;

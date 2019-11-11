@@ -4,11 +4,11 @@
 	constructor(img, minX, minY, width, height) {
 		super();
 		this.img = img;
-		this.minX = minX;
-		this.minY = minY;
-		this.maxX = minX + width;
-		this.maxY = minY + height;
-		console.log(this.img.src + ": 1(" + this.minX + " | " + this.minY + ")" + " 2(" + this.minY + " | " + this.minY + ")" + " 3(" + this.minY + " | " + this.maxX + ")" + " 4(" + this.maxX + " | " + this.maxX + ")");
+		this.left = minX;
+		this.top = minY;
+		this.right = minX + width;
+		this.bottom = minY + height;
+		//console.log(this.img.src + ": 1(" + this.minX + " | " + this.minY + ")" + " 2(" + this.minY + " | " + this.minY + ")" + " 3(" + this.minY + " | " + this.maxX + ")" + " 4(" + this.maxX + " | " + this.maxX + ")");
 
 	} 
 

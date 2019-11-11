@@ -68,6 +68,11 @@ function loadLevel(levelName) {
 
 
 function update() {
+
+	var minX = main_character.x_position;
+	var minY = main_character.y_position;
+	var maxX = main_character.x_position + main_character.width;
+	var maxY = main_character.y_position + main_character.height;
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		physicalObjectArray[i].updateObject(shift);
 		if (i == 64 || i == 65) {
@@ -76,6 +81,7 @@ function update() {
 		}
 	} 
 	frame += 0.1;
+	
 }
     if (start == true) {
         for (var i = 0; i < physicalObjectArray.length; i++) {
@@ -86,9 +92,11 @@ function update() {
 }
 
 function draw() {
-	ctx.clearRect(0, 0, 1000, 200);
+//	ctx.clearRect(0, 0, 1000, 200);
 	ctx.drawImage(background, backgroundPosition, 0);
+
 	for (var i = 0; i < physicalObjectArray.length; i++) {
+	
 		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].minX, physicalObjectArray[i].minY);
     } 
     if (start == true) {

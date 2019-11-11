@@ -68,10 +68,12 @@ function loadLevel(levelName) {
 
 
 function update() {
-	for (var i = 0; i < physicalObjectArray.length; i++) {
-		physicalObjectArray[i].updateObject(shift);
-	} 
-	frame += 0.1;
+    if (start == true) {
+        for (var i = 0; i < physicalObjectArray.length; i++) {
+		        physicalObjectArray[i].updateObject(shiftChange);
+	        } 
+	        frame += 0.1;
+    }	
 }
 
 function draw() {
@@ -79,7 +81,11 @@ function draw() {
 	ctx.drawImage(background, backgroundPosition, 0);
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].minX, physicalObjectArray[i].minY);
-	} 
+    } 
+    if (start == true) {
+        shift -= shiftChange;
+        playerNotAutoshifting();
+    };
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
@@ -91,25 +97,18 @@ function createWorldObjects() {
 		for (var x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 
 				case 'b':
-					physicalObjectArray.push(new PhysicalObject(earthBlock, x * blockSizeX + shift, y * blockSizeY + shift, blockSizeX, blockSizeY));
+					physicalObjectArray.push(new PhysicalObject(earthBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
 					break;
 				case 'f':
-					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX + shift, y * blockSizeY + shift, blockSizeX, blockSizeY));
+					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
 					break;
 				case 'l':
-					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX + shift, y * blockSizeY + shift, blockSizeX, blockSizeY));
+					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
 				default: 
 					break;
 			}
-
 		}
-    }
-    if (start == true) {
-        shift -= shiftChange;
-        playerNotAutoshifting();
-    };
-        
-    
+    }   
 }
 
 function gameLoop() {

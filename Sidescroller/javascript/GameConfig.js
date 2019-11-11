@@ -22,6 +22,6 @@ function setConfigs() {
     blockSizeX = 50;
     blockSizeY = 50;
 
-    shiftChange = blockSizeX / 50;
+    shiftChange = blockSizeX / 20;
 }
 

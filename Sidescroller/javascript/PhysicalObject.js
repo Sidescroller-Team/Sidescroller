@@ -12,9 +12,9 @@
 
 	} 
 
-	updateObject(shift) {
-		this.minX += shift;
-		this.maxX += shift;
+	updateObject(shiftChange) {
+		this.minX -= shiftChange;
+		this.maxX -= shiftChange;
 
 	}
 	/*main_character = {

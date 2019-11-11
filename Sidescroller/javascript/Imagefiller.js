@@ -16,6 +16,7 @@ function fillImages() {
     ctx = game_field.getContext('2d');
 
     main_character_image = new Image();
+    mainMenue = new Image();
     //alle blockelemente sind png mit 20x20px
 	// und sollen elemente im raster 50x50px werden
     grassBlock = new Image();
@@ -29,6 +30,7 @@ function fillImages() {
     homeImage = new Image();
 
     main_character_image.src = '../images/Pirat_Laufen.png';
+    mainMenue.src = '../images/hintergrund_menue.png';
 
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';

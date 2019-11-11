@@ -70,13 +70,11 @@
     <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
     <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
     <Content Include="images\Bildelemente\Palmenstamm.png" />
-    <Content Include="images\Defeatscreen.png" />
     <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
-    <Content Include="images\Homebutton.png" />
+    <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\rahmen.png" />
-    <Content Include="images\Wiederholungssymbol.png" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />
     <Content Include="images\heaven.jpg" />
@@ -86,7 +84,7 @@
     <Content Include="images\lava.png" />
     <Content Include="javascript\GameConfig.js" />
     <Content Include="javascript\Imagefiller.js" />
-    <Content Include="javascript\MenuFunctions.js" />
+    <Content Include="javascript\Main_Menue.js" />
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="Web.config" />

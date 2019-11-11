@@ -4,9 +4,9 @@
     ctx.drawImage(death_pirate_image, main_character.x_position, main_character.y_position, main_character.width * 2, main_character.height / 2);
 
     //zeichnet die Elemente
-    ctx.drawImage(defeatScreen, 8 * blockSizeX + shift, 4 * blockSizeY, 16 * blockSizeX, 9 * blockSizeY);
-    ctx.drawImage(reloadImage, 9.5 * blockSizeX + shift, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(homeImage, 18.5 * blockSizeX + shift, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(defeatScreen, 8 * blockSizeX, 4 * blockSizeY, 16 * blockSizeX, 9 * blockSizeY);
+    ctx.drawImage(reloadImage, 9.5 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(homeImage, 18.5 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
 
     //Eventlistener schaut, ob einer der Buttons gedrückt wurde
     game_field.addEventListener("click", function (event) {

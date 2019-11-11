@@ -1,8 +1,4 @@
-﻿/// <reference path="physicalobject.js" />
-/// <reference path="physicalobject.js" />
-'use strict';
-
-var levelRawData;
+﻿var levelRawData;
 var levelRowArray;
 
 var backgroundSpeed = -1;
@@ -55,6 +51,7 @@ function loadLevel(levelName) {
 			levelRawData = xmlhttp.responseText;
 			console.log(levelRawData);
 			levelRowArray = levelRawData.split("\r\n");
+			console.log("levelRowArray:" + levelRowArray.length);
 			console.log("level loaded");
 			createWorldObjects();
 			gameLoop();
@@ -68,41 +65,24 @@ function loadLevel(levelName) {
 
 
 function update() {
-
-	var minX = main_character.x_position;
-	var minY = main_character.y_position;
-	var maxX = main_character.x_position + main_character.width;
-	var maxY = main_character.y_position + main_character.height;
-	for (var i = 0; i < physicalObjectArray.length; i++) {
-		physicalObjectArray[i].updateObject(shift);
-		if (i == 64 || i == 65) {
-			console.log(physicalObjectArray[i].img.src);
-			physicalObjectArray[i].testCollision(main_character);
+	if (start == true) {
+		shift -= shiftChange;
+		playerNotAutoshifting();
+		for (var i = 0; i < physicalObjectArray.length; i++) {
+			physicalObjectArray[i].updateObject(shiftChange);
+			
 		}
-	} 
-	frame += 0.1;
+	}
 	
-}
-    if (start == true) {
-        for (var i = 0; i < physicalObjectArray.length; i++) {
-		        physicalObjectArray[i].updateObject(shiftChange);
-	        } 
-	        frame += 0.1;
-    }	
 }
 
 function draw() {
-//	ctx.clearRect(0, 0, 1000, 200);
+	ctx.clearRect(0, 0, 1000, 200);
 	ctx.drawImage(background, backgroundPosition, 0);
-
 	for (var i = 0; i < physicalObjectArray.length; i++) {
-	
-		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].minX, physicalObjectArray[i].minY);
-    } 
-    if (start == true) {
-        shift -= shiftChange;
-        playerNotAutoshifting();
-    };
+		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top);
+	}
+
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
@@ -111,6 +91,7 @@ function draw() {
  */
 function createWorldObjects() {
 	console.log("start creating world")
+	console.log(levelRowArray.length);
 	for (var y = 0; y < levelRowArray.length; y++) {
 		for (var x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 
@@ -119,14 +100,23 @@ function createWorldObjects() {
 					break;
 				case 'f':
 					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					break;
+					console.log("x: " + x);
+					console.log("blocksizeX : " + blockSizeX);
+
+					console.log("y: " + y);
+					console.log("blocksizey : " + blockSizeY);
+					
+					console.log(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY))
+break;
 				case 'l':
 					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
+					
 				default: 
 					break;
 			}
 		}
-    }   
+	}   
+	console.log("end creating world")
 }
 
 function gameLoop() {

@@ -1,8 +1,7 @@
-﻿class PhysicalObject extends Image{
+﻿class PhysicalObject  {
 
 
 	constructor(img, minX, minY, width, height) {
-		super();
 		this.img = img;
 		this.left = minX;
 		this.top = minY;
@@ -10,11 +9,11 @@
 		this.bottom = minY + height;
 		//console.log(this.img.src + ": 1(" + this.minX + " | " + this.minY + ")" + " 2(" + this.minY + " | " + this.minY + ")" + " 3(" + this.minY + " | " + this.maxX + ")" + " 4(" + this.maxX + " | " + this.maxX + ")");
 
-	} 
+	}
 
 	updateObject(shiftChange) {
-		this.minX -= shiftChange;
-		this.maxX -= shiftChange;
+		this.left -= shiftChange;
+
 
 	}
 	/*main_character = {
@@ -28,18 +27,18 @@
 	}'*/
 
 	testCollision(object) {
-		var objectMinX = object.x_position;
-		var objectMinY = object.y_position;
-		var objectMaxX = object.x_position + object.width;
-		var objectMaxY = object.y_position + object.height;
-		if (this.minX <= objectMaxX &&
-			this.maxX >= objectMinX ||
-			this.minY >= objectMaxY && //
-			this.maxY <= objectMinY
-			) {
+		let objectMinX = object.x_position;
+		let objectMinY = object.y_position;
+		let objectMaxX = object.x_position + object.width;
+		let objectMaxY = object.y_position + object.height;
+		if (this.left <= objectMaxX //&&
+			//this.right >= objectMinX &&
+			//this.top >= objectMaxY && //
+			//this.bottom <= objectMinY
+		) {
 			window.alert();
 		}
-	
+
 	}
 
 	fromAbove() {
@@ -49,10 +48,4 @@
 	fromSide() {
 
 	}
-
-	bottomUp
-	
-
-	
-
 }

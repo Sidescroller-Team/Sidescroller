@@ -46,14 +46,19 @@ document.addEventListener('keydown', function (evt) {
 
 //Drücken wird aufgehoben
 document.addEventListener('keyup', function (evt) {
-    switch (evt.keyCode) {
-        case 37:
+	
+	switch (evt.keyCode) {
+
+		case 37:
+			evt.preventDefault();
             controller.left = false;
             break;
         case 38:
+			evt.preventDefault();
             controller.up = false;
             break;
         case 39:
+			evt.preventDefault();
             controller.right = false;
             break;
     }

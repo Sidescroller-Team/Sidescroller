@@ -30,9 +30,15 @@
 	testCollision(object) {
 		var objectMinX = object.x_position;
 		var objectMinY = object.y_position;
-		var objectMaxX = object.x_position + width;
-		var objectMaxY = object.y_position + height;
-		//test fromAbove
+		var objectMaxX = object.x_position + object.width;
+		var objectMaxY = object.y_position + object.height;
+		if (this.minX <= objectMaxX &&
+			this.maxX >= objectMinX ||
+			this.minY >= objectMaxY && //
+			this.maxY <= objectMinY
+			) {
+			window.alert();
+		}
 	
 	}
 

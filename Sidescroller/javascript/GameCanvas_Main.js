@@ -68,6 +68,15 @@ function loadLevel(levelName) {
 
 
 function update() {
+	for (var i = 0; i < physicalObjectArray.length; i++) {
+		physicalObjectArray[i].updateObject(shift);
+		if (i == 64 || i == 65) {
+			console.log(physicalObjectArray[i].img.src);
+			physicalObjectArray[i].testCollision(main_character);
+		}
+	} 
+	frame += 0.1;
+}
     if (start == true) {
         for (var i = 0; i < physicalObjectArray.length; i++) {
 		        physicalObjectArray[i].updateObject(shiftChange);
@@ -93,6 +102,7 @@ function draw() {
  * die Variable shift wird bei jedem drücken der links-rechts tasten größer / kleiner um die Welt zu verschieben
  */
 function createWorldObjects() {
+	console.log("start creating world")
 	for (var y = 0; y < levelRowArray.length; y++) {
 		for (var x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 

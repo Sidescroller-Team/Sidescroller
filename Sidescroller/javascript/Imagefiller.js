@@ -1,6 +1,8 @@
 ﻿var ctx;
 
 var main_character_image;
+var death_pirate_image;
+
 var grassBlock;
 var earthBlock;
 var lava;
@@ -16,6 +18,8 @@ function fillImages() {
     ctx = game_field.getContext('2d');
 
     main_character_image = new Image();
+    death_pirate_image = new Image();
+
     mainMenue = new Image();
     //alle blockelemente sind png mit 20x20px
 	// und sollen elemente im raster 50x50px werden
@@ -30,6 +34,8 @@ function fillImages() {
     homeImage = new Image();
 
     main_character_image.src = '../images/Pirat_Laufen.png';
+    death_pirate_image.src = '../images/Toter_Pirat.png';
+
     mainMenue.src = '../images/hintergrund_menue.png';
 
     earthBlock.src = '../images/erdblock.png';

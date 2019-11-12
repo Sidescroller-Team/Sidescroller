@@ -21,6 +21,10 @@ function fillImages() {
     death_pirate_image = new Image();
 
     mainMenue = new Image();
+    wolkenformatEins = new Image();
+    wolkenformatZwei = new Image();
+    wolkenformatDrei = new Image();
+
     //alle blockelemente sind png mit 20x20px
 	// und sollen elemente im raster 50x50px werden
     grassBlock = new Image();
@@ -37,6 +41,9 @@ function fillImages() {
     death_pirate_image.src = '../images/Toter_Pirat.png';
 
     mainMenue.src = '../images/hintergrund_menue.png';
+    wolkenformatEins.src = '../images/wolkenformat_Eins.png';
+    wolkenformatZwei.src = '../images/wolkenformat_Zwei.png';
+    wolkenformatDrei.src = '../images/wolkenformat_Drei.png';
 
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';

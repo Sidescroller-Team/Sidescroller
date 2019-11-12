@@ -1,7 +1,7 @@
 ﻿function showDefeatScreen() {
     main_character.alive = false;
 
-    ctx.drawImage(death_pirate_image, main_character.x_position, main_character.y_position, main_character.width * 2, main_character.height / 2);
+    ctx.drawImage(death_pirate_image, main_character.x_position, main_character.y_position + blockSizeY / 2, main_character.width * 2, main_character.height / 2);
 
     //zeichnet die Elemente
     ctx.drawImage(defeatScreen, 8 * blockSizeX, 4 * blockSizeY, 16 * blockSizeX, 9 * blockSizeY);
@@ -18,8 +18,7 @@
             location.reload();
         }
         if (mouseX >= 18.5 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
-            //reloaded die Page bis jetzt nur, weil es noch kein Hauptmenu existiert
-            location.reload();
+            window.location.href = "../index.html"
         }
 
     }, false);

@@ -72,7 +72,7 @@ function player_loop() {
     }
 
     if (controller.left) {
-        main_character.speed -= 1.2;
+        main_character.speed -= 1.6;
     }
 
     if (controller.right) {
@@ -121,7 +121,7 @@ function draw_player() {
                 ctx.drawImage(main_character_image, 500, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
             }
 
-            if (frame_running > 4.99) {
+            if (frame_running > 4.84) {
                 frame_running_change = -0.15;
             }
             if (frame_running < 0.01) {

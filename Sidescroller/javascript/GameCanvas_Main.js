@@ -12,7 +12,6 @@ var physicalObjectArray = [];
 
 function init() {
 
-
     setConfigs();
     fillImages();
 	addListener();
@@ -70,7 +69,6 @@ function update() {
 		playerNotAutoshifting();
 		for (var i = 0; i < physicalObjectArray.length; i++) {
 			physicalObjectArray[i].updateObject(shiftChange);
-			
 		}
 	}
 	
@@ -107,7 +105,7 @@ function createWorldObjects() {
 					console.log("blocksizey : " + blockSizeY);
 					
 					console.log(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY))
-break;
+                    break;
 				case 'l':
 					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
 					

@@ -1,11 +1,11 @@
-﻿var shiftCloudOne = 4;
-var startXCloudOne = 100;
-var startYCloudOne = 100;
+﻿var shiftCloudOne = 2;
+var startXCloudOne = 400;
+var startYCloudOne = 35;
 var startXCloudOneCopy;
 
-var shiftCloudTwo = 2;
-var startXCloudTwo = 400;
-var startYCloudTwo = 35;
+var shiftCloudTwo = 4;
+var startXCloudTwo = 100;
+var startYCloudTwo = 100;
 var startXCloudTwoCopy;
 
 var shiftCloudThree = 3;
@@ -44,10 +44,8 @@ function draw() {
 }
 
 function drawClouds() {
-    //Variable ist nötig, da sonst die automatische Erstellung neuer Objekte nicht möglich ist, 
-    //da nicht erkannt wird, dass sich die alten außerhalb der Range befinden
-    startXCloudTwo = paintMovingObject(startXCloudTwo, startYCloudTwo, wolkenformatZwei, startXCloudTwoCopy, shiftCloudTwo);
-    startXCloudOne = paintMovingObject(startXCloudOne, startYCloudOne, wolkenformatEins, startXCloudOneCopy, shiftCloudOne);
+    startXCloudOne = paintMovingObject(startXCloudOne, startYCloudOne, wolkenformatZwei, startXCloudOneCopy, shiftCloudOne);
+    startXCloudTwo = paintMovingObject(startXCloudTwo, startYCloudTwo, wolkenformatEins, startXCloudTwoCopy, shiftCloudTwo);
     startXCloudThree = paintMovingObject(startXCloudThree, startYCloudThree, wolkenformatDrei, startXCloudThreeCopy, shiftCloudThree);
     startXCloudFour = paintMovingObject(startXCloudFour, startYCloudFour, wolkenformatEins, startXCloudFourCopy, shiftCloudFour);
 

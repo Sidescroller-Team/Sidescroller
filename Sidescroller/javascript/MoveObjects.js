@@ -10,7 +10,7 @@ function paintMovingObject(startX, startY, objectImage, startXCopy, speed) {
     if ((startX + objectImage.width) >= canvasWidth) {
         startXCopy = startX - canvasWidth;
         ctx.drawImage(objectImage, startXCopy, startY);
-        if (startX >= 1600) {
+        if (startX >= canvasWidth) {
             startX = startXCopy;
         }
     }

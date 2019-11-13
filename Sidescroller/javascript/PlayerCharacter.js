@@ -99,7 +99,7 @@ function player_loop() {
         main_character.jumpingpower = 0;
     }
 
-    if (main_character.x_position < blockSizeX) {
+    if (main_character.x_position < 0 - blockSizeX /2) {
         main_character.speed = 0;
         main_character.x_position = blockSizeX;
         showDefeatScreen();

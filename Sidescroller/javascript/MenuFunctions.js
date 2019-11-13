@@ -1,7 +1,7 @@
 ﻿function showDefeatScreen() {
     main_character.alive = false;
 
-    ctx.drawImage(death_pirate_image, main_character.x_position, main_character.y_position + blockSizeY / 2, main_character.width * 2, main_character.height / 2);
+    ctx.drawImage(death_pirate_image, main_character.x_position - blockSizeX * 4, main_character.y_position + blockSizeY * 2 + blockSizeY / 2, main_character.width * 2, main_character.height / 2);
 
     //zeichnet die Elemente
     ctx.drawImage(defeatScreen, 8 * blockSizeX, 4 * blockSizeY, 16 * blockSizeX, 9 * blockSizeY);

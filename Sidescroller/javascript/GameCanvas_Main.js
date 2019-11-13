@@ -77,7 +77,8 @@ function update() {
 function draw() {
 	ctx.clearRect(0, 0, 1000, 200);
     ctx.drawImage(background, backgroundPosition, 0);
-    drawClouds();
+    drawMovingObjects();
+    
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top);
 	}

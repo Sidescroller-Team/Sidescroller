@@ -24,6 +24,8 @@ function fillImages() {
     wolkenformatEins = new Image();
     wolkenformatZwei = new Image();
     wolkenformatDrei = new Image();
+    welle = new Image();
+    schiff = new Image();
 
     //alle blockelemente sind png mit 20x20px
 	// und sollen elemente im raster 50x50px werden
@@ -32,6 +34,7 @@ function fillImages() {
     lava = new Image();
 	earthBlock = new Image();
     quadrat = new Image();
+    
 
     defeatScreen = new Image();
     reloadImage = new Image();
@@ -45,6 +48,8 @@ function fillImages() {
     wolkenformatEins.src = '../images/wolkenformat_Eins.png';
     wolkenformatZwei.src = '../images/wolkenformat_Zwei.png';
     wolkenformatDrei.src = '../images/wolkenformat_Drei.png';
+    welle.src = '../images/welle.png';
+    schiff.src = '../images/game_schiff.png';
 
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';

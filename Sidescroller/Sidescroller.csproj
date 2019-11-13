@@ -73,10 +73,12 @@
     <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
+    <Content Include="images\game_schiff.png" />
     <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\hintergrund_Spiel_PNG.png" />
     <Content Include="images\rahmen.png" />
     <Content Include="images\Toter_Pirat.png" />
+    <Content Include="images\welle.png" />
     <Content Include="images\wolkenformat_Drei.png" />
     <Content Include="images\wolkenformat_Eins.png" />
     <Content Include="images\wolkenformat_Zwei.png" />
@@ -91,6 +93,7 @@
     <Content Include="javascript\GameDrawMovingObjects.js" />
     <Content Include="javascript\Imagefiller.js" />
     <Content Include="javascript\Main_Menue.js" />
+    <Content Include="javascript\MenueDrawMovingObjects.js" />
     <Content Include="javascript\MenuFunctions.js" />
     <Content Include="javascript\MoveObjects.js" />
     <Content Include="javascript\PhysicalObject.js" />

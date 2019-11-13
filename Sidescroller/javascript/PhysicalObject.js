@@ -29,27 +29,23 @@
 
 
 	testCollision(object) {
-		let objectLeft = object.x_position +50 ;
+		let objectLeft = object.x_position +20 ;
 
-		let objectTop  = object.y_position + 50;
-		let objectRight = object.x_position + object.width -50 ;
-		let objectBottom = object.y_position + object.height -1 ;
+		let objectTop  = object.y_position;
+		let objectRight = object.x_position + object.width -20 ;
+		let objectBottom = object.y_position + object.height;
 		//Pruefung der Hoehe
 		var tolerance = 3;
 		if (this.top <= objectBottom && this.bottom >= objectTop) {
 
-			//beruehrung von rechts
-			if (this.right >= objectLeft - tolerance && this.right <= objectLeft + tolerance && this.top > objectBottom) {
+            if (this.left <= objectRight && this.left > objectLeft && ((this.top > objectTop && this.top < objectBottom) || (this.bottom < objectBottom && this.bottom > objectTop))) { //rechts
 				console.log("this.right");
-				this.fromRightSide(object);
-			}
-			//beruehrung von links
-			if (this.left <= objectRight + tolerance && this.left >= objectRight - tolerance && this.top > objectBottom) {
+                this.fromRightSide(object);
+            } else if (this.right >= objectLeft && this.right < objectRight && ((this.top > objectTop && this.top < objectBottom) || (this.bottom < objectBottom && this.bottom > objectTop))) { //links
 				console.log("this.left");
 				this.fromLeftSide(object);
 			}
-			//drauf
-			if (this.left <= objectRight +3 && this.right >= objectLeft  -3 && this.top <= objectBottom) {
+            if (this.left <= objectRight && this.right >= objectLeft && this.top - objectBottom < 0 && this.top - objectBottom > - 30) { //oben
 				console.log("this.top")
 				this.fromAbove(object);
 			};
@@ -69,12 +65,10 @@
 
 	fromLeftSide(object) {
 		object.speed = 0;
-		object.x_position -= 5;
-		object.y_position = object.y_position;
+		object.x_position += 5;
 	}
 	fromRightSide(object) {
 		object.speed = 0;
-		object.x_position += 5;
-		object.y_position = object.y_position;
+		object.x_position -= 5;
 	}
 }

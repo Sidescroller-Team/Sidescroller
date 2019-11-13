@@ -38,10 +38,10 @@
 		var tolerance = 3;
 		if (this.top <= objectBottom && this.bottom >= objectTop) {
 
-            if (this.left <= objectRight && this.left > objectLeft && ((this.top > objectTop && this.top < objectBottom) || (this.bottom < objectBottom && this.bottom > objectTop))) { //rechts
+            if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop && this.bottom <= objectBottom) { //rechts
 				console.log("this.right");
                 this.fromRightSide(object);
-            } else if (this.right >= objectLeft && this.right < objectRight && ((this.top > objectTop && this.top < objectBottom) || (this.bottom < objectBottom && this.bottom > objectTop))) { //links
+            } else if (this.right >= objectLeft && this.right < objectRight && this.top >= objectTop && this.bottom <= objectBottom) { //links
 				console.log("this.left");
 				this.fromLeftSide(object);
 			}
@@ -50,7 +50,7 @@
 				this.fromAbove(object);
 			};
 
-
+            //(this.top > objectTop && this.top < objectBottom) || (this.bottom < objectBottom && this.bottom > objectTop) || (this.bottom < objectBottom && this.top > objectTop))
 
 		}
 
@@ -60,7 +60,7 @@
 		object.jumpingpower = 0;
 		object.jumping = false;
 		object.add_jumpingpower = 0;
-		object.y_position = this.top -4 * blockSizeX
+		object.y_position = this.top - 4 * blockSizeX - 1
 	}
 
 	fromLeftSide(object) {

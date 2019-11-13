@@ -61,14 +61,20 @@ function loadLevel(levelName) {
 	xmlhttp.send();
 }
 
-
+var counter = 0;
 
 function update() {
 	if (start == true) {
 		shift -= shiftChange;
 		playerNotAutoshifting();
 		for (var i = 0; i < physicalObjectArray.length; i++) {
+			if (counter++ == 0) {
+				console.log("x " + main_character.x_position + " y " + main_character.width) 
+			}
 			physicalObjectArray[i].updateObject(shiftChange);
+				physicalObjectArray[i].testCollision(main_character);
+				
+			
 		}
 	}
 	
@@ -99,14 +105,7 @@ function createWorldObjects() {
 					physicalObjectArray.push(new PhysicalObject(earthBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
 					break;
 				case 'f':
-					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					console.log("x: " + x);
-					console.log("blocksizeX : " + blockSizeX);
-
-					console.log("y: " + y);
-					console.log("blocksizey : " + blockSizeY);
-					
-					console.log(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY))
+					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));	
                     break;
 				case 'l':
 					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
@@ -116,7 +115,8 @@ function createWorldObjects() {
 			}
 		}
 	}   
-	console.log("end creating world")
+	console.log("end creating world");
+	console.log(physicalObjectArray.length + " Objects created");
 }
 
 function gameLoop() {

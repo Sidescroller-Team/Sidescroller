@@ -22,15 +22,15 @@ var frame_running_change = 0;
 
 //setzt die Position des Spielers, da nicht im Object mit Variablen definiert werden darf
 function setPlayerData() {
-    main_character.height = -4 * blockSizeY;
-    main_character.width = -2 * blockSizeX;
-    main_character.y_position = countBlocksY * blockSizeY - 1 * blockSizeY;
+    main_character.height = 4 * blockSizeY;
+    main_character.width = 2 * blockSizeX;
+    main_character.y_position = countBlocksY * blockSizeY - 3 * blockSizeY;
     main_character.x_position = 5 * blockSizeX;
 }
 
 //wenn eine Taste gedrückt wird, wird geprüft, welche
 document.addEventListener('keydown', function (evt) {
-    console.log(evt.keyCode);
+   // console.log(evt.keyCode);
     switch (evt.keyCode) {
         case 37:
             controller.left = true;
@@ -87,15 +87,15 @@ function player_loop() {
 
     main_character.jumpingpower += main_character.add_jumpingpower;
 
-    main_character.jumpingpower -= 4; //gravity
-    main_character.x_position += main_character.speed;
+	main_character.jumpingpower -= 4; //gravity
+		main_character.x_position += main_character.speed;
     main_character.y_position -= main_character.jumpingpower;
     main_character.speed *= 0.9; //friction
     main_character.jumpingpower *= 0.9; //friction
 
-    if (main_character.y_position > game_field.height - blockSizeY) {
+    if (main_character.y_position > game_field.height - 5 *blockSizeY) {
         main_character.jumping = false;
-        main_character.y_position = game_field.height - blockSizeY;
+        main_character.y_position = game_field.height -  5 * blockSizeY;
         main_character.jumpingpower = 0;
     }
 
@@ -130,8 +130,8 @@ function draw_player() {
             frame_running += frame_running_change;
     
         };
-    }
-    
+}
+
 
 function playerNotAutoshifting() {
     main_character.x_position -= shiftChange;

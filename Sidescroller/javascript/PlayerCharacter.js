@@ -22,9 +22,9 @@ var frame_running_change = 0;
 
 //setzt die Position des Spielers, da nicht im Object mit Variablen definiert werden darf
 function setPlayerData() {
-    main_character.height = -4 * blockSizeY;
-    main_character.width = -2 * blockSizeX;
-    main_character.y_position = countBlocksY * blockSizeY - 1 * blockSizeY;
+    main_character.height = 4 * blockSizeY;
+    main_character.width = 2 * blockSizeX;
+    main_character.y_position = countBlocksY * blockSizeY - 3 * blockSizeY;
     main_character.x_position = 5 * blockSizeX;
 }
 
@@ -93,9 +93,9 @@ function player_loop() {
     main_character.speed *= 0.9; //friction
     main_character.jumpingpower *= 0.9; //friction
 
-    if (main_character.y_position > game_field.height - blockSizeY) {
+    if (main_character.y_position > game_field.height - 5 *blockSizeY) {
         main_character.jumping = false;
-        main_character.y_position = game_field.height - blockSizeY;
+        main_character.y_position = game_field.height -  5 * blockSizeY;
         main_character.jumpingpower = 0;
     }
 

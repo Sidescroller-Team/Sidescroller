@@ -30,7 +30,7 @@ function setPlayerData() {
 
 //wenn eine Taste gedrückt wird, wird geprüft, welche
 document.addEventListener('keydown', function (evt) {
-    console.log(evt.keyCode);
+   // console.log(evt.keyCode);
     switch (evt.keyCode) {
         case 37:
             controller.left = true;
@@ -87,8 +87,8 @@ function player_loop() {
 
     main_character.jumpingpower += main_character.add_jumpingpower;
 
-    main_character.jumpingpower -= 4; //gravity
-    main_character.x_position += main_character.speed;
+	main_character.jumpingpower -= 4; //gravity
+		main_character.x_position += main_character.speed;
     main_character.y_position -= main_character.jumpingpower;
     main_character.speed *= 0.9; //friction
     main_character.jumpingpower *= 0.9; //friction
@@ -130,8 +130,8 @@ function draw_player() {
             frame_running += frame_running_change;
     
         };
-    }
-    
+}
+
 
 function playerNotAutoshifting() {
     main_character.x_position -= shiftChange;

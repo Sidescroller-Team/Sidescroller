@@ -13,7 +13,7 @@
 
 	updateObject(shiftChange) {
 		this.left -= shiftChange;
-
+		this.right -= shiftChange;
 
 	}
 	/*main_character = {
@@ -26,26 +26,55 @@
 		jumping: false
 	}'*/
 
+
+
 	testCollision(object) {
-		let objectMinX = object.x_position;
-		let objectMinY = object.y_position;
-		let objectMaxX = object.x_position + object.width;
-		let objectMaxY = object.y_position + object.height;
-		if (this.left <= objectMaxX //&&
-			//this.right >= objectMinX &&
-			//this.top >= objectMaxY && //
-			//this.bottom <= objectMinY
-		) {
-			window.alert();
+		let objectLeft = object.x_position +50 ;
+
+		let objectTop  = object.y_position + 50;
+		let objectRight = object.x_position + object.width -50 ;
+		let objectBottom = object.y_position + object.height -1 ;
+		//Pruefung der Hoehe
+		var tolerance = 3;
+		if (this.top <= objectBottom && this.bottom >= objectTop) {
+
+			//beruehrung von rechts
+			if (this.right >= objectLeft - tolerance && this.right <= objectLeft + tolerance && this.top > objectBottom) {
+				console.log("this.right");
+				this.fromRightSide(object);
+			}
+			//beruehrung von links
+			if (this.left <= objectRight + tolerance && this.left >= objectRight - tolerance && this.top > objectBottom) {
+				console.log("this.left");
+				this.fromLeftSide(object);
+			}
+			//drauf
+			if (this.left <= objectRight +3 && this.right >= objectLeft  -3 && this.top <= objectBottom) {
+				console.log("this.top")
+				this.fromAbove(object);
+			};
+
+
+
 		}
 
 	}
 
-	fromAbove() {
-
+	fromAbove(object) {
+		object.jumpingpower = 0;
+		object.jumping = false;
+		object.add_jumpingpower = 0;
+		object.y_position = this.top -4 * blockSizeX
 	}
 
-	fromSide() {
-
+	fromLeftSide(object) {
+		object.speed = 0;
+		object.x_position -= 5;
+		object.y_position = object.y_position;
+	}
+	fromRightSide(object) {
+		object.speed = 0;
+		object.x_position += 5;
+		object.y_position = object.y_position;
 	}
 }

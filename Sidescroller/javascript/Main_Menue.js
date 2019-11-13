@@ -44,28 +44,16 @@ function draw() {
 }
 
 function drawClouds() {
-  
-    startXCloudTwo = paintCloud(startXCloudTwo, startYCloudTwo, wolkenformatZwei, startXCloudTwoCopy, shiftCloudTwo);
-    startXCloudOne = paintCloud(startXCloudOne, startYCloudOne, wolkenformatEins, startXCloudOneCopy, shiftCloudOne);
-    startXCloudThree = paintCloud(startXCloudThree, startYCloudThree, wolkenformatDrei, startXCloudThreeCopy, shiftCloudThree);
-    startXCloudFour = paintCloud(startXCloudFour, startYCloudFour, wolkenformatEins, startXCloudFourCopy, shiftCloudFour);
+    //Variable ist nötig, da sonst die automatische Erstellung neuer Objekte nicht möglich ist, 
+    //da nicht erkannt wird, dass sich die alten außerhalb der Range befinden
+    startXCloudTwo = paintMovingObject(startXCloudTwo, startYCloudTwo, wolkenformatZwei, startXCloudTwoCopy, shiftCloudTwo);
+    startXCloudOne = paintMovingObject(startXCloudOne, startYCloudOne, wolkenformatEins, startXCloudOneCopy, shiftCloudOne);
+    startXCloudThree = paintMovingObject(startXCloudThree, startYCloudThree, wolkenformatDrei, startXCloudThreeCopy, shiftCloudThree);
+    startXCloudFour = paintMovingObject(startXCloudFour, startYCloudFour, wolkenformatEins, startXCloudFourCopy, shiftCloudFour);
 
 }
 
-function paintCloud(startX ,startY,  cloudType, startXCopy, speed) {
-    ctx.drawImage(cloudType, startX, startY);
-    
-    if ((startX + cloudType.width) >= 1600) {
-        startXCopy = startX - 1600;
-        ctx.drawImage(cloudType, startXCopy, startY);
-        console.log("Wolke Copy wird gemacht");
-        if (startX >= 1600) {
-            startX = startXCopy;
-        }
-    }
-    startX += speed;
-    return startX;
-}
+
 
 
 

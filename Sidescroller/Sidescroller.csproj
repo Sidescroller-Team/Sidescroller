@@ -90,6 +90,7 @@
     <Content Include="javascript\Imagefiller.js" />
     <Content Include="javascript\Main_Menue.js" />
     <Content Include="javascript\MenuFunctions.js" />
+    <Content Include="javascript\MoveObjects.js" />
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="Web.config" />

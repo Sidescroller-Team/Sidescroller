@@ -41,6 +41,7 @@ function fillImages() {
     death_pirate_image.src = '../images/Toter_Pirat.png';
 
     mainMenue.src = '../images/hintergrund_menue.png';
+
     wolkenformatEins.src = '../images/wolkenformat_Eins.png';
     wolkenformatZwei.src = '../images/wolkenformat_Zwei.png';
     wolkenformatDrei.src = '../images/wolkenformat_Drei.png';
@@ -48,7 +49,7 @@ function fillImages() {
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';
     lava.src = '../images/lava.png';
-	background.src = '../images/heavenlarge.png';
+    background.src = '../images/hintergrund_Spiel_PNG.png';
     quadrat.src = '../images/rahmen.png';
 
     defeatScreen.src = '../images/Defeatscreen.png';

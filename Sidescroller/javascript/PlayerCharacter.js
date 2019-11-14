@@ -88,10 +88,10 @@ function player_loop() {
     main_character.jumpingpower += main_character.add_jumpingpower;
 
 	main_character.jumpingpower -= 4; //gravity
-		main_character.x_position += main_character.speed;
+	main_character.x_position += main_character.speed;
     main_character.y_position -= main_character.jumpingpower;
     main_character.speed *= 0.9; //friction
-    main_character.jumpingpower *= 0.9; //friction
+    main_character.jumpingpower *= 0.93; //friction
 
     if (main_character.y_position > game_field.height - 5 *blockSizeY) {
         main_character.jumping = false;

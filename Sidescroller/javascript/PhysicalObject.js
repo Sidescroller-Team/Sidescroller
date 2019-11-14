@@ -36,8 +36,12 @@
 		let objectBottom = object.y_position + object.height;
 		//Pruefung der Hoehe
 		var tolerance = 3;
-		if (this.top <= objectBottom && this.bottom >= objectTop) {
+		//if (this.top <= objectBottom && this.bottom >= objectTop) {
 
+		if (this.left <= objectRight && this.right >= objectLeft && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > - object.jumpingpower) {
+				console.log("this.bottom");
+				this.fromBottom(object);
+			}
             if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop && this.bottom <= objectBottom) { //rechts
 				console.log("this.right");
                 this.fromRightSide(object);
@@ -49,11 +53,16 @@
 				console.log("this.top")
 				this.fromAbove(object);
 			};
-
             //(this.top > objectTop && this.top < objectBottom) || (this.bottom < objectBottom && this.bottom > objectTop) || (this.bottom < objectBottom && this.top > objectTop))
 
-		}
+		//}
 
+	}
+
+	fromBottom(object) {
+		object.add_jumpingpower = 0;
+		object.y_position = object.y_position + 10;
+		object.jumpingpower = 0;
 	}
 
 	fromAbove(object) {

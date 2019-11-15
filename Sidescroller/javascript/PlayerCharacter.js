@@ -83,7 +83,7 @@ function player_loop() {
     }
     if (main_character.add_jumpingpower < 0) {
         main_character.add_jumpingpower = 0;
-    }
+	}
 
     main_character.jumpingpower += main_character.add_jumpingpower;
 

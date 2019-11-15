@@ -1,8 +1,8 @@
 ﻿var levelRawData;
 var levelRowArray;
 
-var backgroundSpeed = -1;
-var backgroundPosition = -100;
+var backgroundSpeed = -30;
+var backgroundPosition = 0;
 var frame = 0;
 
 var shift = 0;
@@ -43,7 +43,6 @@ function loadLevel(levelName) {
 
 	xmlhttp.onreadystatechange = function () {
 		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
-
 		
 		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -67,14 +66,10 @@ function update() {
 	if (start == true) {
 		shift -= shiftChange;
 		playerNotAutoshifting();
+
 		for (var i = 0; i < physicalObjectArray.length; i++) {
-			if (counter++ == 0) {
-				console.log("x " + main_character.x_position + " y " + main_character.width) 
-			}
 			physicalObjectArray[i].updateObject(shiftChange);
-				physicalObjectArray[i].testCollision(main_character);
-				
-			
+			physicalObjectArray[i].testCollision(main_character);
 		}
 	}
 	
@@ -82,7 +77,7 @@ function update() {
 
 function draw() {
 	ctx.clearRect(0, 0, 1000, 200);
-    ctx.drawImage(background, backgroundPosition, 0);
+	ctx.drawImage(background, backgroundPosition, 0);
     drawMovingObjects();
     
 	for (var i = 0; i < physicalObjectArray.length; i++) {

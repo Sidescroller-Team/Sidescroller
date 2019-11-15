@@ -27,14 +27,12 @@ function fillImages() {
     welle = new Image();
     schiff = new Image();
 
-    //alle blockelemente sind png mit 20x20px
-	// und sollen elemente im raster 50x50px werden
+    //alle blockelemente sind png mit 50x50px
     grassBlock = new Image();
     background = new Image();
     lava = new Image();
 	earthBlock = new Image();
     quadrat = new Image();
-    
 
     defeatScreen = new Image();
     reloadImage = new Image();

@@ -102,7 +102,7 @@ function player_loop() {
     if (main_character.x_position < 0 - blockSizeX /2) {
         main_character.speed = 0;
         main_character.x_position = blockSizeX;
-        showDefeatScreen();
+        main_character.alive = false;
     }
     if (main_character.x_position > blockSizeX * 32) {
         main_character.speed = 0;
@@ -114,22 +114,24 @@ function player_loop() {
 function draw_player() {
     if (main_character.alive) {
         if (controller.right) {
-                ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
-            } else if (controller.left) {
-                ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250 + 1250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
-            } else {
-                ctx.drawImage(main_character_image, 500, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
-            }
+            ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
+        } else if (controller.left) {
+            ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250 + 1250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
+        } else {
+            ctx.drawImage(main_character_image, 500, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
+        }
 
-            if (frame_running > 4.84) {
-                frame_running_change = -0.15;
-            }
-            if (frame_running < 0.01) {
-                frame_running_change = 0.15;
-            }
-            frame_running += frame_running_change;
-    
-        };
+        if (frame_running > 4.84) {
+            frame_running_change = -0.15;
+        }
+        if (frame_running < 0.01) {
+            frame_running_change = 0.15;
+        }
+        frame_running += frame_running_change;
+
+    } else {
+        drawDefeatScreen()
+    }
 }
 
 

@@ -1,14 +1,15 @@
 ﻿var levelRawData;
 var levelRowArray;
 
-var backgroundSpeed = -30;
-var backgroundPosition = 0;
+var backgroundSpeed = -1;
+var backgroundPosition = -100;
 var frame = 0;
 
 var shift = 0;
 var start = false;
 
 var physicalObjectArray = [];
+var enemyObjectArray = [];
 
 function init() {
 
@@ -43,6 +44,7 @@ function loadLevel(levelName) {
 
 	xmlhttp.onreadystatechange = function () {
 		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
+
 		
 		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -66,23 +68,37 @@ function update() {
 	if (start == true) {
 		shift -= shiftChange;
 		playerNotAutoshifting();
-
-		for (var i = 0; i < physicalObjectArray.length; i++) {
-			physicalObjectArray[i].updateObject(shiftChange);
-			physicalObjectArray[i].testCollision(main_character);
-		}
-	}
-	
+        for (var i = 0; i < physicalObjectArray.length; i++) {
+            if (counter++ == 0) {
+                console.log("x " + main_character.x_position + " y " + main_character.width)
+            }
+            physicalObjectArray[i].updateObject(shiftChange);
+            physicalObjectArray[i].testCollisionPlayer(main_character);
+            physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
+        }
+        for (var i = 0; i < enemyObjectArray.length; i++) {
+                enemyObjectArray[i].updateObject(shiftChange);
+                enemyObjectArray[i].testCollisionPlayer(main_character);
+                if (!enemyObjectArray[i].alive) {
+                    enemyObjectArray.splice(i, 1);
+                    i--;
+                }
+        }
+    }
+        
 }
 
 function draw() {
 	ctx.clearRect(0, 0, 1000, 200);
-	ctx.drawImage(background, backgroundPosition, 0);
+    ctx.drawImage(background, backgroundPosition, 0);
     drawMovingObjects();
     
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top);
-	}
+    }
+    for (var i = 0; i < enemyObjectArray.length; i++) {
+        enemyObjectArray[i].drawEnemy();
+    }
 
 }
 /* @TODO
@@ -102,9 +118,15 @@ function createWorldObjects() {
 				case 'f':
 					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));	
                     break;
-				case 'l':
-					physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					
+                case 'l':
+                    physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
+                    break;
+                case 'g':
+                    enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, 0, false));
+                    break;
+                case 'r':
+                    enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, false));
+                    break;
 				default: 
 					break;
 			}

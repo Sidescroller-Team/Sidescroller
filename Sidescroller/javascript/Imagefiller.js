@@ -3,6 +3,8 @@
 var main_character_image;
 var death_pirate_image;
 
+var milch_fass_image;
+
 var grassBlock;
 var earthBlock;
 var lava;
@@ -19,6 +21,8 @@ function fillImages() {
 
     main_character_image = new Image();
     death_pirate_image = new Image();
+
+    milch_fass_image = new Image();
 
     mainMenue = new Image();
     wolkenformatEins = new Image();
@@ -40,6 +44,8 @@ function fillImages() {
 
     main_character_image.src = '../images/Pirat_Laufen.png';
     death_pirate_image.src = '../images/Toter_Pirat.png';
+
+    milch_fass_image.src = '../images/milch_laufen.png';
 
     mainMenue.src = '../images/hintergrund_menue.png';
 

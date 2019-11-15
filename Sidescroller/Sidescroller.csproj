@@ -76,12 +76,14 @@
     <Content Include="images\game_schiff.png" />
     <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\hintergrund_Spiel_PNG.png" />
+    <Content Include="images\milch_laufen.png" />
     <Content Include="images\rahmen.png" />
     <Content Include="images\Toter_Pirat.png" />
     <Content Include="images\welle.png" />
     <Content Include="images\wolkenformat_Drei.png" />
     <Content Include="images\wolkenformat_Eins.png" />
     <Content Include="images\wolkenformat_Zwei.png" />
+    <Content Include="javascript\EnemyObject.js" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />
     <Content Include="images\heaven.jpg" />

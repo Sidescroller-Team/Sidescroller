@@ -52,7 +52,7 @@
 		object.jumpingpower = 0;
 		object.jumping = false;
 		object.add_jumpingpower = 0;
-		object.y_position = this.top - 4 * blockSizeX -1;
+		object.y_position = this.top - 4 * blockSizeX;
 	
 	}
 
@@ -93,7 +93,7 @@
 
     fromAboveEnemy(enemy) {
         enemy.jumpingpower = 0;
-        enemy.top = this.top - 4 * blockSizeX - 1
+        enemy.top = this.top - 4 * blockSizeX;
         enemy.botton = this.top - 1;
     }
 

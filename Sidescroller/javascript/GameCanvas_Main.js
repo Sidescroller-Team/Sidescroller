@@ -77,12 +77,14 @@ function update() {
             physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
         }
         for (var i = 0; i < enemyObjectArray.length; i++) {
+
+            if (enemyObjectArray[i].alive) {
                 enemyObjectArray[i].updateObject(shiftChange);
                 enemyObjectArray[i].testCollisionPlayer(main_character);
-                if (!enemyObjectArray[i].alive) {
-                    enemyObjectArray.splice(i, 1);
-                    i--;
-                }
+            } else {
+                enemyObjectArray[i].justShifting(shiftChange);
+            }
+                
         }
     }
         

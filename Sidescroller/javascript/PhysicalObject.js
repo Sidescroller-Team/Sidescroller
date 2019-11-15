@@ -23,8 +23,8 @@
 				//console.log("this.left");
 			this.fromLeftSide(object);
 			return;
-			}
-		if (this.left <= objectRight && this.right >= objectLeft && this.top - objectBottom < 4 && this.top - objectBottom > - 50) { //oben
+        }
+        if (this.left <= objectRight && this.right >= objectLeft && this.top - objectBottom < 4 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
 			console.log("this.top")
 
 			this.fromAbove(object);

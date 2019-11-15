@@ -77,6 +77,7 @@
     <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\hintergrund_Spiel_PNG.png" />
     <Content Include="images\milch_laufen.png" />
+    <Content Include="images\plattes_fass.png" />
     <Content Include="images\rahmen.png" />
     <Content Include="images\Toter_Pirat.png" />
     <Content Include="images\welle.png" />

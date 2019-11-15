@@ -107,9 +107,9 @@ function player_loop() {
         main_character.x_position = blockSizeX;
         main_character.alive = false;
     }
-    if (main_character.x_position > blockSizeX * 32) {
+    if (main_character.x_position > blockSizeX * 31) {
         main_character.speed = 0;
-        main_character.x_position = blockSizeX * 32;
+        main_character.x_position = blockSizeX * 31;
     }
     draw_player();
 };

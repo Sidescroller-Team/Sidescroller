@@ -15,6 +15,7 @@ controller = {
     left: false,
     right: false,
     up: false,
+    blockPermanentJump: false
 }
 
 var frame_running = 0;
@@ -56,6 +57,7 @@ document.addEventListener('keyup', function (evt) {
         case 38:
 			evt.preventDefault();
             controller.up = false;
+            controller.blockPermanentJump = false;
             break;
         case 39:
 			evt.preventDefault();
@@ -66,9 +68,10 @@ document.addEventListener('keyup', function (evt) {
 
 //Bewegung der Figur
 function player_loop() {
-    if (controller.up && main_character.jumping == false) {
+    if (controller.up && main_character.jumping == false && !controller.blockPermanentJump) {
         main_character.add_jumpingpower += 25;
         main_character.jumping = true;
+        controller.blockPermanentJump = true;
     }
 
     if (controller.left) {

@@ -13,8 +13,7 @@
 		this.right -= shiftChange;
 	}
 
-
-	testCollision(object) {
+	testCollisionPlayer(object) {
 		let objectLeft = object.x_position +20 ;
 		let objectTop  = object.y_position;
 		let objectRight = object.x_position + object.width -20 ;
@@ -64,5 +63,48 @@
 	fromRightSide(object) {
 		object.speed = 0;
 		object.x_position -= 5;
-	}
+    }
+
+
+
+    testCollisionEnemy(enemyObjectArray) {
+        for (var i = 0; i < enemyObjectArray.length; i++) {
+            let enemy = enemyObjectArray[i];
+
+            if (this.left <= enemy.left && this.right >= enemy.left && this.bottom <= enemy.top + enemy.jumpingpower + 5 && this.bottom - enemy.top > - enemy.jumpingpower) {
+                this.fromBottomEnemy(enemy);
+            }
+            if (this.left <= enemy.right && this.left > enemy.left && this.top >= enemy.top && this.bottom <= enemy.bottom) { //rechts
+                this.fromRightSideEnemy(enemy);
+            } else if (this.right >= enemy.left && this.right < enemy.right && this.top >= enemy.top && this.bottom <= enemy.bottom) { //links
+                this.fromLeftSideEnemy(enemy);
+            }
+            if (this.left <= enemy.right && this.right >= enemy.left && this.top - enemy.bottom < 0 && this.top - enemy.bottom > - 30) { //oben
+                this.fromAboveEnemy(enemy);
+            };
+        }
+    }
+
+    fromBottomEnemy(enemy) {
+        enemy.top += 10;
+        enemy.bottom += 10;
+        enemy.jumpingpower = 0;
+    }
+
+    fromAboveEnemy(enemy) {
+        enemy.jumpingpower = 0;
+        enemy.top = this.top - 4 * blockSizeX - 1
+        enemy.botton = this.top - 1;
+    }
+
+    fromLeftSideEnemy(enemy) {
+        enemy.speed *= -1;
+        enemy.left += 5;
+        enemy.right += 5
+    }
+    fromRightSideEnemy(enemy) {
+        enemy.speed *= -1;
+        enemy.left -= 5;
+        enemy.right -= 5;
+    }
 }

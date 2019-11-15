@@ -1,8 +1,8 @@
 ﻿var levelRawData;
 var levelRowArray;
 
-var backgroundSpeed = -1;
-var backgroundPosition = -100;
+var backgroundSpeed = 30;
+var backgroundPosition = 0;
 var frame = 0;
 
 var shift = 0;

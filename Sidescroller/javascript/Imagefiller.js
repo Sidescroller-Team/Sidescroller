@@ -5,6 +5,7 @@ var death_pirate_image;
 
 var milch_fass_image;
 var plattes_milch_fass;
+var crab_image;
 
 var grassBlock;
 var earthBlock;
@@ -26,6 +27,7 @@ function fillImages() {
 
     milch_fass_image = new Image();
     plattes_milch_fass = new Image();
+    crab_image = new Image();
 
     mainMenue = new Image();
     wolkenformatEins = new Image();
@@ -50,7 +52,7 @@ function fillImages() {
     death_pirate_image.src = '../images/Toter_Pirat.png';
     plattes_milch_fass.src = '../images/plattes_fass.png';
     milch_fass_image.src = '../images/milch_laufen.png';
-
+    crab_image.src = '../images/krabbe_gehen.png';
 
     mainMenue.src = '../images/hintergrund_menue.png';
 

@@ -12,7 +12,6 @@ var physicalObjectArray = [];
 var enemyObjectArray = [];
 
 function init() {
-
     setConfigs();
     fillImages();
 	addListener();
@@ -97,7 +96,7 @@ function draw() {
         ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top, physicalObjectArray[i].right - physicalObjectArray[i].left, physicalObjectArray[i].bottom - physicalObjectArray[i].top);
     }
     for (var i = 0; i < enemyObjectArray.length; i++) {
-        enemyObjectArray[i].drawEnemy();
+        enemyObjectArray[i].draw();
     }
     drawPlayer();
 }
@@ -125,10 +124,13 @@ function createWorldObjects() {
                     physicalObjectArray.push(new SpikesObject(spikes, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
                     break;
                 case 'g':
-                    enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, 0, false));
+                    enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, 0, false));
                     break;
                 case 'r':
-                    enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, false));
+                    enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, false));
+                    break;
+                case 'c':
+                    enemyObjectArray.push(new CrabObject(crab_image, x * blockSizeX, (y - 1) * blockSizeY, blockSizeX * 3, blockSizeY * 2, -5));
                     break;
 				default: 
 					break;

@@ -25,7 +25,7 @@ var frame_running_change = 0;
 function setPlayerData() {
     main_character.height = 4 * blockSizeY;
     main_character.width = 2 * blockSizeX;
-    main_character.y_position = countBlocksY * blockSizeY - 3 * blockSizeY;
+    main_character.y_position = countBlocksY * blockSizeY - 5 * blockSizeY;
     main_character.x_position = 5 * blockSizeX;
 }
 
@@ -67,7 +67,7 @@ document.addEventListener('keyup', function (evt) {
 }, false);
 
 //Bewegung der Figur
-function player_loop() {
+function updatePlayer() {
     if (controller.up && main_character.jumping == false && !controller.blockPermanentJump) {
         main_character.add_jumpingpower += 25;
         main_character.jumping = true;
@@ -96,10 +96,8 @@ function player_loop() {
     main_character.speed *= 0.9; //friction
     main_character.jumpingpower *= 0.93; //friction
 
-    if (main_character.y_position > game_field.height - 5 *blockSizeY) {
-        main_character.jumping = false;
-        main_character.y_position = game_field.height -  5 * blockSizeY;
-        main_character.jumpingpower = 0;
+    if (main_character.y_position > game_field.height) {
+        main_character.alive = false;
     }
 
     if (main_character.x_position < 0 - blockSizeX /2) {
@@ -111,10 +109,9 @@ function player_loop() {
         main_character.speed = 0;
         main_character.x_position = blockSizeX * 31;
     }
-    draw_player();
 };
 
-function draw_player() {
+function drawPlayer() {
     if (main_character.alive) {
         if (controller.right) {
             ctx.drawImage(main_character_image, Math.floor(frame_running % 5) * 250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);

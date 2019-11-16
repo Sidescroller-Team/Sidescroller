@@ -9,6 +9,7 @@ var plattes_milch_fass;
 var grassBlock;
 var earthBlock;
 var lava;
+var spikes;
 var background;
 
 var defeatScreen;
@@ -37,6 +38,7 @@ function fillImages() {
     grassBlock = new Image();
     background = new Image();
     lava = new Image();
+    spikes = new Image();
 	earthBlock = new Image();
     quadrat = new Image();
 
@@ -61,6 +63,7 @@ function fillImages() {
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';
     lava.src = '../images/lava.png';
+    spikes.src = '../images/spikes.png';
     background.src = '../images/hintergrund_Spiel_PNG.png';
     quadrat.src = '../images/rahmen.png';
 

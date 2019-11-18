@@ -5,6 +5,10 @@ var death_pirate_image;
 
 var milch_fass_image;
 
+
+var yellowBlock;
+var endSandBlock;
+var sandBlock;
 var grassBlock;
 var earthBlock;
 var lava;
@@ -31,7 +35,10 @@ function fillImages() {
     welle = new Image();
     schiff = new Image();
 
-    //alle blockelemente sind png mit 50x50px
+	//alle blockelemente sind png mit 50x50px
+	yellowBlock = new Image();
+	endSandBlock = new Image();
+	sandBlock = new Image();
     grassBlock = new Image();
     background = new Image();
     lava = new Image();
@@ -55,6 +62,9 @@ function fillImages() {
     welle.src = '../images/welle.png';
     schiff.src = '../images/game_schiff.png';
 
+	sandBlock.src = '../images/Bildelemente/Sand.png';
+	endSandBlock.src = '../images/Bildelemente/SandEnde.png';
+	yellowBlock.src = '../images/Bildelemente/yellow.png';
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';
     lava.src = '../images/lava.png';

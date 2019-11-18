@@ -126,7 +126,16 @@ function createWorldObjects() {
                     break;
                 case 'r':
                     enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, false));
-                    break;
+					break;
+				case 's':
+					physicalObjectArray.push(new PhysicalObject(sandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
+					break;
+				case 'e':
+					physicalObjectArray.push(new PhysicalObject(endSandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
+					break;
+				case 'y':
+					physicalObjectArray.push(new PhysicalObject(yellowBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
+					break;
 				default: 
 					break;
 			}

@@ -10,7 +10,9 @@
 
 	updateObject(shiftChange) {
 		this.left -= shiftChange;
+		this.left -= main_character.speed;
 		this.right -= shiftChange;
+		 this.right -= main_character.speed;
 	}
 
 	testCollisionPlayer(object) {
@@ -24,13 +26,13 @@
 			this.fromLeftSide(object);
 			return;
 			}
-		if (this.left <= objectRight && this.right >= objectLeft && this.top - objectBottom < 4 && this.top - objectBottom > - 50) { //oben
+		if (this.left <= objectRight && this.right >= objectLeft && this.top - objectBottom < 5 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
 			console.log("this.top")
 
 			this.fromAbove(object);
 			return;
 		}
-			else if (this.left <= objectRight && this.right >= objectLeft && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > - object.jumpingpower) {
+			else if (this.left <= objectRight -3 && this.right >= objectLeft +3 && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > - object.jumpingpower) {
 				//console.log("this.bottom");
 			this.fromBottom(object);
 			return;

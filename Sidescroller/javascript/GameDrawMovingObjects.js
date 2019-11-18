@@ -45,8 +45,8 @@ function drawWaves() {
     xWaveOne = paintMovingObject(xWaveOne, 675, welle, 1.7);
     xWaveTwo = paintMovingObject(xWaveTwo, 690, welle, 1.8);
     xWaveThree = paintMovingObject(xWaveThree, 700, welle, 2);
-    ctx.drawImage(schiff, 500, 550);
     xWaveFour = paintMovingObject(xWaveFour, 710, welle, 1.9);
+    ctx.drawImage(schiff, 500, 550);
     xWaveFive = paintMovingObject(xWaveFive, 750, welle, 2.2);
     xWaveSix = paintMovingObject(xWaveSix, 777, welle, 2.1);
     xWaveSeven = paintMovingObject(xWaveSeven, 800, welle, 2.3);

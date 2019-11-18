@@ -10,9 +10,7 @@
 
 	updateObject(shiftChange) {
 		this.left -= shiftChange;
-		this.left -= main_character.speed;
 		this.right -= shiftChange;
-		 this.right -= main_character.speed;
 	}
 
 	testCollisionPlayer(object) {

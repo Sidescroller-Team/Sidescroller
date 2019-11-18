@@ -73,9 +73,7 @@
     <Content Include="images\Bildelemente\Sand.png" />
     <Content Include="images\Bildelemente\SandEnde.png" />
     <Content Include="images\Bildelemente\SandGras.png" />
-    <Content Include="images\Bildelemente\yellow.png" />
     <Content Include="images\Defeatscreen.png" />
-    <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
     <Content Include="images\game_schiff.png" />
@@ -85,7 +83,6 @@
     <Content Include="images\krabbe_gehen.png" />
     <Content Include="images\milch_laufen.png" />
     <Content Include="images\plattes_fass.png" />
-    <Content Include="images\rahmen.png" />
     <Content Include="images\spikes.png" />
     <Content Include="images\Toter_Pirat.png" />
     <Content Include="images\welle.png" />
@@ -95,11 +92,9 @@
     <Content Include="javascript\EnemyObject.js" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />
-    <Content Include="images\heaven.jpg" />
     <Content Include="images\heavenlarge.png" />
     <Content Include="Index.html" />
     <Content Include="css\Index_Sheet.css" />
-    <Content Include="images\lava.png" />
     <Content Include="javascript\GameConfig.js" />
     <Content Include="javascript\GameDrawMovingObjects.js" />
     <Content Include="javascript\Imagefiller.js" />

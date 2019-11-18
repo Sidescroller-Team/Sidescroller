@@ -75,6 +75,7 @@
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
     <Content Include="images\game_schiff.png" />
+    <Content Include="images\grauer_schleier.png" />
     <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\hintergrund_Spiel_PNG.png" />
     <Content Include="images\krabbe_gehen.png" />

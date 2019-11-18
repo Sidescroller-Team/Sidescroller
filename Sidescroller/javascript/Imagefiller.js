@@ -16,6 +16,7 @@ var background;
 var defeatScreen;
 var reloadImage;
 var homeImage;
+var grey_fog;
 //nur ein rahmen um die einzelnen quadrate
 var quadrat;
 
@@ -47,6 +48,7 @@ function fillImages() {
     defeatScreen = new Image();
     reloadImage = new Image();
     homeImage = new Image();
+    grey_fog = new Image();
 
     main_character_image.src = '../images/Pirat_Laufen.png';
     death_pirate_image.src = '../images/Toter_Pirat.png';
@@ -72,4 +74,5 @@ function fillImages() {
     defeatScreen.src = '../images/Defeatscreen.png';
     reloadImage.src = '../images/Wiederholungssymbol.png';
     homeImage.src = '../images/Homebutton.png';
+    grey_fog.src = '../images/grauer_schleier.png';
 }

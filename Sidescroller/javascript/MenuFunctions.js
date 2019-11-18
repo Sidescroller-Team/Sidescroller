@@ -1,5 +1,6 @@
 ﻿function drawDefeatScreen() {
 
+    ctx.drawImage(grey_fog, 0, 0);
     ctx.drawImage(death_pirate_image, main_character.x_position - blockSizeX * 3, main_character.y_position + blockSizeY * 2 + blockSizeY / 2, main_character.width * 2, main_character.height / 2);
 
     //zeichnet die Elemente

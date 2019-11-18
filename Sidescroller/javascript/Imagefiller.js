@@ -5,6 +5,7 @@ var death_pirate_image;
 
 var milch_fass_image;
 var plattes_milch_fass;
+var crab_image;
 
 
 var yellowBlock;
@@ -13,11 +14,13 @@ var sandBlock;
 var grassBlock;
 var earthBlock;
 var lava;
+var spikes;
 var background;
 
 var defeatScreen;
 var reloadImage;
 var homeImage;
+var grey_fog;
 //nur ein rahmen um die einzelnen quadrate
 var quadrat;
 
@@ -29,6 +32,7 @@ function fillImages() {
 
     milch_fass_image = new Image();
     plattes_milch_fass = new Image();
+    crab_image = new Image();
 
     mainMenue = new Image();
     wolkenformatEins = new Image();
@@ -44,18 +48,20 @@ function fillImages() {
     grassBlock = new Image();
     background = new Image();
     lava = new Image();
+    spikes = new Image();
 	earthBlock = new Image();
     quadrat = new Image();
 
     defeatScreen = new Image();
     reloadImage = new Image();
     homeImage = new Image();
+    grey_fog = new Image();
 
     main_character_image.src = '../images/Pirat_Laufen.png';
     death_pirate_image.src = '../images/Toter_Pirat.png';
     plattes_milch_fass.src = '../images/plattes_fass.png';
     milch_fass_image.src = '../images/milch_laufen.png';
-
+    crab_image.src = '../images/krabbe_gehen.png';
 
     mainMenue.src = '../images/hintergrund_menue.png';
 
@@ -71,10 +77,12 @@ function fillImages() {
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';
     lava.src = '../images/lava.png';
+    spikes.src = '../images/spikes.png';
     background.src = '../images/hintergrund_Spiel_PNG.png';
     quadrat.src = '../images/rahmen.png';
 
     defeatScreen.src = '../images/Defeatscreen.png';
     reloadImage.src = '../images/Wiederholungssymbol.png';
     homeImage.src = '../images/Homebutton.png';
+    grey_fog.src = '../images/grauer_schleier.png';
 }

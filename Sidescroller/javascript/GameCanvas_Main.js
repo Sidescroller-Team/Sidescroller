@@ -12,7 +12,6 @@ var physicalObjectArray = [];
 var enemyObjectArray = [];
 
 function init() {
-
     setConfigs();
     fillImages();
 	addListener();
@@ -65,29 +64,27 @@ function loadLevel(levelName) {
 var counter = 0;
 
 function update() {
-	if (start == true) {
-		shift -= shiftChange;
-		playerNotAutoshifting();
-        for (var i = 0; i < physicalObjectArray.length; i++) {
-            if (counter++ == 0) {
-                console.log("x " + main_character.x_position + " y " + main_character.width)
-            }
-            physicalObjectArray[i].updateObject(shiftChange);
-            physicalObjectArray[i].testCollisionPlayer(main_character);
-            physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
+	shift -= shiftChange;
+	playerNotAutoshifting();
+    for (var i = 0; i < physicalObjectArray.length; i++) {
+        if (counter++ == 0) {
+            console.log("x " + main_character.x_position + " y " + main_character.width)
         }
-        for (var i = 0; i < enemyObjectArray.length; i++) {
-
-            if (enemyObjectArray[i].alive) {
-                enemyObjectArray[i].updateObject(shiftChange);
-                enemyObjectArray[i].testCollisionPlayer(main_character);
-            } else {
-                enemyObjectArray[i].justShifting(shiftChange);
-            }
-                
-        }
+        physicalObjectArray[i].updateObject(shiftChange);
+        physicalObjectArray[i].testCollisionPlayer(main_character);
+        physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
     }
-        
+    for (var i = 0; i < enemyObjectArray.length; i++) {
+
+        if (enemyObjectArray[i].alive) {
+            enemyObjectArray[i].updateObject(shiftChange);
+            enemyObjectArray[i].testCollisionPlayer(main_character);
+        } else {
+            enemyObjectArray[i].justShifting(shiftChange);
+        }
+                
+    }
+    updatePlayer();
 }
 
 function draw() {
@@ -95,13 +92,13 @@ function draw() {
     ctx.drawImage(background, backgroundPosition, 0);
     drawMovingObjects();
     
-	for (var i = 0; i < physicalObjectArray.length; i++) {
-		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top);
+    for (var i = 0; i < physicalObjectArray.length; i++) {
+        ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top, physicalObjectArray[i].right - physicalObjectArray[i].left, physicalObjectArray[i].bottom - physicalObjectArray[i].top);
     }
     for (var i = 0; i < enemyObjectArray.length; i++) {
-        enemyObjectArray[i].drawEnemy();
+        enemyObjectArray[i].draw();
     }
-
+    drawPlayer();
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
@@ -123,21 +120,18 @@ function createWorldObjects() {
                 case 'l':
                     physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
                     break;
+                case 's':
+                    physicalObjectArray.push(new SpikesObject(spikes, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
+                    break;
                 case 'g':
-                    enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, 0, false));
+                    enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, 0, false));
                     break;
                 case 'r':
-                    enemyObjectArray.push(new EnemyObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, false));
-					break;
-				case 's':
-					physicalObjectArray.push(new PhysicalObject(sandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					break;
-				case 'e':
-					physicalObjectArray.push(new PhysicalObject(endSandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					break;
-				case 'y':
-					physicalObjectArray.push(new PhysicalObject(yellowBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					break;
+                    enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, x * blockSizeX, (y - 2) * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, false));
+                    break;
+                case 'c':
+                    enemyObjectArray.push(new CrabObject(crab_image, x * blockSizeX, (y - 1) * blockSizeY, blockSizeX * 3, blockSizeY * 2, -5));
+                    break;
 				default: 
 					break;
 			}
@@ -148,10 +142,10 @@ function createWorldObjects() {
 }
 
 function gameLoop() {
-
-    update();
-	draw();
-    player_loop();
+    if (start == true) {
+        update();
+    }    
+    draw();   
 	//timeout muss man wahrscheinlich noch bearbeiten.....
     if (main_character.alive) {
         setTimeout(gameLoop, 20);

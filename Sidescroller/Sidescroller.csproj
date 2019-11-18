@@ -70,6 +70,10 @@
     <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
     <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
     <Content Include="images\Bildelemente\Palmenstamm.png" />
+    <Content Include="images\Bildelemente\Sand.png" />
+    <Content Include="images\Bildelemente\SandEnde.png" />
+    <Content Include="images\Bildelemente\SandGras.png" />
+    <Content Include="images\Bildelemente\yellow.png" />
     <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
     <Content Include="html\GameCanvas.html" />
@@ -101,6 +105,7 @@
     <Content Include="javascript\MoveObjects.js" />
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
+    <Content Include="images\Sand.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

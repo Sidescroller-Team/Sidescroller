@@ -70,9 +70,11 @@
     <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
     <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
     <Content Include="images\Bildelemente\Palmenstamm.png" />
-    <Content Include="images\Bildelemente\Sand.png" />
+    <Content Include="images\Bildelemente\Sand1.png" />
     <Content Include="images\Bildelemente\SandEnde.png" />
+    <Content Include="images\Bildelemente\SandEndeLinks.png" />
     <Content Include="images\Bildelemente\SandGras.png" />
+    <Content Include="images\Bildelemente\SandMitte.png" />
     <Content Include="images\Bildelemente\yellow.png" />
     <Content Include="images\Defeatscreen.png" />
     <Content Include="images\erdblock.png" />
@@ -84,6 +86,8 @@
     <Content Include="images\hintergrund_Spiel_PNG.png" />
     <Content Include="images\krabbe_gehen.png" />
     <Content Include="images\milch_laufen.png" />
+    <Content Include="images\Piratenschiff.png" />
+    <Content Include="images\Piratenschiff_Wasser.png" />
     <Content Include="images\plattes_fass.png" />
     <Content Include="images\rahmen.png" />
     <Content Include="images\spikes.png" />
@@ -121,6 +125,7 @@
   <ItemGroup>
     <Content Include="level\levelOne.txt" />
     <Content Include="favicon.ico" />
+    <Content Include="level\levelTwo" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

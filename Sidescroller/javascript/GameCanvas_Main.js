@@ -49,7 +49,7 @@ function loadLevel(levelName) {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			levelRawData = xmlhttp.responseText;
 			console.log(levelRawData);
-			levelRowArray = levelRawData.split("\r\n");
+			levelRowArray = levelRawData.split("\n");
 			console.log("levelRowArray:" + levelRowArray.length);
 			console.log("level loaded");
 			createWorldObjects();

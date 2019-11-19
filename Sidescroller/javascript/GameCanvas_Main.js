@@ -15,7 +15,7 @@ function init() {
     setConfigs();
     fillImages();
 	addListener();
-    loadLevel('../level/levelOne.txt');
+    loadLevel('level/levelOne.txt');
     setPlayerData();
 }
 

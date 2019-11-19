@@ -18,7 +18,7 @@
             location.reload();
         }
         if (mouseX >= 18.5 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
-            window.location.href = "../index.html"
+            window.location.href = "index.html"
         }
 
     }, false);

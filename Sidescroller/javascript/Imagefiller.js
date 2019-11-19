@@ -25,7 +25,7 @@ var grey_fog;
 var quadrat;
 
 function fillImages() {
-    ctx = game_field.getContext('2d');
+	ctx = game_field.getContext('2d');
 
     main_character_image = new Image();
     death_pirate_image = new Image();
@@ -69,11 +69,11 @@ function fillImages() {
     wolkenformatZwei.src = '../images/wolkenformat_Zwei.png';
     wolkenformatDrei.src = '../images/wolkenformat_Drei.png';
     welle.src = '../images/welle.png';
-    schiff.src = '../images/game_schiff.png';
+	schiff.src = '../images/Piratenschiff_Wasser.png';
 
-	sandBlock.src = '../images/Bildelemente/Sand.png';
-	endSandBlock.src = '../images/Bildelemente/SandEnde.png';
-	yellowBlock.src = '../images/Bildelemente/yellow.png';
+	sandBlock.src = '../images/Bildelemente/Sand1.png';
+	endSandBlock.src = '../images/Bildelemente/SandEndeLinks.png';
+	yellowBlock.src = '../images/Bildelemente/SandMitte.png';
     earthBlock.src = '../images/erdblock.png';
     grassBlock.src = '../images/block.png';
     lava.src = '../images/lava.png';

@@ -8,38 +8,55 @@
 		this.bottom = minY + height;
 	}
 
+
 	updateObject(shiftChange) {
 		this.left -= shiftChange;
 		this.right -= shiftChange;
 	}
 
 	testCollisionPlayer(object) {
-		let objectLeft = object.x_position +20 ;
+		let objectLeft = object.x_position + 20 ;
 		let objectTop  = object.y_position;
 		let objectRight = object.x_position + object.width -20 ;
 		let objectBottom = object.y_position + object.height;
 
+		//left
 		if (this.right >= objectLeft && this.right < objectRight && this.top >= objectTop && this.bottom <= objectBottom) { //links
-				//console.log("this.left");
+			if (!controller.blockPermanentJump) {
+				this.fallingLeft(object);
+			} 
 			this.fromLeftSide(object);
-			return;
-			}
-		if (this.left <= objectRight && this.right >= objectLeft && this.top - objectBottom < 5 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
-			console.log("this.top")
-
+		}
+		//right
+		else if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop && this.bottom <= objectBottom) { //rechts
+				if (!controller.blockPermanentJump) {
+					this.fallingRight(object);
+				} 
+				this.fromRightSide(object);
+		}
+		//top
+		if (this.left <= objectRight -5 && this.right >= objectLeft +5 && this.top - objectBottom < 5 && this.top - objectBottom > -50 && object.jumpingpower <= 0) { //oben
 			this.fromAbove(object);
-			return;
 		}
-			else if (this.left <= objectRight -3 && this.right >= objectLeft +3 && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > - object.jumpingpower) {
-				//console.log("this.bottom");
-			this.fromBottom(object);
-			return;
-			}
-            else if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop && this.bottom <= objectBottom) { //rechts
-				//console.log("this.right");
-			this.fromRightSide(object);
-			return;
+		//bottom
+		else if (this.left <= objectRight - 5 && this.right >= objectLeft + 5 && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > -object.jumpingpower) {
+				this.fromBottom(object);
 		}
+
+
+	}
+
+
+	fallingRight(object) {
+		object.fallingLeft = false;
+		object.fallingRight = true;
+		//object.gravity = object.fallingGravity;
+	}
+
+	fallingLeft(object) {
+		object.fallingLeft = true;
+		object.fallingRight = false;
+	//	object.gravity = object.fallingGravity;
 	}
 
 	fromBottom(object) {
@@ -47,7 +64,6 @@
 		object.y_position = object.y_position + 10;
 		object.jumpingpower = 0;
 	}
-
 	fromAbove(object) {
 		object.jumpingpower = 0;
 		object.jumping = false;
@@ -55,14 +71,13 @@
 		object.y_position = this.top - 4 * blockSizeX;
 	
 	}
-
 	fromLeftSide(object) {
 		object.speed = 0;
-		object.x_position += 5;
+		object.x_position += 1.2;
 	}
 	fromRightSide(object) {
 		object.speed = 0;
-		object.x_position -= 5;
+		object.x_position -= 1.2;
     }
 
 

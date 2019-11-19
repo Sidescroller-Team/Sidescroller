@@ -79,7 +79,7 @@ document.addEventListener('keyup', function (evt) {
 function updatePlayer() {
 
 	if (jumpingOnRightWall()) {
-		main_character.add_jumpingpower += 18
+		main_character.jumpingpower = 25
 		console.log(main_character.jumpingpower, main_character.add_jumpingpower);
 		main_character.speed -= 34;
 		main_character.jumping = true;
@@ -87,7 +87,7 @@ function updatePlayer() {
 		controller.forward = false;
 
 	} if (jumpingOnLeftWall()) {
-		main_character.add_jumpingpower += 18
+        main_character.jumpingpower = 25;
 		main_character.speed += 34;
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
@@ -122,8 +122,10 @@ function updatePlayer() {
 	main_character.jumpingpower -= main_character.gravity; //gravity
 	main_character.x_position += main_character.speed;
     main_character.y_position -= main_character.jumpingpower;
+
 	main_character.speed *= 0.9; //friction
-	main_character.jumpingpower *= 0.9; //friction
+    main_character.jumpingpower *= 0.92; //friction
+
 	main_character.gravity = main_character.normalGravity;
 
     if (main_character.y_position > game_field.height) {
@@ -181,4 +183,5 @@ function drawPlayer() {
 function playerNotAutoshifting() {
 	//shiftChange = main_character.speed;
     main_character.x_position -= shiftChange;
+	console.log()
 }

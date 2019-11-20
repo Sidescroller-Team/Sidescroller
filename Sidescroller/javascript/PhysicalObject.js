@@ -36,7 +36,7 @@
 		}
 		//top
 		if (this.left <= objectRight -5 && this.right >= objectLeft +5 && this.top - objectBottom < 5 && this.top - objectBottom > -50 && object.jumpingpower <= 0) { //oben
-			this.fromAbove(object);
+            this.fromAbove(object);                                       
 		}
 		//bottom
 		else if (this.left <= objectRight - 5 && this.right >= objectLeft + 5 && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > -object.jumpingpower) {
@@ -85,7 +85,9 @@
     testCollisionEnemy(enemyObjectArray) {
         for (var i = 0; i < enemyObjectArray.length; i++) {
             let enemy = enemyObjectArray[i];
-
+            if (this.left <= enemy.right && this.right >= enemy.left && this.top - enemy.bottom < 10 && this.top - enemy.bottom > -20) { //oben
+                this.fromAboveEnemy(enemy);
+            };
             if (this.left <= enemy.left && this.right >= enemy.left && this.bottom <= enemy.top + enemy.jumpingpower + 5 && this.bottom - enemy.top > - enemy.jumpingpower) {
                 this.fromBottomEnemy(enemy);
             }
@@ -93,10 +95,7 @@
                 this.fromRightSideEnemy(enemy);
             } else if (this.right >= enemy.left && this.right < enemy.right && this.top >= enemy.top && this.bottom <= enemy.bottom) { //links
                 this.fromLeftSideEnemy(enemy);
-            }
-            if (this.left <= enemy.right && this.right >= enemy.left && this.top - enemy.bottom < 0 && this.top - enemy.bottom > - 30) { //oben
-                this.fromAboveEnemy(enemy);
-            };
+            }          
         }
     }
 
@@ -108,18 +107,19 @@
 
     fromAboveEnemy(enemy) {
         enemy.jumpingpower = 0;
-        enemy.top = this.top - 4 * blockSizeX;
-        enemy.botton = this.top - 1;
+        enemy.jumping = false;
+        enemy.top = this.top - enemy.height - 1;
+        enemy.bottom = this.top - 1;
     }
 
     fromLeftSideEnemy(enemy) {
         enemy.speed *= -1;
-        enemy.left += 5;
-        enemy.right += 5
+        enemy.left += enemy.speed;
+        enemy.right += enemy.speed;
     }
     fromRightSideEnemy(enemy) {
         enemy.speed *= -1;
-        enemy.left -= 5;
-        enemy.right -= 5;
+        enemy.left += enemy.speed;
+        enemy.right += enemy.speed;
     }
 }

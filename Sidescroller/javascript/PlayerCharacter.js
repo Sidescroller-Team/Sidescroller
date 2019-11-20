@@ -183,5 +183,4 @@ function drawPlayer() {
 function playerNotAutoshifting() {
 	//shiftChange = main_character.speed;
     main_character.x_position -= shiftChange;
-	console.log()
-}
+	}

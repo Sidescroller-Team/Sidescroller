@@ -21,14 +21,14 @@
 		let objectBottom = object.y_position + object.height;
 
 		//left
-		if (this.right >= objectLeft && this.right < objectRight && this.top >= objectTop && this.bottom <= objectBottom) { //links
+		if (this.right >= objectLeft && this.right < objectRight && this.top >= objectTop - 10 && this.bottom <= objectBottom) { //links
 			if (!controller.blockPermanentJump) {
 				this.fallingLeft(object);
 			} 
 			this.fromLeftSide(object);
 		}
 		//right
-		else if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop && this.bottom <= objectBottom) { //rechts
+		else if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop -10 && this.bottom <= objectBottom) { //rechts
 				if (!controller.blockPermanentJump) {
 					this.fallingRight(object);
 				} 

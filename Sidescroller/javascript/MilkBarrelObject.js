@@ -26,7 +26,7 @@
     updateObject(shiftChange) {
 
         this.randomJump = (Math.random() * 30);
-        console.log(this.randomJump);
+        //console.log(this.randomJump);
         if (this.canJump && this.randomJump <= 1) {
             if (!this.jumping) {
                 this.add_jumpingpower += 15;

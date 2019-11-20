@@ -2,7 +2,9 @@
     constructor(img, minX, minY, width, height, speed, canJump) {
         super(img, minX, minY, width, height, speed);
         this.canJump = canJump;
-        this.jumpingpower = 0;
+        this.add_jumpingpower = 0;
+        this.jumping = false;
+        this.randomJump = 0;
     }
 
     draw() {
@@ -19,6 +21,32 @@
             ctx.drawImage(plattes_milch_fass, 300, 0, 300, 70, this.left, this.bottom - blockSizeY, this.width, 70);
         }
 
+    }
+
+    updateObject(shiftChange) {
+
+        this.randomJump = (Math.random() * 30);
+        console.log(this.randomJump);
+        if (this.canJump && this.randomJump <= 1) {
+            if (!this.jumping) {
+                this.add_jumpingpower += 15;
+                this.jumping = true;
+            }   
+        }
+        if (this.add_jumpingpower > 0) {
+            this.add_jumpingpower -= 2.5;
+        }
+        if (this.add_jumpingpower < 0) {
+            this.add_jumpingpower = 0;
+        }
+        this.jumpingpower += this.add_jumpingpower;
+        this.jumpingpower -= this.gravity;
+        this.top -= this.jumpingpower;
+        this.bottom -= this.jumpingpower;
+        this.jumpingpower *= 0.92;
+
+        this.left = this.left - shiftChange + this.speed;
+        this.right = this.right - shiftChange + this.speed;
     }
 
     fromAbove(object) {

@@ -5,6 +5,8 @@
         this.alive = true;
         this.width = width;
         this.height = height;
+        this.gravity = 2;
+        this.jumpingpower = 0;
     }
 
     draw() {
@@ -12,6 +14,9 @@
     }
 
     updateObject(shiftChange) {
+        this.jumpingpower -= this.gravity;
+        this.top -= this.jumpingpower;
+        this.bottom -= this.jumpingpower;
         this.left = this.left - shiftChange + this.speed;
         this.right = this.right - shiftChange + this.speed;
     }

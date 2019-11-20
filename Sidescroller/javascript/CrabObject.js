@@ -34,4 +34,6 @@
             ctx.drawImage(this.img, 300, 0, 300, 200, this.left, this.top, this.width, this.height);
         }
     }
+
+    
 }

@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Datenschutz.html" />
     <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
     <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
     <Content Include="images\Bildelemente\Palmenstamm.png" />
@@ -77,36 +78,43 @@
     <Content Include="images\Bildelemente\SandMitte.png" />
     <Content Include="images\Bildelemente\yellow.png" />
     <Content Include="images\Defeatscreen.png" />
-    <Content Include="images\erdblock.png" />
     <Content Include="images\block.png" />
-    <Content Include="html\GameCanvas.html" />
+    <Content Include="GameCanvas.html" />
+    <Content Include="images\block.png" />
+    <Content Include="images\blockPixel.png" />
+    <Content Include="images\blockPixel2.png" />
+    <Content Include="images\Defeatscreen.png" />
+    <Content Include="images\game_schiff 2.png" />
     <Content Include="images\game_schiff.png" />
     <Content Include="images\grauer_schleier.png" />
+    <Content Include="images\heavenlarge.png" />
+    <Content Include="images\heavenlarge2.png" />
     <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\hintergrund_Spiel_PNG.png" />
+    <Content Include="images\Homebutton.png" />
     <Content Include="images\krabbe_gehen.png" />
     <Content Include="images\milch_laufen.png" />
     <Content Include="images\Piratenschiff.png" />
     <Content Include="images\Piratenschiff_Wasser.png" />
     <Content Include="images\plattes_fass.png" />
-    <Content Include="images\rahmen.png" />
+    <Content Include="images\Sand.png" />
+    <Content Include="images\Sand2.png" />
     <Content Include="images\spikes.png" />
     <Content Include="images\Toter_Pirat.png" />
+    <Content Include="images\Unbenannt.png" />
     <Content Include="images\welle.png" />
+    <Content Include="images\Wiederholungssymbol.png" />
     <Content Include="images\wolkenformat_Drei.png" />
     <Content Include="images\wolkenformat_Eins.png" />
     <Content Include="images\wolkenformat_Zwei.png" />
     <Content Include="javascript\EnemyObject.js" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />
-    <Content Include="images\heaven.jpg" />
-    <Content Include="images\heavenlarge.png" />
     <Content Include="Index.html" />
     <Content Include="css\Index_Sheet.css" />
-    <Content Include="images\lava.png" />
     <Content Include="javascript\GameConfig.js" />
     <Content Include="javascript\GameDrawMovingObjects.js" />
-    <Content Include="javascript\Imagefiller.js" />
+    <Content Include="Imagefiller.js" />
     <Content Include="javascript\CrabObject.js" />
     <Content Include="javascript\Main_Menue.js" />
     <Content Include="javascript\MenueDrawMovingObjects.js" />
@@ -115,7 +123,6 @@
     <Content Include="javascript\MoveObjects.js" />
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
-    <Content Include="images\Sand.png" />
     <Content Include="javascript\SpikesObject.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -123,7 +130,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="level\levelOne.txt" />
+    <Content Include="level\levelOne.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="level\levelTwo" />
     <None Include="packages.config" />

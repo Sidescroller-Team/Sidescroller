@@ -1,16 +1,16 @@
-﻿var shiftCloudOne = 2;
+﻿var shiftCloudOne = 1.6;
 var startXCloudOne = 400;
 var startYCloudOne = 35;
 
-var shiftCloudTwo = 4;
+var shiftCloudTwo = 2;
 var startXCloudTwo = 100;
 var startYCloudTwo = 100;
 
-var shiftCloudThree = 3;
+var shiftCloudThree = 1.4;
 var startXCloudThree = 900;
 var startYCloudThree = 50;
 
-var shiftCloudFour = 4;
+var shiftCloudFour = 1.3;
 var startXCloudFour = 600;
 var startYCloudFour = 100;
 
@@ -38,12 +38,12 @@ function drawClouds() {
 }
 
 function drawWaves() {
-    xWaveOne = paintMovingObject(xWaveOne, 380, welle, 2.1);
-    xWaveTwo = paintMovingObject(xWaveTwo, 400, welle, 2.2);
-    xWaveThree = paintMovingObject(xWaveThree, 430, welle, 2.3);
-    xWaveFour = paintMovingObject(xWaveFour, 460, welle, 1.9);
-    xSchiff = paintMovingObject(xSchiff, 310, schiff, 2);
-    xWaveFive = paintMovingObject(xWaveFive, 490, welle, 1.7);
-    xWaveSix = paintMovingObject(xWaveSix, 520, welle, 1.8);
-    xWaveSeven = paintMovingObject(xWaveSeven, 550, welle, 2.1);
+    xWaveOne = paintMovingObject(xWaveOne, 380, welle, 1.6);
+    xWaveTwo = paintMovingObject(xWaveTwo, 400, welle,1.7);
+    xWaveThree = paintMovingObject(xWaveThree, 430, welle, 1.4);
+    xWaveFour = paintMovingObject(xWaveFour, 460, welle, 1.3);
+    xSchiff = paintMovingObject(xSchiff, 310, schiff, 1);
+    xWaveFive = paintMovingObject(xWaveFive, 490, welle, 1.5);
+    xWaveSix = paintMovingObject(xWaveSix, 520, welle, 1.2);
+    xWaveSeven = paintMovingObject(xWaveSeven, 550, welle, 1.1);
 }

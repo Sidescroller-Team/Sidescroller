@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datenschutz.html" />
+    <Content Include="favicon.ico" />
     <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
     <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
     <Content Include="images\Bildelemente\Palmenstamm.png" />
@@ -133,7 +134,6 @@
     <Content Include="level\levelOne.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="favicon.ico" />
     <Content Include="level\levelTwo" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

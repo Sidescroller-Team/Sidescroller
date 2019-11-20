@@ -22,6 +22,18 @@
         }
 
     }, false);
+
+    document.addEventListener('keydown', function (evt) {
+        console.log(evt.keyCode);
+        switch (evt.keyCode) {
+            case 13:
+                window.location.href = "index.html";
+                break;
+            case 32:
+                location.reload();
+                break;
+        }
+    }, false);
 }
 
 function drawWinningScreen() {
@@ -43,6 +55,20 @@ function drawWinningScreen() {
         }
         if (mouseX >= 20.2 * blockSizeX && mouseX <= 22.8 * blockSizeX && mouseY >= 7.7 * blockSizeY && mouseY <= 10.3 * blockSizeY) {
             location.reload();
+        }
+    }, false);
+
+    document.addEventListener('keydown', function (evt) {
+        console.log(evt.keyCode);
+        switch (evt.keyCode) {
+            case 13:
+                window.location.href = "index.html";
+                break;
+            case 32:
+                location.reload();
+                break;
+            case 39: //muss noch geändert werden nach Levelauswahl
+                location.reload();
         }
     }, false);
 }

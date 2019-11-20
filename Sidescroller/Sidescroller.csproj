@@ -91,8 +91,10 @@
     <Content Include="images\hintergrund_menue.png" />
     <Content Include="images\hintergrund_Spiel_PNG.png" />
     <Content Include="images\Homebutton.png" />
+    <Content Include="images\Homebutton_gewonnen.png" />
     <Content Include="images\krabbe_gehen.png" />
     <Content Include="images\milch_laufen.png" />
+    <Content Include="images\Next_level_gewonnen.png" />
     <Content Include="images\Piratenschiff.png" />
     <Content Include="images\Piratenschiff_Wasser.png" />
     <Content Include="images\plattes_fass.png" />
@@ -103,9 +105,12 @@
     <Content Include="images\Unbenannt.png" />
     <Content Include="images\welle.png" />
     <Content Include="images\Wiederholungssymbol.png" />
+    <Content Include="images\Wiederholungssymbol_gewonnen.png" />
+    <Content Include="images\Winscreen.png" />
     <Content Include="images\wolkenformat_Drei.png" />
     <Content Include="images\wolkenformat_Eins.png" />
     <Content Include="images\wolkenformat_Zwei.png" />
+    <Content Include="images\Ziel.png" />
     <Content Include="javascript\EnemyObject.js" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />
@@ -115,6 +120,7 @@
     <Content Include="javascript\GameDrawMovingObjects.js" />
     <Content Include="Imagefiller.js" />
     <Content Include="javascript\CrabObject.js" />
+    <Content Include="javascript\GoalObject.js" />
     <Content Include="javascript\Main_Menue.js" />
     <Content Include="javascript\MenueDrawMovingObjects.js" />
     <Content Include="javascript\MenuFunctions.js" />

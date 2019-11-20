@@ -7,6 +7,7 @@ var frame = 0;
 
 var shift = 0;
 var start = false;
+var win = false;
 
 var physicalObjectArray = [];
 var enemyObjectArray = [];
@@ -98,7 +99,12 @@ function draw() {
     for (var i = 0; i < enemyObjectArray.length; i++) {
         enemyObjectArray[i].draw();
     }
-    drawPlayer();
+    //damit der Pirat nicht gemalt wird wenn man gewonne hat
+    if (win) {
+        drawWinningScreen();
+    } else {
+        drawPlayer();
+    }
 }
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
@@ -141,6 +147,9 @@ function createWorldObjects() {
                 case 'c':
                     enemyObjectArray.push(new CrabObject(crab_image, x * blockSizeX, (y - 1) * blockSizeY, blockSizeX * 3, blockSizeY * 2, -5));
                     break;
+                case 'z':
+                    physicalObjectArray.push(new GoalObject(goalImage, x * blockSizeX, 0 * blockSizeY, 10 * blockSizeX, (y + 1) * blockSizeY));
+                    break;
 				default: 
 					break;
 			}
@@ -156,7 +165,7 @@ function gameLoop() {
     }    
     draw();   
 	//timeout muss man wahrscheinlich noch bearbeiten.....
-    if (main_character.alive) {
+    if (main_character.alive && !win) {
         setTimeout(gameLoop, 20);
     }
     

@@ -112,6 +112,7 @@
     <Content Include="images\wolkenformat_Eins.png" />
     <Content Include="images\wolkenformat_Zwei.png" />
     <Content Include="images\Ziel.png" />
+    <Content Include="Impressum.html" />
     <Content Include="javascript\EnemyObject.js" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />

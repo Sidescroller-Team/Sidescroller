@@ -108,8 +108,8 @@
     fromAboveEnemy(enemy) {
         enemy.jumpingpower = 0;
         enemy.jumping = false;
-        enemy.top = this.top - enemy.height - 1;
-        enemy.bottom = this.top - 1;
+        enemy.top = this.top - enemy.height;
+        enemy.bottom = this.top;
     }
 
     fromLeftSideEnemy(enemy) {

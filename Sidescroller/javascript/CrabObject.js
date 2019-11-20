@@ -4,12 +4,12 @@
     }
 
     testCollisionPlayer(object) {
-        let objectLeft = object.x_position + 20;
+        let objectLeft = object.x_position + 30;
         let objectTop = object.y_position;
-        let objectRight = object.x_position + object.width - 20;
+        let objectRight = object.x_position + object.width - 40;
         let objectBottom = object.y_position + object.height;
 
-        if (this.right >= objectLeft && this.right < objectRight && this.top >= objectTop && this.bottom <= objectBottom) { //links
+        if (this.right >= objectLeft && this.right < objectRight && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //links
             this.fromLeftSide(object);
             return;
         }
@@ -21,7 +21,7 @@
             this.fromBottom(object);
             return;
         }
-        else if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop && this.bottom <= objectBottom) { //rechts
+        else if (this.left <= objectRight && this.left > objectLeft && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //rechts
             this.fromRightSide(object);
             return;
         }

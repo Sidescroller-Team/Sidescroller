@@ -23,3 +23,26 @@
 
     }, false);
 }
+
+function drawWinningScreen() {
+    ctx.drawImage(winScreen, 8 * blockSizeX, 4 * blockSizeY, 16 * blockSizeX, 9 * blockSizeY);
+    ctx.drawImage(reloadImageWin, 9.3 * blockSizeX, 7 * blockSizeY, 2 * blockSizeX, 2 * blockSizeY);
+    ctx.drawImage(homeImageWin, 9.3 * blockSizeX, 9.5 * blockSizeY, 2 * blockSizeX, 2 * blockSizeY);
+    ctx.drawImage(nextLevelImage, 20.2 * blockSizeX, 7.7 * blockSizeY, 2.6 * blockSizeX, 2.6 * blockSizeY);
+
+    game_field.addEventListener("click", function (event) {
+        var game_field_size = game_field.getBoundingClientRect();
+        var mouseX = event.clientX - game_field_size.left;
+        var mouseY = event.clientY - game_field_size.top;
+
+        if (mouseX >= 9.3 * blockSizeX && mouseX <= 11.3 * blockSizeX && mouseY >= 7 * blockSizeY && mouseY <= 9 * blockSizeY) {
+            location.reload();
+        }
+        if (mouseX >= 9.3 * blockSizeX && mouseX <= 11.3 * blockSizeX && mouseY >= 9.5 * blockSizeY && mouseY <= 11.5 * blockSizeY) {
+            window.location.href = "index.html"
+        }
+        if (mouseX >= 20.2 * blockSizeX && mouseX <= 22.8 * blockSizeX && mouseY >= 7.7 * blockSizeY && mouseY <= 10.3 * blockSizeY) {
+            location.reload();
+        }
+    }, false);
+}

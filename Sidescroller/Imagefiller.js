@@ -42,6 +42,13 @@ function fillImages() {
     crab_image = new Image();
 
     mainMenue = new Image();
+    buttonSpielstart = new Image();
+    buttonLevelauswahl = new Image();
+    kisteHauptmenue = new Image();
+    palmenstamm = new Image();
+    rumfass = new Image();
+    piratMenue = new Image();
+
     wolkenformatEins = new Image();
     wolkenformatZwei = new Image();
     wolkenformatDrei = new Image();
@@ -74,6 +81,13 @@ function fillImages() {
     crab_image.src = 'images/krabbe_gehen.png';
 
     mainMenue.src = 'images/hintergrund_menue.png';
+    buttonSpielstart.src = 'images/Button_Spiel_Starten_PNG.png';
+    buttonLevelauswahl.src = 'images/Button_Levelauswahl_PNG.png';
+    kisteHauptmenue.src = 'images/KisteMitButtonsKrabbeSchaufel.png';
+    palmenstamm.src = 'images/Bildelemente/Palmenstamm.png';
+    rumfass.src = 'images/Rumfass_PNG.png';
+    piratMenue.src = 'images/piratMenue.png';
+    
 
     wolkenformatEins.src = 'images/wolkenformat_Eins.png';
     wolkenformatZwei.src = 'images/wolkenformat_Zwei.png';

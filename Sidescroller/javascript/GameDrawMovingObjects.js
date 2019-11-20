@@ -28,6 +28,7 @@ var xWaveEight = 150;
 //var xWaveEleven = 650;
 //var xWaveTwelve = 900;
 //var xWaveThirdteen = 400;
+var xSchiff = 500;
 
 function drawMovingObjects() {
     drawClouds();
@@ -46,7 +47,8 @@ function drawWaves() {
     xWaveTwo = paintMovingObject(xWaveTwo, 690, welle, 1.8);
     xWaveThree = paintMovingObject(xWaveThree, 700, welle, 2);
     xWaveFour = paintMovingObject(xWaveFour, 710, welle, 1.9);
-    ctx.drawImage(schiff, 500, 550);
+    xSchiff = paintMovingObject(xSchiff, 550, schiff, 1.5);
+    //ctx.drawImage(schiff, 500, 550);
     xWaveFive = paintMovingObject(xWaveFive, 750, welle, 2.2);
     xWaveSix = paintMovingObject(xWaveSix, 777, welle, 2.1);
     xWaveSeven = paintMovingObject(xWaveSeven, 800, welle, 2.3);

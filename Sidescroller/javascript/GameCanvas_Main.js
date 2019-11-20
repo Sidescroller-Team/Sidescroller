@@ -28,7 +28,6 @@ function addListener() {
 		
     })
     document.addEventListener('keydown', function (evt) {
-        console.log(evt.keyCode);
         if (evt.keyCode == 39) {
             start = true;
         }
@@ -56,6 +55,7 @@ function loadLevel(levelName) {
 				separator = "\r";
 			}
 			levelRowArray = levelRawData.split(separator);
+			countBlocksY = levelRowArray.length;
 			console.log("levelRowArray:" + levelRowArray.length);
 			console.log("level loaded");
 			createWorldObjects();
@@ -71,6 +71,7 @@ var counter = 0;
 
 function update() {
 	shift -= shiftChange;
+	console.log(shift,main_character.x_position);
 	playerNotAutoshifting();
     for (var i = 0; i < physicalObjectArray.length; i++) {
         if (counter++ == 0) {

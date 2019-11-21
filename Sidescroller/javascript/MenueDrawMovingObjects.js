@@ -27,8 +27,8 @@ var xWaveSeven;
 var xSchiff;
 
 
-function configureSettingsMovingObjects() {
-    speedFactor = 0.01 * blockSizeX
+function setConfigMenuMovingObjects() {
+    speedFactor = 0.01 * blockSizeX;
 
     shiftCloudOne = 2.4 * speedFactor;
     startXCloudOne = 8 * blockSizeX;

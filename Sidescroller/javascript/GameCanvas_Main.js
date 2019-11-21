@@ -14,6 +14,7 @@ var enemyObjectArray = [];
 
 function init() {
     setConfigs();
+    setConfigGameMovingObjects();
     fillImages();
 	addListener();
     loadLevel('level/levelOne.txt');

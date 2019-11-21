@@ -73,13 +73,7 @@ function draw() {
     ctx.drawImage(piratMenue, 21.6 * blockSizeX, 5.2 * blockSizeY, 4.4 * blockSizeX, 10 * blockSizeY);
     if (levelAuswahlActive==true) {
         drawLevelauswahl();
-    }
-    ctx.drawImage(buttonSpielstart, 560, 200);
-    ctx.drawImage(buttonLevelauswahl, 560, 300);
-    ctx.drawImage(kisteHauptmenue, 70, 500);
-    ctx.drawImage(palmenstamm, 1385, 275);
-    ctx.drawImage(rumfass, 1429, 646, 166, 300);
-    ctx.drawImage(piratMenue, 1068, 264);
+    
     if (musik) {
         ctx.drawImage(musik_an, blockSizeX * 12, blockSizeY * 15);
     } 

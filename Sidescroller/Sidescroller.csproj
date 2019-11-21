@@ -80,6 +80,7 @@
     <Content Include="images\Bildelemente\yellow.png" />
     <Content Include="images\Button_Levelauswahl_PNG.png" />
     <Content Include="images\Button_Spiel_Starten_PNG.png" />
+    <Content Include="images\closeButton.png" />
     <Content Include="images\Defeatscreen.png" />
     <Content Include="images\block.png" />
     <Content Include="GameCanvas.html" />

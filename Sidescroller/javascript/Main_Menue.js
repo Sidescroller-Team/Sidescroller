@@ -6,7 +6,9 @@ function init() {
     setConfigMenuMovingObjects();
     fillImages();
     console.log("images loaded");
+    addButtonListener("startMenu");
     addListeners();
+
     musik = "false";
     loadMainMenue();
 }
@@ -36,28 +38,6 @@ function addListeners() {
         }
 
 
-    }, false);
-    
-
-    document.addEventListener("click", function (event) {
-
-        var canvas_size = document.getElementById("mainCan").getBoundingClientRect();
-        var mouseX = event.clientX - canvas_size.left;
-        var mouseY = event.clientY - canvas_size.top;
-
-        if (mouseX >= blockSizeX * 12 && mouseX <= blockSizeX * 14 && mouseY >= blockSizeY * 15 && mouseY <= blockSizeY * 17) {
-            if (musik == "true") {
-                musik = "false";
-                sessionStorage.setItem('music', musik);
-                document.getElementById('pirate_music').pause();
-            } else {
-                musik = "true";
-                sessionStorage.setItem('music', musik);
-                document.getElementById('pirate_music').volume = 0.3;
-                document.getElementById('pirate_music').play();
-            }
-        }
-    }, false);
 
     loadMainMenue();
 }

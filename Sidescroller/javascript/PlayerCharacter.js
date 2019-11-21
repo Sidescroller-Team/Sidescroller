@@ -118,7 +118,7 @@ function updatePlayer() {
 
 	} if (jumpingOnLeftWall()) {
 		console.log("jumpingLeft");
-		main_character.add_jumpingpower = 20;
+		main_character.add_jumpingpower = 22;
         //main_character.jumpingpower = 40
 		main_character.speed += 25;
 		controller.forward = true;
@@ -129,7 +129,7 @@ function updatePlayer() {
     }
 
     if (controller.up && main_character.jumping == false && !controller.blockPermanentJump) {
-        main_character.add_jumpingpower += 20;
+        main_character.add_jumpingpower += 22;
         main_character.jumping = true;
         controller.blockPermanentJump = true;
         if (musik == "true") {

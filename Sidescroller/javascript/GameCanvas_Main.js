@@ -20,7 +20,7 @@ function init() {
     setConfigGameMovingObjects();
     fillImages();
 	addListener();
-    loadLevel('level/levelOne.txt');
+    loadLevel('level/easyNiklasG.txt');
     setPlayerData();
 }
 

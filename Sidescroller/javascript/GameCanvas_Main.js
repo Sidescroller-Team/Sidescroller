@@ -5,12 +5,15 @@ var backgroundSpeed = 30;
 var backgroundPosition = 0;
 var frame = 0;
 
+var minimalShift = 0;
 var shift = 0;
 var start = false;
 var win = false;
 
 var physicalObjectArray = [];
 var enemyObjectArray = [];
+
+var actualShiftChange;
 
 function init() {
     setConfigs();
@@ -76,30 +79,47 @@ function loadLevel(levelName) {
 var counter = 0;
 
 function update() {
-	shift -= shiftChange;
+
+	actualShiftChange = updateShift();
+	
 	//console.log(shift,main_character.x_position);
 	playerNotAutoshifting();
     for (var i = 0; i < physicalObjectArray.length; i++) {
         if (counter++ == 0) {
             console.log("x " + main_character.x_position + " y " + main_character.width)
         }
-        physicalObjectArray[i].updateObject(shiftChange);
+        physicalObjectArray[i].updateObject(actualShiftChange);
         physicalObjectArray[i].testCollisionPlayer(main_character);
         physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
     }
     for (var i = 0; i < enemyObjectArray.length; i++) {
 
         if (enemyObjectArray[i].alive) {
-            enemyObjectArray[i].updateObject(shiftChange);
+            enemyObjectArray[i].updateObject(actualShiftChange);
             enemyObjectArray[i].testCollisionPlayer(main_character);
         } else {
-            enemyObjectArray[i].justShifting(shiftChange);
+            enemyObjectArray[i].justShifting(actualShiftChange);
         }
                 
     }
     updatePlayer();
 }
 
+function updateShift() {
+	let pos = main_character.x_position;
+	let playerSpeed = main_character.speed;
+	if (pos >= 250) {
+		let possibleShiftChange = 1 / (750 - 250) * (pos - 250) * playerSpeed;
+		shift += possibleShiftChange;
+		if (minimalShift - pos < shift + 5) {
+			minimalShift += minimalShiftChange;
+			return possibleShiftChange;
+		}
+	}
+	minimalShift += minimalShiftChange;
+	return minimalShiftChange;
+
+}
 function draw() {
 	ctx.clearRect(0, 0, 1000, 200);
     ctx.drawImage(background, backgroundPosition, 0);

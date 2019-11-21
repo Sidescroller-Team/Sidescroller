@@ -140,6 +140,7 @@
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="javascript\SpikesObject.js" />
+    <Content Include="music\Pirate_Music.mp3" />
     <Content Include="music\Pirate_Music.wav" />
     <Content Include="Web.config" />
   </ItemGroup>

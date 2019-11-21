@@ -32,8 +32,8 @@ function addListener() {
         if (evt.keyCode == 39) {
             start = true;
         }
-        if (musik) {
-        document.getElementById('pirate_music').volume = 0.3;
+        if (musik == "true") {
+            document.getElementById('pirate_music').volume = 0.15;
             document.getElementById('pirate_music').play();
         }
     }, false);

@@ -7,6 +7,7 @@ function init() {
     fillImages();
     console.log("images loaded");
     addListeners();
+    musik = "false";
     loadMainMenue();
 }
 
@@ -21,6 +22,7 @@ function addListeners() {
                 levelAuswahlActive = true;
             }
             if (mouseX >= 11.2 * blockSizeX && mouseX <= 20.8 * blockSizeX && mouseY >= 4 * blockSizeY && mouseY <= 5.5 * blockSizeY) {
+                document.getElementById('pirate_music').pause();
                 window.location.href = "GameCanvas.html";
             }
         }
@@ -41,11 +43,13 @@ function addListeners() {
         var mouseY = event.clientY - canvas_size.top;
 
         if (mouseX >= blockSizeX * 12 && mouseX <= blockSizeX * 14 && mouseY >= blockSizeY * 15 && mouseY <= blockSizeY * 17) {
-            if (musik) {
-                musik = false;
+            if (musik == "true") {
+                musik = "false";
+                sessionStorage.setItem('music', musik);
                 document.getElementById('pirate_music').pause();
             } else {
-                musik = true;
+                musik = "true";
+                sessionStorage.setItem('music', musik);
                 document.getElementById('pirate_music').volume = 0.3;
                 document.getElementById('pirate_music').play();
             }
@@ -74,13 +78,12 @@ function draw() {
     if (levelAuswahlActive == true) {
         drawLevelauswahl();
     }   
-    if (musik) {
+    if (musik == "true") {
         ctx.drawImage(musik_an, blockSizeX * 12, blockSizeY * 15);
     }
-    if (!musik) {
+    if (musik == "false") {
         ctx.drawImage(musik_aus, blockSizeX * 12, blockSizeY * 15);
     }
-    sessionStorage.setItem('music', musik);
     
 }
 

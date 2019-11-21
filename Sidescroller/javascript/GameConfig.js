@@ -7,7 +7,7 @@ var blockSizeY;
 
 var shiftChange;
 
-var musik = false;
+var musik;
 //muss wahrscheinlich auch noch dynamisch angepasst werden
 
 function setConfigs() {
@@ -25,7 +25,6 @@ function setConfigs() {
 
 	shiftChange = blockSizeX / 20;
 	//shiftChange = 0;
-
     musik = sessionStorage.getItem('music');
 }
 

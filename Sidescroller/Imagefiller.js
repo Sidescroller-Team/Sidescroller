@@ -3,6 +3,22 @@
 var main_character_image;
 var death_pirate_image;
 
+var mainMenue;
+var buttonSpielstart;
+var buttonLevelauswahl;
+var kisteHauptmenue;
+var palmenstamm;
+var rumfass;
+var piratMenue;
+
+var closeButton;
+
+var wolkenformatEins;
+var wolkenformatZwei;
+var wolkenformatDrei;
+var welle;
+var schiff;
+
 var milch_fass_image;
 var plattes_milch_fass;
 var crab_image;
@@ -30,6 +46,8 @@ var reloadImageWin;
 var homeImageWin;
 var nextLevelImage;
 
+
+
 //nur ein rahmen um die einzelnen quadrate
 var quadrat;
 
@@ -53,6 +71,8 @@ function fillImages() {
 
     musik_an = new Image();
     musik_aus = new Image();
+
+    closeButton = new Image();
 
     wolkenformatEins = new Image();
     wolkenformatZwei = new Image();
@@ -92,6 +112,8 @@ function fillImages() {
     palmenstamm.src = 'images/Bildelemente/Palmenstamm.png';
     rumfass.src = 'images/Rumfass_PNG.png';
     piratMenue.src = 'images/piratMenue.png';
+
+    closeButton.src = 'images/closeButton.png';
 
     musik_an.src = 'images/musik_an.png';
     musik_aus.src = 'images/musik_aus.png';

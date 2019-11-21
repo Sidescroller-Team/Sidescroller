@@ -76,7 +76,7 @@ var counter = 0;
 
 function update() {
 	shift -= shiftChange;
-	console.log(shift,main_character.x_position);
+	//console.log(shift,main_character.x_position);
 	playerNotAutoshifting();
     for (var i = 0; i < physicalObjectArray.length; i++) {
         if (counter++ == 0) {
@@ -176,7 +176,8 @@ function createWorldObjects() {
 function gameLoop() {
     if (start == true) {
         update();
-    }    
+	}    
+	//console.log(main_character.y_position);
     draw();   
 	//timeout muss man wahrscheinlich noch bearbeiten.....
     if (main_character.alive && !win) {

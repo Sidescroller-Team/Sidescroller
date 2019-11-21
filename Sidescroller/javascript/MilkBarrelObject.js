@@ -75,5 +75,8 @@
     fromAbove(object) {
         this.alive = false;
         object.jumpingpower = 45;
+
+        document.getElementById('kill_sound').volume = 0.3;
+        document.getElementById('kill_sound').play();
     }
 }

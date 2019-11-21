@@ -140,8 +140,11 @@
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="javascript\SpikesObject.js" />
-    <Content Include="music\Pirate_Music.mp3" />
-    <Content Include="music\Pirate_Music.wav" />
+    <Content Include="music\auf_fass_springen_musik.mp3" />
+    <Content Include="music\death_music.mp3" />
+    <Content Include="music\Piratenmusik.mp3" />
+    <Content Include="music\Springen_Sound.mp3" />
+    <Content Include="music\win_music.mp3" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

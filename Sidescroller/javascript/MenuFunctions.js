@@ -34,6 +34,9 @@
                 break;
         }
     }, false);
+
+    document.getElementById('death_sound').volume = 0.3;
+    document.getElementById('death_sound').play();
 }
 
 function drawWinningScreen() {
@@ -71,4 +74,7 @@ function drawWinningScreen() {
                 location.reload();
         }
     }, false);
+
+    document.getElementById('win_sound').volume = 0.3;
+    document.getElementById('win_sound').play();
 }

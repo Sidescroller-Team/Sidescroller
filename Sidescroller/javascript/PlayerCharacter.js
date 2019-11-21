@@ -92,12 +92,13 @@ function updatePlayer() {
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
 		controller.forward = true;
-
 	}
     if (controller.up && main_character.jumping == false && !controller.blockPermanentJump) {
         main_character.add_jumpingpower += 22;
         main_character.jumping = true;
         controller.blockPermanentJump = true;
+        //document.getElementById('jump_sound').volume = 0.3;
+        //document.getElementById('jump_sound').play();
     }
 
     if (controller.left) {

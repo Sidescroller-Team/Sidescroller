@@ -7,6 +7,7 @@ var blockSizeY;
 
 var shiftChange;
 
+var musik = false;
 //muss wahrscheinlich auch noch dynamisch angepasst werden
 
 function setConfigs() {

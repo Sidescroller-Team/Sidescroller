@@ -7,6 +7,8 @@ var milch_fass_image;
 var plattes_milch_fass;
 var crab_image;
 
+var musik_an;
+var musik_aus;
 
 var yellowBlock;
 var endSandBlock;
@@ -49,6 +51,9 @@ function fillImages() {
     rumfass = new Image();
     piratMenue = new Image();
 
+    musik_an = new Image();
+    musik_aus = new Image();
+
     wolkenformatEins = new Image();
     wolkenformatZwei = new Image();
     wolkenformatDrei = new Image();
@@ -87,7 +92,9 @@ function fillImages() {
     palmenstamm.src = 'images/Bildelemente/Palmenstamm.png';
     rumfass.src = 'images/Rumfass_PNG.png';
     piratMenue.src = 'images/piratMenue.png';
-    
+
+    musik_an = 'images/musik_an.png';
+    musik_aus = 'images/musik_aus.png';
 
     wolkenformatEins.src = 'images/wolkenformat_Eins.png';
     wolkenformatZwei.src = 'images/wolkenformat_Zwei.png';

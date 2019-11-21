@@ -99,6 +99,8 @@
     <Content Include="images\KisteMitButtonsKrabbeSchaufel.png" />
     <Content Include="images\krabbe_gehen.png" />
     <Content Include="images\milch_laufen.png" />
+    <Content Include="images\musik_an.png" />
+    <Content Include="images\musik_aus.png" />
     <Content Include="images\Next_level_gewonnen.png" />
     <Content Include="images\Piratenschiff.png" />
     <Content Include="images\Piratenschiff_Wasser.png" />
@@ -137,6 +139,7 @@
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="javascript\SpikesObject.js" />
+    <Content Include="music\Pirate_Music.wav" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

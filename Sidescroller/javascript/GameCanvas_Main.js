@@ -81,7 +81,7 @@ var counter = 0;
 function update() {
 
 	actualShiftChange = updateShift();
-	
+
 	//console.log(shift,main_character.x_position);
 	playerNotAutoshifting();
     for (var i = 0; i < physicalObjectArray.length; i++) {
@@ -109,9 +109,13 @@ function updateShift() {
 	let pos = main_character.x_position;
 	let playerSpeed = main_character.speed;
 	if (pos >= 250) {
-		let possibleShiftChange = 1 / (750 - 250) * (pos - 250) * playerSpeed;
+		let possibleShiftChange = Math.round(1 / (750 - 250) * (pos - 250) * playerSpeed);
 		shift += possibleShiftChange;
-		if (minimalShift - pos < shift + 5) {
+		if (minimalShift - pos < shift) {
+			//falls der Spieler gegen Bloecke laueft
+			if (playerSpeed == 1.08 || playerSpeed == -1.08) {
+			return 0;
+		}
 			minimalShift += minimalShiftChange;
 			return possibleShiftChange;
 		}

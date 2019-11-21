@@ -32,12 +32,16 @@ function addListener() {
         if (evt.keyCode == 39) {
             start = true;
         }
-
+        if (musik) {
+        document.getElementById('pirate_music').volume = 0.3;
+            document.getElementById('pirate_music').play();
+        }
     }, false);
 }
 
 
 function loadLevel(levelName) {
+    
 	console.log("loadLevel")
 	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
 
@@ -65,7 +69,7 @@ function loadLevel(levelName) {
 	}
 
 	xmlhttp.open("GET", levelName, true);
-	xmlhttp.send();
+    xmlhttp.send();
 }
 
 var counter = 0;

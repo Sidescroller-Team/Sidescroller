@@ -20,11 +20,12 @@ function setConfigs() {
     game_field.width = 1000;
     game_field.height = 200;*/
 
-
 	blockSizeX = 1600 / countBlocksX;
 	blockSizeY = 900 / countBlocksY;
 
 	shiftChange = blockSizeX / 20;
 	//shiftChange = 0;
+
+    musik = sessionStorage.getItem('music');
 }
 

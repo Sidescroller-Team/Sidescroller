@@ -11,10 +11,10 @@ function init() {
         var mouseX = event.clientX - canvas_size.left;
         var mouseY = event.clientY - canvas_size.top;
 
-        if (mouseX >= 1100 && mouseX <= 1200 && mouseY >= 700 && mouseY <= 800) {
+        if (mouseX >= blockSizeX * 12 && mouseX <= blockSizeX * 14 && mouseY >= blockSizeY * 15 && mouseY <= blockSizeY * 17) {
             if (musik) {
                 musik = false;
-                document.getElementById('pirate_music').pause;
+                document.getElementById('pirate_music').pause();
             } else {
                 musik = true;
                 document.getElementById('pirate_music').volume = 0.3;
@@ -43,11 +43,12 @@ function draw() {
     ctx.drawImage(rumfass, 1429, 646, 166, 300);
     ctx.drawImage(piratMenue, 1068, 264);
     if (musik) {
-        ctx.drawImage(musik_an, 1100, 700);
+        ctx.drawImage(musik_an, blockSizeX * 12, blockSizeY * 15);
     } 
     if (!musik) {
-        ctx.drawImage(musik_aus, 1100, 700);
+        ctx.drawImage(musik_aus, blockSizeX * 12, blockSizeY * 15);
     }
+    sessionStorage.setItem('music', musik);
 }
 
 

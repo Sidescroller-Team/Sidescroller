@@ -12,8 +12,8 @@ main_character = {
 	alive: true,
 	fallingLeft: false,
 	fallingRight: false,
-	normalGravity: 3,
-	gravity: 3,
+	normalGravity: 2.5,
+	gravity: 2.5,
 
 }
 
@@ -79,16 +79,20 @@ document.addEventListener('keyup', function (evt) {
 function updatePlayer() {
 
 	if (jumpingOnRightWall()) {
-		main_character.jumpingpower = 25
+		console.log("jumpingright");
+		//main_character.jumpingpower = 40;
+		main_character.add_jumpingpower = 22;
 		console.log(main_character.jumpingpower, main_character.add_jumpingpower);
-		main_character.speed -= 34;
+		main_character.speed -= 25;
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
 		controller.forward = false;
 
 	} if (jumpingOnLeftWall()) {
-        main_character.jumpingpower = 25;
-		main_character.speed += 34;
+		console.log("jumpingLeft");
+		main_character.add_jumpingpower = 22;
+        //main_character.jumpingpower = 40
+		main_character.speed += 25;
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
 		controller.forward = true;
@@ -121,10 +125,14 @@ function updatePlayer() {
 	}
 	main_character.jumpingpower -= main_character.gravity; //gravity
 	main_character.x_position += main_character.speed;
-    main_character.y_position -= main_character.jumpingpower;
-
-	main_character.speed *= 0.9; //friction
-    main_character.jumpingpower *= 0.92; //friction
+	main_character.y_position -= main_character.jumpingpower;
+//	console.log("jp: " + main_character.jumpingpower)
+	if (main_character.jumpingpower == -2.5) {
+		main_character.speed *= 0.9; //friction
+	} else {
+		main_character.speed *= 0.93; //friction
+	}
+		main_character.jumpingpower *= 0.92; //friction
 
 	main_character.gravity = main_character.normalGravity;
 
@@ -167,10 +175,10 @@ function drawPlayer() {
 		}
 
         if (frame_running > 4.84) {
-            frame_running_change = -0.3;
+            frame_running_change = -0.5;
         }
         if (frame_running < 0.01) {
-            frame_running_change = 0.3;
+            frame_running_change = 0.5;
         }
         frame_running += frame_running_change;
 

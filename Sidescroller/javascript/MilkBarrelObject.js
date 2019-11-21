@@ -24,24 +24,27 @@
     }
 
     testCollisionPlayer(object) {
-        let objectLeft = object.x_position + 30;
+        let objectLeft = object.x_position + 20;
         let objectTop = object.y_position;
-        let objectRight = object.x_position + object.width - 40;
-        let objectBottom = object.y_position + object.height;
-
-        if (this.right >= objectLeft && this.right < objectRight && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //links
-            this.fromLeftSide(object);
-            return;
-        }
-        if (this.left + 12 <= objectRight && this.right - 12 >= objectLeft && this.top - objectBottom < -8 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
+        let objectRight = object.x_position + object.width - 20;
+		let objectBottom = object.y_position + object.height;
+				if (this.left + -10 <= objectRight && this.right - -10 >= objectLeft && this.top - objectBottom + object.jumpingpower < -8 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
+			console.log("top");
             this.fromAbove(object);
             return;
         }
+        if (this.right >= objectLeft && this.right < objectRight && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //links
+			console.log("left");
+			this.fromLeftSide(object);
+            return;
+		}
         else if (this.left <= objectRight && this.right >= objectLeft && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > - object.jumpingpower) {
+			console.log("bottom");
             this.fromBottom(object);
             return;
         }
         if (this.left <= objectRight && this.left > objectLeft && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //rechts
+			console.log("richt");
             this.fromRightSide(object);
             return;
         }

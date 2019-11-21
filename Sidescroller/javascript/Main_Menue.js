@@ -3,7 +3,7 @@ var levelAuswahlActive= false;
 
 function init() {
     setConfigs();
-    configureSettingsMovingObjects();
+    setConfigMenuMovingObjects();
     fillImages();
     console.log("images loaded");
     addListeners();

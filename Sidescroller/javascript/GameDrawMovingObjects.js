@@ -1,35 +1,70 @@
-﻿var shiftCloudOne = 0.6;
-var startXCloudOne = 600;
-var startYCloudOne = 35;
+﻿var speedFactor;
 
-var shiftCloudTwo = 0.4;
-var startXCloudTwo = 100;
-var startYCloudTwo = 100;
+var shiftCloudOne;
+var startXCloudOne;
+var startYCloudOne;
 
-var shiftCloudThree = 0.8;
-var startXCloudThree = 900;
-var startYCloudThree = 50;
+var shiftCloudTwo;
+var startXCloudTwo;
+var startYCloudTwo;
 
-var shiftCloudFour =1;
-var startXCloudFour = 400;
-var startYCloudFour = 100;
+var shiftCloudThree;
+var startXCloudThree;
+var startYCloudThree;
+
+var shiftCloudFour;
+var startXCloudFour;
+var startYCloudFour;
 
 
-var xWaveOne = 100;
-var xWaveTwo = 300;
-var xWaveThree = 750;
-var xWaveFour = 600;
-var xWaveFive = 1200;
-var xWaveSix = 1050;
-var xWaveSeven = 1350;
-var xWaveEight = 150;
+var xWaveOne;
+var xWaveTwo;
+var xWaveThree;
+var xWaveFour;
+var xWaveFive;
+var xWaveSix;
+var xWaveSeven;
+var xWaveEight;
 //var xWaveNine = 50;
 //var xWaveTen = 500;
 //var xWaveEleven = 650;
 //var xWaveTwelve = 900;
 //var xWaveThirdteen = 400;
-var xSchiff = 500;
+var xSchiff;
 
+
+function setConfigGameMovingObjects(){
+    speedFactor = 0.02 * blockSizeX;
+
+    shiftCloudOne = 0.6 * speedFactor;
+    startXCloudOne = 12 * blockSizeX;
+    startYCloudOne = 0.7 * blockSizeY;
+
+    shiftCloudTwo = 0.4 * speedFactor;
+    startXCloudTwo = 2 * blockSizeX;
+    startYCloudTwo = 2 * blockSizeY;
+
+    shiftCloudThree = 0.8 * speedFactor;
+    startXCloudThree = 18 * blockSizeX;
+    startYCloudThree = 1 * blockSizeY;
+
+    shiftCloudFour = 1 * speedFactor;
+    startXCloudFour = 8 * blockSizeX;
+    startYCloudFour = 2 * blockSizeY;
+
+
+    xWaveOne = 2 * blockSizeX;
+    xWaveTwo = 6 * blockSizeX;
+    xWaveThree = 15 * blockSizeX;
+    xWaveFour = 12 * blockSizeX;
+    xWaveFive = 24 * blockSizeX;
+    xWaveSix = 21 * blockSizeX;
+    xWaveSeven = 27 * blockSizeX;
+    xWaveEight = 3 * blockSizeX;
+   
+    xSchiff = 10 * blockSizeX;
+
+}
 function drawMovingObjects() {
     drawClouds();
     drawWaves();
@@ -43,16 +78,15 @@ function drawClouds() {
 }
 
 function drawWaves() {
-    xWaveOne = paintMovingObject(xWaveOne, 675, welle, 0.6);
-    xWaveTwo = paintMovingObject(xWaveTwo, 690, welle, 0.55);
-    xWaveThree = paintMovingObject(xWaveThree, 700, welle, 0.65);
-    xWaveFour = paintMovingObject(xWaveFour, 710, welle, 0.5);
-    xSchiff = paintMovingObject(xSchiff, 550, schiff, 0.35);
-    //ctx.drawImage(schiff, 500, 550);
-    xWaveFive = paintMovingObject(xWaveFive, 750, welle, 0.7);
-    xWaveSix = paintMovingObject(xWaveSix, 777, welle, 0.6);
-    xWaveSeven = paintMovingObject(xWaveSeven, 800, welle, 0.65);
-    xWaveEight = paintMovingObject(xWaveEight, 820, welle, 0.62);
+    xWaveOne = paintMovingObject(xWaveOne, 13.7 * blockSizeY, welle, 0.6 * speedFactor);
+    xWaveTwo = paintMovingObject(xWaveTwo, 13.8 * blockSizeY, welle, 0.55 * speedFactor);
+    xWaveThree = paintMovingObject(xWaveThree, 14 * blockSizeY, welle, 0.65 * speedFactor);
+    xWaveFour = paintMovingObject(xWaveFour, 14.2 * blockSizeY, welle, 0.5 * speedFactor);
+    xSchiff = paintMovingObject(xSchiff, 11 * blockSizeY, schiff, 0.35 * speedFactor);
+    xWaveFive = paintMovingObject(xWaveFive, 15 * blockSizeY, welle, 0.7 * speedFactor);
+    xWaveSix = paintMovingObject(xWaveSix, 15.6 * blockSizeY, welle, 0.6 * speedFactor);
+    xWaveSeven = paintMovingObject(xWaveSeven, 16 * blockSizeY, welle, 0.65 * speedFactor);
+    xWaveEight = paintMovingObject(xWaveEight, 16.4 * blockSizeY, welle, 0.62 * speedFactor);
    //xWaveNine = paintMovingObject(xWaveNine, 690, welle,  1.8);
    // xWaveTen = paintMovingObject(xWaveTen, 730, welle,  2);
    // xWaveEleven = paintMovingObject(xWaveEleven, 777, welle,  2.1);

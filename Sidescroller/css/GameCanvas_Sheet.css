@@ -1,11 +1,18 @@
-﻿body {
+﻿html{
+    width: 100%;
+    height: 100%;
+    background-color: cornflowerblue;
+}
 
-    margin: 25px;
+body {
+    margin: 0;
     padding: 0;
 }
-#mainCan {
 
-
-    border: groove;
-    border-width: 5px;
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 88%;
+    height: 88%;
 }

@@ -142,8 +142,10 @@
     <Content Include="javascript\SpikesObject.js" />
     <Content Include="music\auf_fass_springen_musik.mp3" />
     <Content Include="music\death_music.mp3" />
+    <Content Include="music\laugh.mp3" />
     <Content Include="music\Piratenmusik.mp3" />
     <Content Include="music\Springen_Sound.mp3" />
+    <Content Include="music\Walljump_Sound.mp3" />
     <Content Include="music\win_music.mp3" />
     <Content Include="Web.config" />
   </ItemGroup>

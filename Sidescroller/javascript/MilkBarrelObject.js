@@ -24,16 +24,11 @@
     }
 
     testCollisionPlayer(object) {
-        let objectLeft = object.x_position + 30;
+        let objectLeft = object.x_position;
         let objectTop = object.y_position;
-        let objectRight = object.x_position + object.width - 40;
+        let objectRight = object.x_position + object.width;
         let objectBottom = object.y_position + object.height;
-
-        if (this.right >= objectLeft && this.right < objectRight && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //links
-            this.fromLeftSide(object);
-            return;
-        }
-        if (this.left + 12 <= objectRight && this.right - 12 >= objectLeft && this.top - objectBottom < -8 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
+        if (this.left + 15 <= objectRight && this.right - 15 >= objectLeft && this.top - objectBottom < 0 && this.top - objectBottom > - 50 && object.jumpingpower <= 0) { //oben
             this.fromAbove(object);
             return;
         }
@@ -41,8 +36,13 @@
             this.fromBottom(object);
             return;
         }
-        if (this.left <= objectRight && this.left > objectLeft && ((this.top <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //rechts
+        if (this.right >= objectLeft + 38 && this.right < objectRight && ((this.top + 15 <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //rechts
             this.fromRightSide(object);
+            return;
+        }
+        
+        if (this.left <= objectRight - 30 && this.left > objectLeft && ((this.top + 15 <= objectBottom && this.bottom >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectBottom) || (this.bottom <= objectBottom && this.top >= objectTop))) { //links
+            this.fromLeftSide(object);
             return;
         }
     }
@@ -75,8 +75,9 @@
     fromAbove(object) {
         this.alive = false;
         object.jumpingpower = 45;
-
-        document.getElementById('kill_sound').volume = 0.3;
-        document.getElementById('kill_sound').play();
+        if (musik == "true") {
+            document.getElementById('kill_sound').volume = 0.3;
+            document.getElementById('kill_sound').play();
+        }
     }
 }

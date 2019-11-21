@@ -43,13 +43,24 @@ document.addEventListener('keydown', function (evt) {
 		case 37:
 			controller.left = true;
 			controller.forward = false;
-			break;
+            break;
+        case 65:
+            controller.left = true;
+            controller.forward = false;
+            break;
 		case 38:
 			controller.up = true;
-			break;
+            break;
+        case 87:
+            controller.up = true;
+            break;
         case 39:
 			controller.right = true;
 			controller.forward = true;
+            break;
+        case 68:
+            controller.right = true;
+            controller.forward = true;
             break;
     }
 }, false);
@@ -63,13 +74,26 @@ document.addEventListener('keyup', function (evt) {
 			evt.preventDefault();
             controller.left = false;
             break;
+        case 65:
+            evt.preventDefault();
+            controller.left = false;
+            break;
         case 38:
 			evt.preventDefault();
             controller.up = false;
             controller.blockPermanentJump = false;
             break;
+        case 87:
+            evt.preventDefault();
+            controller.up = false;
+            controller.blockPermanentJump = false;
+            break;
         case 39:
 			evt.preventDefault();
+            controller.right = false;
+            break;
+        case 68:
+            evt.preventDefault();
             controller.right = false;
             break;
     }
@@ -84,21 +108,31 @@ function updatePlayer() {
 		main_character.speed -= 34;
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
-		controller.forward = false;
-
-	} if (jumpingOnLeftWall()) {
+        controller.forward = false;
+        if (musik == "true") {
+            document.getElementById('wall_jump_sound').volume = 0.3;
+            document.getElementById('wall_jump_sound').play();
+        }
+    }
+    if (jumpingOnLeftWall()) {
         main_character.jumpingpower = 25;
 		main_character.speed += 34;
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
-		controller.forward = true;
+        controller.forward = true;
+        if (musik == "true") {
+            document.getElementById('wall_jump_sound').volume = 0.3;
+            document.getElementById('wall_jump_sound').play();
+        }
 	}
     if (controller.up && main_character.jumping == false && !controller.blockPermanentJump) {
         main_character.add_jumpingpower += 22;
         main_character.jumping = true;
         controller.blockPermanentJump = true;
-        //document.getElementById('jump_sound').volume = 0.3;
-        //document.getElementById('jump_sound').play();
+        if (musik == "true") {
+            document.getElementById('jump_sound').volume = 0.3;
+            document.getElementById('jump_sound').play();
+        }
     }
 
     if (controller.left) {

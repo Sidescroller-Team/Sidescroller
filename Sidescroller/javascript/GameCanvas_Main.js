@@ -33,11 +33,11 @@ function addListener() {
 		
     })
     document.addEventListener('keydown', function (evt) {
-        if (evt.keyCode == 39) {
+        if (evt.keyCode == 39 || evt.keyCode == 68) {
             start = true;
         }
         if (musik == "true") {
-            document.getElementById('pirate_music').volume = 0.15;
+            document.getElementById('pirate_music').volume = 0.05;
             document.getElementById('pirate_music').play();
         }
     }, false);

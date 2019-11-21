@@ -18,7 +18,7 @@
             location.reload();
         }
         if (mouseX >= 18.5 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
-            window.location.href = "index.html"
+            window.location.href = "index.html";
         }
 
     }, false);
@@ -34,9 +34,10 @@
                 break;
         }
     }, false);
-
-    document.getElementById('death_sound').volume = 0.3;
-    document.getElementById('death_sound').play();
+    if (musik == "true") {
+        document.getElementById('death_sound').volume = 0.3;
+        document.getElementById('death_sound').play();
+    }
 }
 
 function drawWinningScreen() {
@@ -70,11 +71,12 @@ function drawWinningScreen() {
             case 32:
                 location.reload();
                 break;
-            case 39: //muss noch geändert werden nach Levelauswahl
+            case 78: //muss noch geändert werden nach Levelauswahl
                 location.reload();
         }
     }, false);
-
-    document.getElementById('win_sound').volume = 0.3;
-    document.getElementById('win_sound').play();
+    if (musik == "true") {
+        document.getElementById('win_sound').volume = 0.3;
+        document.getElementById('win_sound').play();
+    }
 }

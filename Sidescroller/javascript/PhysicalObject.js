@@ -21,21 +21,21 @@
 		let objectBottom = object.y_position + object.height;
 
 		//left
-		if (this.right >= objectLeft && this.right < objectRight && this.top >= objectTop - 10 && this.bottom <= objectBottom) { //links
+		if (this.right >= objectLeft - object.speed && this.right < objectRight - object.speed && this.top >= objectTop - 10 && this.bottom <= objectBottom) { //links
 			if (!controller.blockPermanentJump) {
 				this.fallingLeft(object);
 			} 
 			this.fromLeftSide(object);
 		}
 		//right
-		else if (this.left <= objectRight && this.left > objectLeft && this.top >= objectTop -10 && this.bottom <= objectBottom) { //rechts
+		else if (this.left <= objectRight + object.speed && this.left > objectLeft - object.speed && this.top >= objectTop -10 && this.bottom <= objectBottom) { //rechts
 				if (!controller.blockPermanentJump) {
 					this.fallingRight(object);
 				} 
 				this.fromRightSide(object);
 		}
 		//top
-		if (this.left <= objectRight -5 && this.right >= objectLeft +5 && this.top - objectBottom < 5 && this.top - objectBottom > -50 && object.jumpingpower <= 0) { //oben
+		if (this.left <= objectRight - object.speed - 10 && this.right >= objectLeft + object.speed + 10 && this.top - objectBottom < 5 && this.top - objectBottom > -50 && object.jumpingpower <= 0) { //oben
             this.fromAbove(object);                                       
 		}
 		//bottom

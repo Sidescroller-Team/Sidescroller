@@ -48,9 +48,12 @@ function addButtonListener(maske) {
                 if (levelAuswahlActive == false) {
                     if (mouseX >= 11.2 * blockSizeX && mouseX <= 20.8 * blockSizeX && mouseY >= 6 * blockSizeY && mouseY <= 7.5 * blockSizeY) {
                         levelAuswahlActive = true;
+                        if (musik == "true") {
+                            document.getElementById('evil_laugh').volume = 0.3;
+                            document.getElementById('evil_laugh').play();
+                        }
                     }
                     if (mouseX >= 11.2 * blockSizeX && mouseX <= 20.8 * blockSizeX && mouseY >= 4 * blockSizeY && mouseY <= 5.5 * blockSizeY) {
-                        document.getElementById('pirate_music').pause();
                         window.location.href = "GameCanvas.html";
                     }
                 }
@@ -71,6 +74,7 @@ function addButtonListener(maske) {
                         document.getElementById('pirate_music').play();
                     }
                 }
+
                 break;
             case "winning":
                 if (mouseX >= 9.3 * blockSizeX && mouseX <= 11.3 * blockSizeX && mouseY >= 7 * blockSizeY && mouseY <= 9 * blockSizeY) {

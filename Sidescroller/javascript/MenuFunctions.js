@@ -10,14 +10,9 @@
 
     addButtonListener("defeat");
 
-        if (mouseX >= 9.5 * blockSizeX && mouseX <= 12.5 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
-            location.reload();
-        }
-        if (mouseX >= 18.5 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
-            window.location.href = "index.html"
-        }
+      
 
-    }, false);
+ 
 
     document.addEventListener('keydown', function (evt) {
         console.log(evt.keyCode);

@@ -71,16 +71,17 @@ function draw() {
     ctx.drawImage(palmenstamm, 25 * blockSizeX, 2 * blockSizeY);
     ctx.drawImage(rumfass, 28.6 * blockSizeX, 13 * blockSizeY, 3.4 * blockSizeX, 6 * blockSizeY);
     ctx.drawImage(piratMenue, 21.6 * blockSizeX, 5.2 * blockSizeY, 4.4 * blockSizeX, 10 * blockSizeY);
-    if (levelAuswahlActive==true) {
+    if (levelAuswahlActive == true) {
         drawLevelauswahl();
-    
+    }   
     if (musik) {
         ctx.drawImage(musik_an, blockSizeX * 12, blockSizeY * 15);
-    } 
+    }
     if (!musik) {
         ctx.drawImage(musik_aus, blockSizeX * 12, blockSizeY * 15);
     }
     sessionStorage.setItem('music', musik);
+    
 }
 
 function drawLevelauswahl() {

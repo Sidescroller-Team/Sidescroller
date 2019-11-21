@@ -14,7 +14,7 @@ var physicalObjectArray = [];
 var enemyObjectArray = [];
 
 var actualShiftChange;
-
+var stop = false;
 function init() {
     setConfigs();
     setConfigGameMovingObjects();
@@ -32,10 +32,15 @@ function addListener() {
         //canvas.height = window.innerHeight;
 		
     })
-    document.addEventListener('keydown', function (evt) {
+	document.addEventListener('keydown', function (evt) {
+		
         if (evt.keyCode == 39 || evt.keyCode == 68) {
             start = true;
-        }
+		}
+		if (evt.keyCode == 80) {
+			stop = !stop;
+		}
+
         if (musik == "true") {
             document.getElementById('pirate_music').volume = 0.05;
             document.getElementById('pirate_music').play();
@@ -199,12 +204,14 @@ function createWorldObjects() {
 }
 
 function gameLoop() {
-    if (start == true) {
-        update();
-	}    
-	//console.log(main_character.y_position);
-    draw();   
-	//timeout muss man wahrscheinlich noch bearbeiten.....
+	if (!stop) {
+		if (start == true) {
+			update();
+		}
+		//console.log(main_character.y_position);
+		draw();
+		//timeout muss man wahrscheinlich noch bearbeiten.....
+	}
     if (main_character.alive && !win) {
         setTimeout(gameLoop, 20);
     }

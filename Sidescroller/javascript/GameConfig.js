@@ -70,7 +70,7 @@ function addButtonListener(maske) {
                     } else {
                         musik = "true";
                         sessionStorage.setItem('music', musik);
-                        document.getElementById('pirate_music').volume = 0.3;
+                        document.getElementById('pirate_music').volume = 0.25;
                         document.getElementById('pirate_music').play();
                     }
                 }

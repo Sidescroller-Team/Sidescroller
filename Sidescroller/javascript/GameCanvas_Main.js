@@ -37,7 +37,7 @@ function addListener() {
             start = true;
         }
         if (musik == "true") {
-            document.getElementById('pirate_music').volume = 0.05;
+            document.getElementById('pirate_music').volume = 0.1;
             document.getElementById('pirate_music').play();
         }
     }, false);

@@ -102,6 +102,9 @@ function update() {
         }
                 
     }
+    if (main_character.killingBarrel) {
+        main_character.alive = true;
+    }
     updatePlayer();
 }
 

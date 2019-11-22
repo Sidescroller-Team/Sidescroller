@@ -14,7 +14,7 @@ main_character = {
 	fallingRight: false,
 	normalGravity: 2.5,
 	gravity: 2.5,
-
+    killingBarrel: false
 }
 
 controller = {
@@ -184,7 +184,8 @@ function updatePlayer() {
         main_character.x_position = blockSizeX * 31;
 	}
 	main_character.fallingLeft = false;
-	main_character.fallingRight = false
+    main_character.fallingRight = false;
+    main_character.killingBarrel = false;
 };
 
 function jumpingOnLeftWall() {

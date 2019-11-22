@@ -35,21 +35,36 @@ function draw() {
     ctx.drawImage(palmenstamm, 25 * blockSizeX, 2 * blockSizeY);
     ctx.drawImage(rumfass, 28.6 * blockSizeX, 13 * blockSizeY, 3.4 * blockSizeX, 6 * blockSizeY);
     ctx.drawImage(piratMenue, 21.6 * blockSizeX, 5.2 * blockSizeY, 4.4 * blockSizeX, 10 * blockSizeY);
-    if (levelAuswahlActive == true) {
-        drawLevelauswahl();
-    }   
     if (musik == "true") {
         ctx.drawImage(musik_an, blockSizeX * 12, blockSizeY * 15);
     }
     if (musik == "false") {
         ctx.drawImage(musik_aus, blockSizeX * 12, blockSizeY * 15);
     }
+    if (levelAuswahlActive == true) {
+        drawLevelauswahl();
+    }   
+    
     
 }
 
 function drawLevelauswahl() {
     ctx.drawImage(grey_fog, 0, 0);
-    ctx.drawImage(closeButton, 25 * blockSizeX, 3 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+    ctx.drawImage(levelauswahl, 4 * blockSizeX, 2.5 * blockSizeY, 24 * blockSizeX,13 * blockSizeY);
+    ctx.drawImage(closeButton, 27 * blockSizeX, 2.5 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+
+    ctx.drawImage(closeButton, 11 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(closeButton, 17 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(closeButton, 23 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+
+    ctx.drawImage(closeButton, 11 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(closeButton, 17 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(closeButton, 23 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+
+    ctx.drawImage(closeButton, 11 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(closeButton, 17 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(closeButton, 23 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+
 }
 
 function loop() {

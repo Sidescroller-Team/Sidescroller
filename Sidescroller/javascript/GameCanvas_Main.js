@@ -19,10 +19,11 @@ function init() {
     setConfigs();
     setConfigGameMovingObjects();
     fillImages();
-	addListener();
-    loadLevel('level/easyTimo.txt');
+    addListener();
+    loadLevel(level);
     setPlayerData();
 }
+
 
 function addListener() {
 	window.addEventListener('resize', function () {

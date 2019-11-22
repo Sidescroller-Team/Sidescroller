@@ -11,6 +11,7 @@ var palmenstamm;
 var rumfass;
 var piratMenue;
 
+var levelauswahl;
 var closeButton;
 
 var wolkenformatEins;
@@ -72,6 +73,7 @@ function fillImages() {
     musik_an = new Image();
     musik_aus = new Image();
 
+    levelauswahl = new Image();
     closeButton = new Image();
 
     wolkenformatEins = new Image();
@@ -113,6 +115,7 @@ function fillImages() {
     rumfass.src = 'images/Rumfass_PNG.png';
     piratMenue.src = 'images/piratMenue.png';
 
+    levelauswahl.src = "images/levelauswahl.png";
     closeButton.src = 'images/closeButton.png';
 
     musik_an.src = 'images/musik_an.png';

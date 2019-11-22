@@ -8,6 +8,7 @@ var blockSizeY;
 var minimalShiftChange;
 
 var musik;
+var level;
 //muss wahrscheinlich auch noch dynamisch angepasst werden
 
 function setConfigs() {
@@ -22,6 +23,7 @@ function setConfigs() {
 	minimalShiftChange = blockSizeX / 20;
 	//shiftChange = 0;
     musik = sessionStorage.getItem('music');
+    level = sessionStorage.getItem('level');
 }
 
 function addButtonListener(maske) {
@@ -33,8 +35,8 @@ function addButtonListener(maske) {
         let factorY = (canvas.height / canvas.offsetHeight);
 
         const rect = canvas.getBoundingClientRect();
-        const mouseX = Math.round(event.clientX * factorX - rect.left * factorX);
-        const mouseY = Math.round(event.clientY * factorY - rect.top);
+        const mouseX = Math.round((event.clientX - rect.left) * factorX);
+        const mouseY = Math.round((event.clientY - rect.top) * factorY);
         switch (maske) {
             case  "defeat":
                 if (mouseX >= 9.5 * blockSizeX && mouseX <= 12.5 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
@@ -54,12 +56,8 @@ function addButtonListener(maske) {
                         }
                     }
                     if (mouseX >= 11.2 * blockSizeX && mouseX <= 20.8 * blockSizeX && mouseY >= 4 * blockSizeY && mouseY <= 5.5 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/easyNiklasG.txt');
                         window.location.href = "GameCanvas.html";
-                    }
-                }
-                if (levelAuswahlActive == true) {
-                    if (mouseX >= 25 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 3 * blockSizeY && mouseY <= 4 * blockSizeY) {
-                        levelAuswahlActive = false;
                     }
                 }
                 if (mouseX >= blockSizeX * 12 && mouseX <= blockSizeX * 14 && mouseY >= blockSizeY * 15 && mouseY <= blockSizeY * 17) {
@@ -75,6 +73,56 @@ function addButtonListener(maske) {
                     }
                 }
 
+                if (levelAuswahlActive == true) {
+                    if (mouseX >= 27 * blockSizeX && mouseX <= 28 * blockSizeX && mouseY >= 2.5 * blockSizeY && mouseY <= 3.5 * blockSizeY) {
+                        levelAuswahlActive = false;
+                    }
+
+                    if (mouseX >= 11 * blockSizeX && mouseX <= 14 * blockSizeX && mouseY >= 3 * blockSizeY && mouseY <= 6 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/easyNiklasG.txt');
+                        window.location.href = "GameCanvas.html";
+                        
+                    }
+                    if (mouseX >= 17 * blockSizeX && mouseX <= 20 * blockSizeX && mouseY >= 3 * blockSizeY && mouseY <= 6 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/easyNiklasK.txt');
+                        window.location.href = "GameCanvas.html";
+                    } 
+                    if (mouseX >= 23 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 3 * blockSizeY && mouseY <= 6 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/easyTimo.txt');
+                        window.location.href = "GameCanvas.html";
+                    }
+
+
+                    if (mouseX >= 11 * blockSizeX && mouseX <= 14 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/mediumNiklasG.txt');
+                        window.location.href = "GameCanvas.html";
+
+                    }
+                    if (mouseX >= 17 * blockSizeX && mouseX <= 20 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/mediumNiklasK.txt');
+                        window.location.href = "GameCanvas.html";
+                    }
+                    if (mouseX >= 23 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 7.5 * blockSizeY && mouseY <= 10.5 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/mediumTimo.txt');
+                        window.location.href = "GameCanvas.html";
+                    }
+
+
+                    if (mouseX >= 11 * blockSizeX && mouseX <= 14 * blockSizeX && mouseY >= 12 * blockSizeY && mouseY <= 15 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/hardNiklasG.txt');
+                        window.location.href = "GameCanvas.html";
+
+                    }
+                    if (mouseX >= 17 * blockSizeX && mouseX <= 20 * blockSizeX && mouseY >= 12 * blockSizeY && mouseY <= 15 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/hardNiklasK.txt');
+                        window.location.href = "GameCanvas.html";
+                    }
+                    if (mouseX >= 23 * blockSizeX && mouseX <= 26 * blockSizeX && mouseY >= 12 * blockSizeY && mouseY <= 15 * blockSizeY) {
+                        sessionStorage.setItem('level', 'level/hardTimo.txt');
+                        window.location.href = "GameCanvas.html";
+                    }
+                    
+                }
                 break;
             case "winning":
                 if (mouseX >= 9.3 * blockSizeX && mouseX <= 11.3 * blockSizeX && mouseY >= 7 * blockSizeY && mouseY <= 9 * blockSizeY) {

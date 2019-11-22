@@ -129,16 +129,55 @@ function addButtonListener(maske) {
                     location.reload();
                 }
                 if (mouseX >= 9.3 * blockSizeX && mouseX <= 11.3 * blockSizeX && mouseY >= 9.5 * blockSizeY && mouseY <= 11.5 * blockSizeY) {
-                    window.location.href = "index.html"
+                    window.location.href = "index.html";
                 }
                 if (mouseX >= 20.2 * blockSizeX && mouseX <= 22.8 * blockSizeX && mouseY >= 7.7 * blockSizeY && mouseY <= 10.3 * blockSizeY) {
-                    location.reload();
+                    goToNextLevel();
                 }
                 break;
 
 
     }
     }, false);
+
+    
+}
+function goToNextLevel() {
+    switch (level) {
+        case "level/easyNiklasG.txt":
+            sessionStorage.setItem('level', 'level/easyNiklasK.txt');
+            break;
+        case 'level/easyNiklasK.txt':
+            sessionStorage.setItem('level', 'level/easyTimo.txt');
+            break;
+        case 'level/easyTimo.txt':
+            sessionStorage.setItem('level', 'level/mediumNiklasG.txt');
+            break;
+
+        case 'level/mediumNiklasG.txt':
+            sessionStorage.setItem('level', 'level/mediumNiklasK.txt');
+            break;
+        case 'level/mediumNiklasK.txt':
+            sessionStorage.setItem('level', 'level/mediumTimo.txt');
+            break;
+        case 'level/mediumTimo.txt':
+            sessionStorage.setItem('level', 'level/hardNiklasG.txt');
+            break;
+
+        case 'level/hardNiklasG.txt':
+            sessionStorage.setItem('level', 'level/hardNiklasK.txt');
+            break;
+        case 'level/hardNiklasK.txt':
+            sessionStorage.setItem('level', 'level/hardTimo.txt');
+            break;
+        case 'level/hardTimo.txt':
+            //geheimes fast unmögliches Level einfügen
+            sessionStorage.setItem('level', 'level/bastelLevel.txt');
+            
+            break;
+    }
+
+    location.reload();
 }
 
 

@@ -10,10 +10,6 @@
 
     addButtonListener("defeat");
 
-      
-
- 
-
     document.addEventListener('keydown', function (evt) {
         console.log(evt.keyCode);
         switch (evt.keyCode) {
@@ -49,7 +45,8 @@ function drawWinningScreen() {
                 location.reload();
                 break;
             case 78: //muss noch geändert werden nach Levelauswahl
-                location.reload();
+                goToNextLevel();
+                break;
         }
     }, false);
     if (musik == "true") {

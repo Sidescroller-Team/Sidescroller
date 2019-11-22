@@ -141,10 +141,10 @@
     <Content Include="javascript\PhysicalObject.js" />
     <Content Include="javascript\PlayerCharacter.js" />
     <Content Include="javascript\SpikesObject.js" />
-    <Content Include="level\easyNiklasK.txt" />
+    <Content Include="level\hardNiklasK.txt" />
     <Content Include="level\easyTimo.txt" />
     <Content Include="level\hardNiklasG.txt" />
-    <Content Include="level\hardNiklasK.txt" />
+    <Content Include="level\easyNiklasK.txt" />
     <Content Include="level\hardTimo.txt" />
     <Content Include="level\mediumNiklasG.txt" />
     <Content Include="level\mediumNiklasK.txt" />

@@ -14,7 +14,100 @@ function init() {
 }
 
 function addListeners() {
+    document.addEventListener('keydown', function (evt) {
+        console.log(evt.keyCode);
+        switch (evt.keyCode) {
+            case 13: //Enter-Taste zum starten des ersten levels
+                sessionStorage.setItem('level', 'level/easyNiklasG.txt');
+                window.location.href = "GameCanvas.html";
+                break;
+            case 32://Leertaste zum Ein- und Ausschalten der Levelauswahl
+                if (!levelAuswahlActive) {
+                    levelAuswahlActive = true;
+                } else {
+                    levelAuswahlActive = false;
+                }
+                break;
+            case 68: //D-Taste zum Aufruf der Datenschutzerklärung
+                window.location.href = "Datenschutz.html";
+                break;
+            case 73: // I-Taste zum Aufruf des Impressums
+                window.location.href = "Impressum.html";
+                break;
+            case 77: //M-Taste zum Ein- und Ausschalten der Musik
+                if (musik == "true") {
+                    musik = "false";
+                    sessionStorage.setItem('music', musik);
+                    document.getElementById('pirate_music').pause();
+                } else {
+                    musik = "true";
+                    sessionStorage.setItem('music', musik);
+                    document.getElementById('pirate_music').volume = 0.25;
+                    document.getElementById('pirate_music').play();
+                }
+                break;
+            case 49: // 1-Taste zum Start Level 1
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/easyNiklasG.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 50: //2- Taste zum Start Level 2 usw...
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/easyNiklasK.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 51:
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/easyTimo.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 52:
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/mediumNiklasG.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 53:
+                sessionStorage.setItem('level', 'level/mediumNiklasK.txt');
+                window.location.href = "GameCanvas.html";
+                break;
+            case 54:
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/mediumTimo.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 55:
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/hardNiklasG.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 56:
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/hardNiklasK.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 57:
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/hardTimo.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
+            case 48:// NULL-Taste zum Start des Bastellevels
+                if (levelAuswahlActive) {
+                    sessionStorage.setItem('level', 'level/bastelLevel.txt');
+                    window.location.href = "GameCanvas.html";
+                }
+                break;
 
+        }
+        
+    }, false);
 
     loadMainMenue();
 }

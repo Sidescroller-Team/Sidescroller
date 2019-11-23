@@ -152,17 +152,17 @@ function drawLevelauswahl() {
     ctx.drawImage(levelauswahl, 4 * blockSizeX, 2.5 * blockSizeY, 24 * blockSizeX,13 * blockSizeY);
     ctx.drawImage(closeButton, 27 * blockSizeX, 2.5 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
 
-    ctx.drawImage(closeButton, 11 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(closeButton, 17 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(closeButton, 23 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level1Button, 11 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level2Button, 17 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level3Button, 23 * blockSizeX, 3 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
 
-    ctx.drawImage(closeButton, 11 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(closeButton, 17 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(closeButton, 23 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level4Button, 11 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level5Button, 17 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level6Button, 23 * blockSizeX, 7.5 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
 
-    ctx.drawImage(closeButton, 11 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(closeButton, 17 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
-    ctx.drawImage(closeButton, 23 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level7Button, 11 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level8Button, 17 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
+    ctx.drawImage(level9Button, 23 * blockSizeX, 12 * blockSizeY, 3 * blockSizeX, 3 * blockSizeY);
 
 }
 

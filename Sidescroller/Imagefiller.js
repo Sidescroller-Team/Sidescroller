@@ -16,6 +16,15 @@ var steuerungButton;
 
 var levelauswahl;
 var closeButton;
+var level1Button;
+var level2Button;
+var level3Button;
+var level4Button;
+var level5Button;
+var level6Button;
+var level7Button;
+var level8Button;
+var level9Button;
 
 var wolkenformatEins;
 var wolkenformatZwei;
@@ -81,6 +90,15 @@ function fillImages() {
 
     levelauswahl = new Image();
     closeButton = new Image();
+    level1Button = new Image();
+    level2Button = new Image();
+    level3Button = new Image();
+    level4Button = new Image();
+    level5Button = new Image();
+    level6Button = new Image();
+    level7Button = new Image();
+    level8Button = new Image();
+    level9Button = new Image();
 
     wolkenformatEins = new Image();
     wolkenformatZwei = new Image();
@@ -126,6 +144,15 @@ function fillImages() {
 
     levelauswahl.src = "images/levelauswahl.png";
     closeButton.src = 'images/closeButton.png';
+    level1Button.src = 'images/levelauswahlButtons/level1_png.png';
+    level2Button.src = 'images/levelauswahlButtons/level2_png.png';
+    level3Button.src = 'images/levelauswahlButtons/level3_png.png';
+    level4Button.src = 'images/levelauswahlButtons/level4_png.png';
+    level5Button.src = 'images/levelauswahlButtons/level5_png.png';
+    level6Button.src = 'images/levelauswahlButtons/level6_png.png';
+    level7Button.src = 'images/levelauswahlButtons/level7_png.png';
+    level8Button.src = 'images/levelauswahlButtons/level8_png.png';
+    level9Button.src = 'images/levelauswahlButtons/level9_png.png';
 
     musik_an.src = 'images/musik_an.png';
     musik_aus.src = 'images/musik_aus.png';

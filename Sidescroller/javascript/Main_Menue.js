@@ -21,12 +21,8 @@ function addListeners() {
                 sessionStorage.setItem('level', 'level/easyNiklasG.txt');
                 window.location.href = "GameCanvas.html";
                 break;
-            case 32://Leertaste zum Ein- und Ausschalten der Levelauswahl
-                if (!levelAuswahlActive) {
-                    levelAuswahlActive = true;
-                } else {
-                    levelAuswahlActive = false;
-                }
+            case 83: //S-Taste zum Aufruf der Steuerung
+                window.location.href = "Steuerung.html";
                 break;
             case 68: //D-Taste zum Aufruf der Datenschutzerklärung
                 window.location.href = "Datenschutz.html";
@@ -46,7 +42,14 @@ function addListeners() {
                     document.getElementById('pirate_music').play();
                 }
                 break;
-            case 49: // 1-Taste zum Start Level 1
+            case 32://Leertaste zum Ein- und Ausschalten der Levelauswahl
+                if (!levelAuswahlActive) {
+                    levelAuswahlActive = true;
+                } else {
+                    levelAuswahlActive = false;
+                }
+                break;
+            case 49: // 1-Taste zum Start Level 1 (Wenn levelauuswahl Aktiv)
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/easyNiklasG.txt');
                     window.location.href = "GameCanvas.html";
@@ -128,11 +131,14 @@ function draw() {
     ctx.drawImage(palmenstamm, 25 * blockSizeX, 2 * blockSizeY);
     ctx.drawImage(rumfass, 28.6 * blockSizeX, 13 * blockSizeY, 3.4 * blockSizeX, 6 * blockSizeY);
     ctx.drawImage(piratMenue, 21.6 * blockSizeX, 5.2 * blockSizeY, 4.4 * blockSizeX, 10 * blockSizeY);
+    ctx.drawImage(steuerungButton, 1.5 * blockSizeX, 17 * blockSizeY, 3 * blockSizeX, 0.5 * blockSizeY);
+    ctx.drawImage(impressumButton, 5.5 * blockSizeX, 17 * blockSizeY, 3 * blockSizeX, 0.5 * blockSizeY);
+    ctx.drawImage(datenschutzButton, 9.5 * blockSizeX,17 * blockSizeY, 3.5 * blockSizeX, 0.5 * blockSizeY);
     if (musik == "true") {
-        ctx.drawImage(musik_an, blockSizeX * 12, blockSizeY * 15);
+        ctx.drawImage(musik_an, blockSizeX * 14, blockSizeY * 15);
     }
     if (musik == "false") {
-        ctx.drawImage(musik_aus, blockSizeX * 12, blockSizeY * 15);
+        ctx.drawImage(musik_aus, blockSizeX * 14, blockSizeY * 15);
     }
     if (levelAuswahlActive == true) {
         drawLevelauswahl();

@@ -59,19 +59,29 @@ function addButtonListener(maske) {
                         sessionStorage.setItem('level', 'level/easyNiklasG.txt');
                         window.location.href = "GameCanvas.html";
                     }
-                }
-                if (mouseX >= blockSizeX * 12 && mouseX <= blockSizeX * 14 && mouseY >= blockSizeY * 15 && mouseY <= blockSizeY * 17) {
-                    if (musik == "true") {
-                        musik = "false";
-                        sessionStorage.setItem('music', musik);
-                        document.getElementById('pirate_music').pause();
-                    } else {
-                        musik = "true";
-                        sessionStorage.setItem('music', musik);
-                        document.getElementById('pirate_music').volume = 0.25;
-                        document.getElementById('pirate_music').play();
+                    if (mouseX >= 1.5 * blockSizeX && mouseX <= 4.5 * blockSizeX && mouseY >= 17 * blockSizeY && mouseY <= 17.5 * blockSizeY) {
+                        window.location.href = "Steuerung.html";
+                    }
+                    if (mouseX >= 5.5 * blockSizeX && mouseX <= 8.5 * blockSizeX && mouseY >= 17 * blockSizeY && mouseY <= 17.5 * blockSizeY) {
+                        window.location.href = "Impressum.html";
+                    }
+                    if (mouseX >= 9.5 * blockSizeX && mouseX <= 13 * blockSizeX && mouseY >= 17 * blockSizeY && mouseY <= 17.5 * blockSizeY) {
+                        window.location.href = "Datenschutz.html";
+                    }
+                    if (mouseX >= blockSizeX * 14 && mouseX <= blockSizeX * 16 && mouseY >= blockSizeY * 15 && mouseY <= blockSizeY * 17) {
+                        if (musik == "true") {
+                            musik = "false";
+                            sessionStorage.setItem('music', musik);
+                            document.getElementById('pirate_music').pause();
+                        } else {
+                            musik = "true";
+                            sessionStorage.setItem('music', musik);
+                            document.getElementById('pirate_music').volume = 0.25;
+                            document.getElementById('pirate_music').play();
+                        }
                     }
                 }
+               
 
                 if (levelAuswahlActive == true) {
                     if (mouseX >= 27 * blockSizeX && mouseX <= 28 * blockSizeX && mouseY >= 2.5 * blockSizeY && mouseY <= 3.5 * blockSizeY) {

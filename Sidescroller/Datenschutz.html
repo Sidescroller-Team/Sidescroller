@@ -2,6 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link href="css/MenueSites_Sheet.css" rel="stylesheet" />
+    <script>
+        document.addEventListener('keydown', function (evt) {
+            console.log(evt.keyCode);
+            if (evt.keyCode == 68) { //D-Taste drücken, um zurück zum Startmenü zu kommen
+                 window.location.href = "Index.html";
+            }
+        }, false);
+    </script>
     <title>Datenschutzerklärung</title>
 </head>
 <body>

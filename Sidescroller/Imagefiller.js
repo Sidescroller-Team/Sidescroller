@@ -10,6 +10,9 @@ var kisteHauptmenue;
 var palmenstamm;
 var rumfass;
 var piratMenue;
+var impressumButton;
+var datenschutzButton;
+var steuerungButton;
 
 var levelauswahl;
 var closeButton;
@@ -69,6 +72,9 @@ function fillImages() {
     palmenstamm = new Image();
     rumfass = new Image();
     piratMenue = new Image();
+    impressumButton = new Image();
+    datenschutzButton = new Image();
+    steuerungButton = new Image();
 
     musik_an = new Image();
     musik_aus = new Image();
@@ -114,6 +120,9 @@ function fillImages() {
     palmenstamm.src = 'images/Bildelemente/Palmenstamm.png';
     rumfass.src = 'images/Rumfass_PNG.png';
     piratMenue.src = 'images/piratMenue.png';
+    impressumButton.src = 'images/impressum.png';
+    datenschutzButton.src = 'images/datenschutz.png';
+    steuerungButton.src = 'images/steuerung.png';
 
     levelauswahl.src = "images/levelauswahl.png";
     closeButton.src = 'images/closeButton.png';

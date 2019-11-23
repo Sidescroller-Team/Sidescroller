@@ -32,7 +32,7 @@ function init() {
     fillImages();
 	initializeEditingTools();
 	addListener();
-    loadLevel('level/levelOne.txt');
+    loadLevel(level);
 	setPlayerData();
 	
 

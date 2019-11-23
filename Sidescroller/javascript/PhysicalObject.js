@@ -6,8 +6,13 @@
 		this.top = minY;
 		this.right = minX + width;
 		this.bottom = minY + height;
+		this.width = width;
+		this.height = height;
+		console.log("width: " + this.width + " height: " + this.height);
 	}
-
+	drawObject() {
+		ctx.drawImage(this.img, this.left, this.top, this.width, this.height);
+	}
 
 	updateObject(shiftChange) {
 		this.left -= shiftChange;

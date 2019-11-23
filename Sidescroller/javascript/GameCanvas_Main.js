@@ -4,50 +4,156 @@ var levelRowArray;
 var backgroundSpeed = 30;
 var backgroundPosition = 0;
 var frame = 0;
-
+var mouseDown = 0;
 var minimalShift = 0;
 var shift = 0;
 var start = false;
 var win = false;
-
+var stop = false;
+var editing = false;
 var physicalObjectArray = [];
 var enemyObjectArray = [];
-
+var tool;
 var actualShiftChange;
 var stop = false;
+
+var canvas;
+var factorX;
+var factorY;
+var rect;
+var functionCreateAndUpdateObject;
+var functionUpdateBlockPosition;
+var functionIncrementMouseDown;
+var functionDecrementMouseDown;
 function init() {
+
     setConfigs();
     setConfigGameMovingObjects();
     fillImages();
+	initializeEditingTools();
 	addListener();
     loadLevel('level/levelOne.txt');
-    setPlayerData();
+	setPlayerData();
+	
+
 }
 
+function initializeEditingTools() {
+	console.log("_initializeEditingTools")
+	tool = new Tool();
+	canvas = document.querySelector('canvas');
+	factorX = (canvas.width / canvas.offsetWidth);
+	factorY = (canvas.height / canvas.offsetHeight);
+	rect = canvas.getBoundingClientRect();
+	functionCreateAndUpdateObject = createAndUpdateObject;
+	functionUpdateBlockPosition = updateBlockPosition;
+	functionDecrementMouseDown = decrementMouseDown;
+	functionIncrementMouseDown = incrementMouseDown;
+	console.log(functionUpdateBlockPosition)
+}
+function createObject() {
+	console.log("_createObject")
+	let obj = tool.blocks[tool.tool];
+	obj.left = tool.mouseX;
+	obj.top = tool.mouseY;
+	switch (obj.constructor.name) {
+		case "PhysicalObject":
+			physicalObjectArray.push(new PhysicalObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
+			console.log("created: physicalObjects");
+			break;
+		case "SpikesObject":
+			physicalObjectArray.push(new SpikesObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
+			console.log("created: SpikesObjects");
+			break;
+		case 'MilkBarrelObject':
+			enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, obj.left, obj.top - 2 * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, true));
+			break;
+		case "CrabObject":
+			enemyObjectArray.push(new CrabObject(crab_image, obj.left, obj.top - blockSizeY, blockSizeX * 3, blockSizeY * 2, -5));
+			break;
+		case "GoalObject":
+			physicalObjectArray.push(new GoalObject(obj.img, obj.left, 0, 10 * blockSizeX, blockSizeY * 17));
+			break;
+	}
+}
+
+function createAndUpdateObject() {
+	let obj = tool.blocks[tool.tool];
+	obj.left = tool.mouseX;
+	obj.top = tool.mouseY;
+	obj.right = obj.left + blockSizeX;
+	obj.bottom = obj.top + blockSizeY;
+	createObject();
+}
+function updateBlockPosition() {
+	let oldX = tool.mouseX;
+	let oldY = tool.mouseY;
+	tool.mouseX = Math.round(event.clientX * factorX - rect.left * factorX - blockSizeX / 2);
+	tool.mouseY = Math.round(event.clientY * factorY - rect.top - blockSizeY / 2);
+	tool.mouseX = Math.floor((tool.mouseX + blockSizeX / 2) / blockSizeX) * blockSizeX - (shift % 50);
+	tool.mouseY = Math.floor((tool.mouseY + blockSizeY / 2) / blockSizeY) * blockSizeY;
+	console.log(oldX, tool.mouseX, oldY, tool.mouseY);
+	if (mouseDown > 0 && (oldX != tool.mouseX || oldY != tool.mouseY)) {
+		createObject();
+	}
+}
+
+function incrementMouseDown() {
+	++mouseDown;
+}
+function decrementMouseDown() {
+	--mouseDown;
+}
 function addListener() {
 	window.addEventListener('resize', function () {
 		//@TODO
 		//aktuell Welt und Größen statisch, erfolgt später
-        //canvas.width = window.innerWidth;
-        //canvas.height = window.innerHeight;
-		
-    })
+		//canvas.width = window.innerWidth;
+		//canvas.height = window.innerHeight;
+
+	})
 	document.addEventListener('keydown', function (evt) {
-		
-        if (evt.keyCode == 39 || evt.keyCode == 68) {
-            start = true;
+		console.log(evt.keyCode)
+
+		if (evt.keyCode == 39 || evt.keyCode == 68) {
+			start = true;
 		}
 		if (evt.keyCode == 80) {
 			stop = !stop;
 		}
+		if (evt.keyCode == 67) {
+			editing = !editing;
+			console.log(editing)
+			edit();
+		}
+		if (musik == "true") {
+			document.getElementById('pirate_music').volume = 0.05;
+			document.getElementById('pirate_music').play();
+		}
+	}, false);
 
-        if (musik == "true") {
-            document.getElementById('pirate_music').volume = 0.05;
-            document.getElementById('pirate_music').play();
-        }
-    }, false);
+
+
 }
-
+function edit() {
+	tool = new Tool();
+	if (editing) {
+		console.log("add Editing Listener")
+		canvas.addEventListener("mousedown", functionIncrementMouseDown);
+		canvas.addEventListener("mouseup", functionDecrementMouseDown);
+		canvas.addEventListener("mousemove", functionUpdateBlockPosition);
+		canvas.addEventListener("mousedown", functionCreateAndUpdateObject);
+		window.addEventListener("wheel", event => {
+			tool.changeTool(event);
+		}, false);
+	} else {
+		console.log("remove Editing Listener")
+		canvas.removeEventListener("mousedown", functionIncrementMouseDown);
+		canvas.removeEventListener("mouseup", functionDecrementMouseDown);
+		canvas.removeEventListener("mousedown", functionCreateAndUpdateObject);
+		canvas.removeEventListener("mousemove", functionUpdateBlockPosition);
+	}
+}
 
 function loadLevel(levelName) {
     
@@ -90,9 +196,9 @@ function update() {
 	//console.log(shift,main_character.x_position);
 	playerNotAutoshifting();
     for (var i = 0; i < physicalObjectArray.length; i++) {
-        if (counter++ == 0) {
+       /* if (counter++ == 0) {
             console.log("x " + main_character.x_position + " y " + main_character.width)
-        }
+        }*/
         physicalObjectArray[i].updateObject(actualShiftChange);
         physicalObjectArray[i].testCollisionPlayer(main_character);
         physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
@@ -115,27 +221,31 @@ function updateShift() {
 	let playerSpeed = main_character.speed;
 	if (pos >= 250) {
 		let possibleShiftChange = Math.round(1 / (750 - 250) * (pos - 250) * playerSpeed);
-		shift += possibleShiftChange;
 		if (minimalShift - pos < shift) {
 			//falls der Spieler gegen Bloecke laueft
 			if (playerSpeed == 1.08 || playerSpeed == -1.08) {
 			return 0;
 		}
+		shift += possibleShiftChange;
 			minimalShift += minimalShiftChange;
 			return possibleShiftChange;
 		}
 	}
+	shift += minimalShiftChange;
 	minimalShift += minimalShiftChange;
 	return minimalShiftChange;
 
 }
 function draw() {
-	ctx.clearRect(0, 0, 1000, 200);
+
     ctx.drawImage(background, backgroundPosition, 0);
-    drawMovingObjects();
-    
-    for (var i = 0; i < physicalObjectArray.length; i++) {
-        ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top, physicalObjectArray[i].right - physicalObjectArray[i].left, physicalObjectArray[i].bottom - physicalObjectArray[i].top);
+	drawMovingObjects();
+	//console.log(tool.blocks[tool.tool].img, tool.mouseX, tool.mouseY, tool.blocks[tool.tool].width, tool.blocks[tool.tool].height);
+
+	for (var i = 0; i < physicalObjectArray.length; i++) {
+		//console.log(i)
+		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top, physicalObjectArray[i].right - physicalObjectArray[i].left, physicalObjectArray[i].bottom - physicalObjectArray[i].top);
+	
     }
     for (var i = 0; i < enemyObjectArray.length; i++) {
         enemyObjectArray[i].draw();
@@ -145,8 +255,9 @@ function draw() {
         drawWinningScreen();
     } else {
         drawPlayer();
-    }
-}
+	}
+	ctx.drawImage(tool.blocks[tool.tool].img, tool.mouseX, tool.mouseY, tool.blocks[tool.tool].width, tool.blocks[tool.tool].height);
+		}
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
  * sichtbar ist alles was sich innerhalb von 0 <= x <= 1600 && 0 <= y <= 900 befindet 
@@ -204,14 +315,13 @@ function createWorldObjects() {
 }
 
 function gameLoop() {
-	if (!stop) {
-		if (start == true) {
+	if (start && !stop) {
+
 			update();
-		}
-		//console.log(main_character.y_position);
-		draw();
-		//timeout muss man wahrscheinlich noch bearbeiten.....
 	}
+	draw();
+
+	//timeout muss man wahrscheinlich noch bearbeiten.....
     if (main_character.alive && !win) {
         setTimeout(gameLoop, 20);
     }

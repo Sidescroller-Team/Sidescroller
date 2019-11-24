@@ -42,65 +42,75 @@ function addListeners() {
                     document.getElementById('pirate_music').play();
                 }
                 break;
-            case 32://Leertaste zum Ein- und Ausschalten der Levelauswahl
+            case 76://L-Taste zum Ein- und Ausschalten der Levelauswahl
                 if (!levelAuswahlActive) {
                     levelAuswahlActive = true;
                 } else {
                     levelAuswahlActive = false;
                 }
                 break;
-            case 49: // 1-Taste zum Start Level 1 (Wenn levelauuswahl Aktiv)
+            case 97:// 1-Taste (Nummernblock) zum Start Level 1 (Wenn levelauuswahl Aktiv)
+            case 49: // 1-Taste (Zahlenleiste) zum Start Level 1 (Wenn levelauuswahl Aktiv)
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/easyNiklasG.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 98:
             case 50: //2- Taste zum Start Level 2 usw...
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/easyNiklasK.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 99:
             case 51:
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/easyTimo.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 100:
             case 52:
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/mediumNiklasG.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 101:
             case 53:
                 sessionStorage.setItem('level', 'level/mediumNiklasK.txt');
                 window.location.href = "GameCanvas.html";
                 break;
+            case 102:
             case 54:
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/mediumTimo.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 103:
             case 55:
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/hardNiklasG.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 104:
             case 56:
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/hardNiklasK.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 105:
             case 57:
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/hardTimo.txt');
                     window.location.href = "GameCanvas.html";
                 }
                 break;
+            case 96:
             case 48:// NULL-Taste zum Start des Bastellevels
                 if (levelAuswahlActive) {
                     sessionStorage.setItem('level', 'level/bastelLevel.txt');

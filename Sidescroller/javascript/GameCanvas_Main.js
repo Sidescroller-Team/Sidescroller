@@ -87,6 +87,7 @@ function shiftRight() {
 }
 
 function updateEditShift(shift) {
+
 	console.log("Schiebe: " +shift)
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		physicalObjectArray[i].updateObject(shift);
@@ -110,6 +111,10 @@ function createObject() {
 		case "PhysicalObject":
 			physicalObjectArray.push(new PhysicalObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
 			console.log("created: physicalObjects");
+			break;
+		case "Deleter":
+			console.log("Fuck")
+			obj.searchAndDestroy();
 			break;
 		case "SpikesObject":
 			physicalObjectArray.push(new SpikesObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
@@ -137,13 +142,14 @@ function createAndUpdateObject() {
 }
 
 function updateBlockPosition() {
+
 	let oldX = tool.mouseX;
 	let oldY = tool.mouseY;
 	tool.mouseX = Math.round(event.clientX * factorX - rect.left * factorX - blockSizeX / 2);
 	tool.mouseY = Math.round(event.clientY * factorY - rect.top - blockSizeY / 2);
 	tool.mouseX = Math.floor((tool.mouseX + blockSizeX / 2) / blockSizeX) * blockSizeX - (shift % 50);
 	tool.mouseY = Math.floor((tool.mouseY + blockSizeY / 2) / blockSizeY) * blockSizeY;
-	//console.log(oldX, tool.mouseX, oldY, tool.mouseY);
+
 	if (mouseDown > 0 && (oldX != tool.mouseX || oldY != tool.mouseY)) {
 		createObject();
 	}
@@ -307,7 +313,6 @@ function draw() {
 
     ctx.drawImage(background, backgroundPosition, 0);
 	drawMovingObjects();
-	//console.log(tool.blocks[tool.tool].img, tool.mouseX, tool.mouseY, tool.blocks[tool.tool].width, tool.blocks[tool.tool].height);
 
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		//console.log(i)
@@ -325,7 +330,7 @@ function draw() {
 			drawPlayer();
 		}
 	}
-	ctx.drawImage(tool.blocks[tool.tool].img, tool.mouseX, tool.mouseY, tool.blocks[tool.tool].width, tool.blocks[tool.tool].height);
+	tool.blocks[tool.tool].draw();
 		}
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
@@ -385,8 +390,10 @@ function createWorldObjects() {
 
 function gameLoop() {
 	if (start && !stop) {
-
 			update();
+	}
+	if (editing) {
+		tool.updateTool();		
 	}
 	draw();
 

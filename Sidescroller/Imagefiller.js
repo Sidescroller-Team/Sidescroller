@@ -59,7 +59,7 @@ var reloadImageWin;
 var homeImageWin;
 var nextLevelImage;
 
-
+var deletePicture;
 
 //nur ein rahmen um die einzelnen quadrate
 var quadrat;
@@ -83,9 +83,11 @@ function fillImages() {
     piratMenue = new Image();
     impressumButton = new Image();
     datenschutzButton = new Image();
-    steuerungButton = new Image();
+	steuerungButton = new Image();
 
-    musik_an = new Image();
+	deletePicture = new Image();
+
+	musik_an = new Image();
     musik_aus = new Image();
 
     levelauswahl = new Image();
@@ -113,7 +115,7 @@ function fillImages() {
     grassBlock = new Image();
     background = new Image();
     spikes = new Image();
-    goalImage = new Image();
+	goalImage = new Image();
 
     defeatScreen = new Image();
     reloadImage = new Image();
@@ -170,6 +172,7 @@ function fillImages() {
     spikes.src = 'images/spikes.png';
     background.src = 'images/hintergrund_Spiel_PNG.png';
     goalImage.src = 'images/Ziel.png';
+	deletePicture.src = 'images/deletePicture.png';
 
     defeatScreen.src = 'images/Defeatscreen.png';
     reloadImage.src = 'images/Wiederholungssymbol.png';

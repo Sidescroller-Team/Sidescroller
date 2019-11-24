@@ -8,9 +8,9 @@
 		this.bottom = minY + height;
 		this.width = width;
 		this.height = height;
-		console.log("width: " + this.width + " height: " + this.height);
+		console.log("x " + this.left + " y " + this.top + " width: " + this.width + " height: " + this.height);
 	}
-	drawObject() {
+	draw() {
 		ctx.drawImage(this.img, this.left, this.top, this.width, this.height);
 	}
 

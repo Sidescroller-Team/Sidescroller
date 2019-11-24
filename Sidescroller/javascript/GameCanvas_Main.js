@@ -25,17 +25,24 @@ var functionCreateAndUpdateObject;
 var functionUpdateBlockPosition;
 var functionIncrementMouseDown;
 var functionDecrementMouseDown;
-function init() {
+var functionShiftLeft, functionShiftRight, functionKeyHandler;
+var editShift = 0;
+var editShiftChange = 50;
 
+function init() {
     setConfigs();
     setConfigGameMovingObjects();
     fillImages();
 	initializeEditingTools();
 	addListener();
-    loadLevel(level);
+	loadLevel(level);
+	if (level == 'level/bastelLevel.txt') {
+	console.log("Bastellevel: " +level);
+		editing = true;
+		stop = true;
+		edit();
+	}
 	setPlayerData();
-	
-
 }
 
 function initializeEditingTools() {
@@ -45,12 +52,55 @@ function initializeEditingTools() {
 	factorX = (canvas.width / canvas.offsetWidth);
 	factorY = (canvas.height / canvas.offsetHeight);
 	rect = canvas.getBoundingClientRect();
+	functionKeyHandler = keyHandler;
+	functionShiftLeft = shiftLeft;
+	functionShiftRight = shiftRight;
 	functionCreateAndUpdateObject = createAndUpdateObject;
 	functionUpdateBlockPosition = updateBlockPosition;
 	functionDecrementMouseDown = decrementMouseDown;
 	functionIncrementMouseDown = incrementMouseDown;
-	console.log(functionUpdateBlockPosition)
 }
+function keyHandler(evt) {
+	console.log("keyHandler: " + evt.keyCode);
+	switch (evt.keyCode) {
+		case 37:
+		case 65:
+			shiftLeft();
+			break;
+		case 39:
+		case 68:
+			shiftRight();
+			break;
+	}
+}
+
+function shiftLeft() {
+	editShift -= editShiftChange;
+	console.log("editShift" + editShift);
+	updateEditShift(-editShiftChange);
+}
+
+function shiftRight() {
+	editShift += editShiftChange;
+	console.log("editShift" + editShift)
+	updateEditShift(editShiftChange);
+}
+
+function updateEditShift(shift) {
+	console.log("Schiebe: " +shift)
+	for (var i = 0; i < physicalObjectArray.length; i++) {
+		physicalObjectArray[i].updateObject(shift);
+	}
+	for (var i = 0; i < enemyObjectArray.length; i++) {
+		if (enemyObjectArray[i].alive) {
+			enemyObjectArray[i].updateObject(shift);
+		} else {
+			enemyObjectArray[i].justShifting(shift);
+		}
+	}
+	
+}
+
 function createObject() {
 	console.log("_createObject")
 	let obj = tool.blocks[tool.tool];
@@ -85,6 +135,7 @@ function createAndUpdateObject() {
 	obj.bottom = obj.top + blockSizeY;
 	createObject();
 }
+
 function updateBlockPosition() {
 	let oldX = tool.mouseX;
 	let oldY = tool.mouseY;
@@ -92,7 +143,7 @@ function updateBlockPosition() {
 	tool.mouseY = Math.round(event.clientY * factorY - rect.top - blockSizeY / 2);
 	tool.mouseX = Math.floor((tool.mouseX + blockSizeX / 2) / blockSizeX) * blockSizeX - (shift % 50);
 	tool.mouseY = Math.floor((tool.mouseY + blockSizeY / 2) / blockSizeY) * blockSizeY;
-	console.log(oldX, tool.mouseX, oldY, tool.mouseY);
+	//console.log(oldX, tool.mouseX, oldY, tool.mouseY);
 	if (mouseDown > 0 && (oldX != tool.mouseX || oldY != tool.mouseY)) {
 		createObject();
 	}
@@ -113,7 +164,7 @@ function addListener() {
 
 	})
 	document.addEventListener('keydown', function (evt) {
-		console.log(evt.keyCode)
+		//console.log(evt.keyCode)
 
 		if (evt.keyCode == 39 || evt.keyCode == 68) {
 			start = true;
@@ -122,6 +173,7 @@ function addListener() {
 			stop = !stop;
 		}
 		if (evt.keyCode == 67) {
+			stop = !stop;
 			editing = !editing;
 			console.log(editing)
 			edit();
@@ -139,6 +191,10 @@ function edit() {
 	tool = new Tool();
 	if (editing) {
 		console.log("add Editing Listener")
+		console.log(functionKeyHandler, canvas, "keydown");
+		document.removeEventListener("keyup", functionKeyUp);
+		document.removeEventListener("keydown", functionKeyDown);
+		document.addEventListener("keydown", functionKeyHandler);
 		canvas.addEventListener("mousedown", functionIncrementMouseDown);
 		canvas.addEventListener("mouseup", functionDecrementMouseDown);
 		canvas.addEventListener("mousemove", functionUpdateBlockPosition);
@@ -148,10 +204,18 @@ function edit() {
 		}, false);
 	} else {
 		console.log("remove Editing Listener")
+		document.removeEventListener("keydown", keyHandler);
+		document.addEventListener("keyup", functionKeyUp);
+		document.addEventListener("keydown", functionKeyDown);
 		canvas.removeEventListener("mousedown", functionIncrementMouseDown);
 		canvas.removeEventListener("mouseup", functionDecrementMouseDown);
 		canvas.removeEventListener("mousedown", functionCreateAndUpdateObject);
 		canvas.removeEventListener("mousemove", functionUpdateBlockPosition);
+		console.log("Shift", shift, "editShift", editShift);
+		shift = 0;
+		updateEditShift(-editShift + 50);
+		editShift = 0;
+		setPlayerData();
 	}
 }
 
@@ -187,7 +251,6 @@ function loadLevel(levelName) {
     xmlhttp.send();
 }
 
-var counter = 0;
 
 function update() {
 
@@ -220,6 +283,7 @@ function update() {
 }
 
 function updateShift() {
+	//console.log("updateShift");
 	let pos = main_character.x_position;
 	let playerSpeed = main_character.speed;
 	if (pos >= 250) {
@@ -256,8 +320,10 @@ function draw() {
     //damit der Pirat nicht gemalt wird wenn man gewonne hat
     if (win) {
         drawWinningScreen();
-    } else {
-        drawPlayer();
+	} else {
+		if (!editing) {
+			drawPlayer();
+		}
 	}
 	ctx.drawImage(tool.blocks[tool.tool].img, tool.mouseX, tool.mouseY, tool.blocks[tool.tool].width, tool.blocks[tool.tool].height);
 		}

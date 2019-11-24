@@ -27,6 +27,8 @@ controller = {
 
 var frame_running = 0;
 var frame_running_change = 0;
+var functionKeyDown = keyDown;
+var functionKeyUp = keyUp;
 
 //setzt die Position des Spielers, da nicht im Object mit Variablen definiert werden darf
 function setPlayerData() {
@@ -36,68 +38,63 @@ function setPlayerData() {
     main_character.x_position = 5 * blockSizeX;
 }
 
-//wenn eine Taste gedrückt wird, wird geprüft, welche
-document.addEventListener('keydown', function (evt) {
-
-    switch (evt.keyCode) {
+function keyDown(evt) {
+	evt.preventDefault();
+	switch (evt.keyCode) {
 		case 37:
 			controller.left = true;
 			controller.forward = false;
-            break;
-        case 65:
-            controller.left = true;
-            controller.forward = false;
-            break;
+			break;
+		case 65:
+			controller.left = true;
+			controller.forward = false;
+			break;
 		case 38:
 			controller.up = true;
-            break;
-        case 87:
-            controller.up = true;
-            break;
-        case 39:
+			break;
+		case 87:
+			controller.up = true;
+			break;
+		case 39:
 			controller.right = true;
 			controller.forward = true;
-            break;
-        case 68:
-            controller.right = true;
-            controller.forward = true;
-            break;
-    }
-}, false);
+			break;
+		case 68:
+			controller.right = true;
+			controller.forward = true;
+			break;
+	}
+}
+function keyUp(evt) {
+	evt.preventDefault;
+	switch (evt.keyCode) {
+		case 37:
+			controller.left = false;
+			break;
+		case 65:
+			controller.left = false;
+			break;
+		case 38:
+			controller.up = false;
+			controller.blockPermanentJump = false;
+			break;
+		case 87:
+			controller.up = false;
+			controller.blockPermanentJump = false;
+			break;
+		case 39:
+			controller.right = false;
+			break;
+		case 68:
+			controller.right = false;
+			break;
+	}
+}
+//wenn eine Taste gedrückt wird, wird geprüft, welche
+document.addEventListener('keydown', functionKeyDown);
 
 //Drücken wird aufgehoben
-document.addEventListener('keyup', function (evt) {
-	
-	switch (evt.keyCode) {
-
-		case 37:
-			evt.preventDefault();
-            controller.left = false;
-            break;
-        case 65:
-            evt.preventDefault();
-            controller.left = false;
-            break;
-        case 38:
-			evt.preventDefault();
-            controller.up = false;
-            controller.blockPermanentJump = false;
-            break;
-        case 87:
-            evt.preventDefault();
-            controller.up = false;
-            controller.blockPermanentJump = false;
-            break;
-        case 39:
-			evt.preventDefault();
-            controller.right = false;
-            break;
-        case 68:
-            evt.preventDefault();
-            controller.right = false;
-            break;
-    }
-}, false);
+document.addEventListener('keyup', functionKeyUp)
 
 //Bewegung der Figur
 function updatePlayer() {

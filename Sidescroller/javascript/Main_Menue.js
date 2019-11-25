@@ -5,7 +5,6 @@ function init() {
     setConfigs();
     setConfigMenuMovingObjects();
     fillImages();
-    console.log("images loaded");
     addButtonListener("startMenu");
     addListeners();
 
@@ -125,7 +124,6 @@ function addListeners() {
 }
 
 function loadMainMenue() {
-            console.log("load");
              loop();            
 }
 

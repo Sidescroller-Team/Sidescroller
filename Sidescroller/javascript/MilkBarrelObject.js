@@ -47,6 +47,7 @@
         }
     }
 
+    //update nach Bewegung
     updateObject(shiftChange) {
 
         this.randomJump = (Math.random() * 30);

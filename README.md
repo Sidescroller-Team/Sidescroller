@@ -9,7 +9,8 @@
 ## Versionsnummer: 1.0
 
 ## Beschreibung: <br>
-Der Sidescroller Treasure Bay ist Spiel, in dem du einen Piraten durch unterschiedliche Level mit verschiedenen Schwierigkeitsstufen fürhren musst, um am Ende zum Schatz zu kommen. Dabei muss man verschiedenen Hindernissen und Gegnern ausweichen und überwinden. Der Spieler hat die Möglichkeit nach links und rechts zu laufen und zu springen. Eine eigene Levelgestaltung ist auch möglich. Es wird sehr empfohlen vor dem Spielen die Steuerung gut durchzulesen, welche entweder über das Hauptmenü zu erreichen ist oder am Ende dieses Dokumententes steht.
+Der Sidescroller Treasure Bay ist Spiel, in dem du einen Piraten durch unterschiedliche Level mit verschiedenen Schwierigkeitsstufen fürhren musst, um am Ende zum Schatz zu kommen. Dabei muss man verschiedenen Hindernissen und Gegnern ausweichen und überwinden. Der Spieler hat die Möglichkeit nach links und rechts zu laufen und zu springen. Eine eigene Levelgestaltung ist auch möglich. Es wird sehr empfohlen vor dem Spielen die Steuerung gut durchzulesen, welche entweder über das Hauptmenü zu erreichen ist oder am Ende dieses Dokumententes steht. <br>
+Hier finden Sie unsere [Pitch-Slide](./Pitch-Slide.pptx)
 
 ## Wer hat was gemacht: <br>
 <strong>Niklas Gieretz:</strong> <br>

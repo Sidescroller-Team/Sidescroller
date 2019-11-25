@@ -207,7 +207,7 @@ function edit() {
 			tool.changeTool(event);
 		}, false);
 	} else {
-		canvas.style.cursor = 'images/bildelemente/cursor.png';
+		canvas.style.cursor = 'default';
 		console.log("remove Editing Listener")
 		document.removeEventListener("keydown", keyHandler);
 		document.addEventListener("keyup", functionKeyUp);
@@ -257,7 +257,6 @@ function loadLevel(levelName) {
     xmlhttp.send();
 }
 
-
 function update() {
 
 	actualShiftChange = updateShift();
@@ -268,13 +267,15 @@ function update() {
        /* if (counter++ == 0) {
             console.log("x " + main_character.x_position + " y " + main_character.width)
         }*/
-        physicalObjectArray[i].updateObject(actualShiftChange);
-        physicalObjectArray[i].testCollisionPlayer(main_character);
-        physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
+		physicalObjectArray[i].updateObject(actualShiftChange);
+		if (physicalObjectArray[i].left >= -800 && physicalObjectArray[i].left <= 1650) {
+			physicalObjectArray[i].testCollisionPlayer(main_character);
+		}
+			physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
     }
     for (var i = 0; i < enemyObjectArray.length; i++) {
 
-        if (enemyObjectArray[i].alive) {
+		if (enemyObjectArray[i].alive && enemyObjectArray[i].left > -1600) {
             enemyObjectArray[i].updateObject(actualShiftChange);
             enemyObjectArray[i].testCollisionPlayer(main_character);
         } else {

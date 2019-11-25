@@ -93,11 +93,7 @@ function updateEditShift(shift) {
 		physicalObjectArray[i].updateObject(shift);
 	}
 	for (var i = 0; i < enemyObjectArray.length; i++) {
-		if (enemyObjectArray[i].alive) {
-			enemyObjectArray[i].updateObject(shift);
-		} else {
 			enemyObjectArray[i].justShifting(shift);
-		}
 	}
 	
 }
@@ -196,6 +192,8 @@ function addListener() {
 function edit() {
 	tool = new Tool();
 	if (editing) {
+		tool = new Tool();
+		canvas.style.cursor = "none";
 		console.log("add Editing Listener")
 		console.log(functionKeyHandler, canvas, "keydown");
 		document.removeEventListener("keyup", functionKeyUp);
@@ -209,6 +207,7 @@ function edit() {
 			tool.changeTool(event);
 		}, false);
 	} else {
+		canvas.style.cursor = 'images/bildelemente/cursor.png';
 		console.log("remove Editing Listener")
 		document.removeEventListener("keydown", keyHandler);
 		document.addEventListener("keyup", functionKeyUp);
@@ -222,6 +221,7 @@ function edit() {
 		updateEditShift(-editShift + 50);
 		editShift = 0;
 		setPlayerData();
+		tool = undefinded;
 	}
 }
 
@@ -328,9 +328,11 @@ function draw() {
 	} else {
 		if (!editing) {
 			drawPlayer();
+		} else {
+	tool.blocks[tool.tool].draw();
+
 		}
 	}
-	tool.blocks[tool.tool].draw();
 		}
 /* @TODO
  * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus

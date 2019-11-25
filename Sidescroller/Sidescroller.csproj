@@ -70,6 +70,7 @@
     <Content Include="css\MenueSites_Sheet.css" />
     <Content Include="Datenschutz.html" />
     <Content Include="favicon.ico" />
+    <Content Include="images\Bildelemente\cursor.png" />
     <Content Include="images\Bildelemente\Kiste_Doppelte_Größe.png" />
     <Content Include="images\Bildelemente\Kiste_Mit_Deckel.png" />
     <Content Include="images\Bildelemente\Palmenstamm.png" />

@@ -52,7 +52,8 @@ Unseren Projektstrukturplan finden sie [hier](./Projektstrukturplan.png).
 -springende Fässer gehen manchmal durch die Wand <br>
 -Musik nicht im Firefox<br>
 -Spielfigur landet gelegentlich zu tief in einem Block (Keine Spielbeeinträchtigung) <br>
--Nicht immer perfekte Beschleunigung, wenn man von der Wand abspringt
+-Nicht immer perfekte Beschleunigung, wenn man von der Wand abspringt <br>
+- Wenn im laufenden Level in den Edit Modus und wieder heraus gegangen wird, wird der Spieler immer in auf der Blockhöhe 2 platziert (X-Koordinate bleibt korrekt)
 
 ## Browserkompatibilität: <br>
 -Chrome <br>

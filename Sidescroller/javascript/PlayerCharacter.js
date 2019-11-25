@@ -205,11 +205,11 @@ function drawPlayer() {
 			ctx.drawImage(main_character_image, 500 + 1250, 0, 250, 500, main_character.x_position, main_character.y_position, main_character.width, main_character.height);
 		}
 
-        if (frame_running > 4.79) {
-            frame_running_change = -0.2;
+        if (frame_running > 4.5) {
+            frame_running_change = -0.45;
         }
-        if (frame_running < 0.21) {
-            frame_running_change = 0.2;
+        if (frame_running < 0.46) {
+            frame_running_change = 0.45;
         }
         frame_running += frame_running_change;
 

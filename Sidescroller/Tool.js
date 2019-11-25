@@ -1,6 +1,5 @@
 ﻿class Tool {
 	constructor() {
-		console.log("Create Tool")
 		this.mouseX;
 		this.mouseY;
 		this.blocks = [];
@@ -35,16 +34,4 @@
 		}
 		this.tool = this.tool % this.blocks.length;
 	};
-
-
-	
-
-
-/*	sandBlock.src = 'images/Bildelemente/Sand1.png';
-	endSandBlock.src = 'images/Bildelemente/SandEndeLinks.png';
-	yellowBlock.src = 'images/Bildelemente/SandMitte.png';
-	grassBlock.src = 'images/block.png';
-	spikes.src = 'images/spikes.png';
-	background.src = 'images/hintergrund_Spiel_PNG.png';
-	goalImage.src = 'images/Ziel.png';*/
 }

@@ -42,6 +42,8 @@ Win- und Defeatscreen Design und Funktionalität <br>
 Vertonung <br>
 Level 3, 6 und 9 erstellt <br>
 
+Unseren Projektstrukturplan finden sie [hier](./Projektstrukturplan.png).
+
 ## Referenzen:<br>
 -Soundeffekte von  https://www.zapsplat.com werden verwendet. (Lizensfrei nutzbar https://www.zapsplat.com/license-type/standard-license/)<br>
 -Hintergrundmusik von https://www.youtube.com/watch?v=hVBgKCYrI-c (Ross Bugden - Music) wird verwendet. (Lizensfrei nutzbar)

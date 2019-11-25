@@ -25,11 +25,7 @@ var xWaveFive;
 var xWaveSix;
 var xWaveSeven;
 var xWaveEight;
-//var xWaveNine = 50;
-//var xWaveTen = 500;
-//var xWaveEleven = 650;
-//var xWaveTwelve = 900;
-//var xWaveThirdteen = 400;
+
 var xSchiff;
 
 
@@ -87,9 +83,4 @@ function drawWaves() {
     xWaveSix = paintMovingObject(xWaveSix, 15.6 * blockSizeY, welle, 0.6 * speedFactor);
     xWaveSeven = paintMovingObject(xWaveSeven, 16 * blockSizeY, welle, 0.65 * speedFactor);
     xWaveEight = paintMovingObject(xWaveEight, 16.4 * blockSizeY, welle, 0.62 * speedFactor);
-   //xWaveNine = paintMovingObject(xWaveNine, 690, welle,  1.8);
-   // xWaveTen = paintMovingObject(xWaveTen, 730, welle,  2);
-   // xWaveEleven = paintMovingObject(xWaveEleven, 777, welle,  2.1);
-   // xWaveTwelve = paintMovingObject(xWaveTwelve, 820, welle,  2);
-   // xWaveThirdteen = paintMovingObject(xWaveThirdteen, 710, welle,  2.2);
 }

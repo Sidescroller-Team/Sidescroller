@@ -54,13 +54,11 @@
 	fallingRight(object) {
 		object.fallingLeft = false;
 		object.fallingRight = true;
-		//object.gravity = object.fallingGravity;
 	}
 
 	fallingLeft(object) {
 		object.fallingLeft = true;
 		object.fallingRight = false;
-	//	object.gravity = object.fallingGravity;
 	}
 
 	fromBottom(object) {

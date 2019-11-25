@@ -9,19 +9,16 @@ var minimalShiftChange;
 
 var musik;
 var level;
-//muss wahrscheinlich auch noch dynamisch angepasst werden
 
 function setConfigs() {
 	game_field = document.getElementById("mainCan");
 	countBlocksY = 18;
 	countBlocksX = Math.floor(countBlocksY * 16 / 9);
-	console.log(countBlocksX + " x " + countBlocksY + " blocks")
 
 	blockSizeX = 1600 / countBlocksX;
 	blockSizeY = 900 / countBlocksY;
 
 	minimalShiftChange = blockSizeX / 20;
-	//shiftChange = 0;
     musik = sessionStorage.getItem('music');
     level = sessionStorage.getItem('level');
 }
@@ -181,7 +178,7 @@ function goToNextLevel() {
             sessionStorage.setItem('level', 'level/hardTimo.txt');
             break;
         case 'level/hardTimo.txt':
-            //geheimes fast unmögliches Level einfügen
+            //geheimes Level
             sessionStorage.setItem('level', 'level/bastelLevel.txt');
             
             break;

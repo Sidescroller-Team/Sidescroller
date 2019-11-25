@@ -13,6 +13,7 @@
         ctx.drawImage(this.image, this.left, this.top, this.right - this.left, this.bottom - this.top);
     }
 
+    //update nach Bewegung
     updateObject(shiftChange) {
         this.jumpingpower -= this.gravity;
         this.top -= this.jumpingpower;

@@ -57,15 +57,13 @@ function addListener() {
 
 function loadLevel(levelName) {
     
-	console.log("loadLevel")
-	let xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
 
 	xmlhttp.onreadystatechange = function () {
-		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
+	
 		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			levelRawData = xmlhttp.responseText;
-			console.log(levelRawData);
 			let separator = "\n";
 			if (levelRawData.includes("\r\n")) {
 				separator = "\r\n";
@@ -74,8 +72,6 @@ function loadLevel(levelName) {
 			}
 			levelRowArray = levelRawData.split(separator);
 			countBlocksY = levelRowArray.length;
-			console.log("levelRowArray:" + levelRowArray.length);
-			console.log("level loaded");
 			createWorldObjects();
 			gameLoop();
 		}
@@ -158,7 +154,7 @@ function draw() {
 
 		}
     }
-    ctx.drawImage(levelLayout, 11 * blockSizeX, 0 * blockSizeY, 3.5 * blockSizeX, 1 * blockSizeY);
+    ctx.drawImage(levelLayout, 11.3 * blockSizeX, 0 * blockSizeY, 3.5 * blockSizeX, 1 * blockSizeY);
     switch (level) {
         case "level/easyNiklasG.txt":
             ctx.drawImage(level1Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
@@ -196,10 +192,8 @@ function draw() {
 }
 
 function createWorldObjects() {
-	console.log("start creating world")
-	console.log(levelRowArray.length);
-	for (let y = 0; y < levelRowArray.length; y++) {
-		for (let x = 0; x < levelRowArray[y].length; x++) {	
+	for (var y = 0; y < levelRowArray.length; y++) {
+		for (var x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 
 				case '1':
 					physicalObjectArray.push(new PhysicalObject(sandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
@@ -233,8 +227,6 @@ function createWorldObjects() {
 			}
 		}
 	}   
-	console.log("end creating world");
-	console.log(physicalObjectArray.length + " Objects created");
 }
 
 function gameLoop() {
@@ -246,7 +238,6 @@ function gameLoop() {
 	}
 	draw();
 
-	//timeout muss man wahrscheinlich noch bearbeiten.....
     if (main_character.alive && !win) {
         setTimeout(gameLoop, 20);
     }

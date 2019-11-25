@@ -44,9 +44,6 @@ var musik_aus;
 var yellowBlock;
 var endSandBlock;
 var sandBlock;
-var grassBlock;
-var earthBlock;
-var lava;
 var spikes;
 var background;
 var goalImage;
@@ -120,7 +117,6 @@ function fillImages() {
 	yellowBlock = new Image();
 	endSandBlock = new Image();
 	sandBlock = new Image();
-    grassBlock = new Image();
     background = new Image();
     spikes = new Image();
 	goalImage = new Image();
@@ -178,7 +174,6 @@ function fillImages() {
 	sandBlock.src = 'images/Bildelemente/Sand1.png';
 	endSandBlock.src = 'images/Bildelemente/SandEndeLinks.png';
 	yellowBlock.src = 'images/Bildelemente/SandMitte.png';
-    grassBlock.src = 'images/block.png';
     spikes.src = 'images/spikes.png';
     background.src = 'images/hintergrund_Spiel_PNG.png';
     goalImage.src = 'images/Ziel.png';

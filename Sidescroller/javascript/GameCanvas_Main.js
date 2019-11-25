@@ -1,9 +1,6 @@
 ﻿var levelRawData;
 var levelRowArray;
 
-var backgroundSpeed = 30;
-var backgroundPosition = 0;
-var frame = 0;
 var mouseDown = 0;
 var minimalShift = 0;
 var shift = 0;
@@ -13,21 +10,11 @@ var stop = false;
 var editing = false;
 var physicalObjectArray = [];
 var enemyObjectArray = [];
-var tool;
+
 var actualShiftChange;
 var stop = false;
 
-var canvas;
-var factorX;
-var factorY;
-var rect;
-var functionCreateAndUpdateObject;
-var functionUpdateBlockPosition;
-var functionIncrementMouseDown;
-var functionDecrementMouseDown;
-var functionShiftLeft, functionShiftRight, functionKeyHandler;
-var editShift = 0;
-var editShiftChange = 50;
+
 
 function init() {
     setConfigs();
@@ -44,110 +31,7 @@ function init() {
 	setPlayerData();
 }
 
-function initializeEditingTools() {
-	console.log("_initializeEditingTools")
-	tool = new Tool();
-	canvas = document.querySelector('canvas');
-	factorX = (canvas.width / canvas.offsetWidth);
-	factorY = (canvas.height / canvas.offsetHeight);
-	rect = canvas.getBoundingClientRect();
-	functionKeyHandler = keyHandler;
-	functionShiftLeft = shiftLeft;
-	functionShiftRight = shiftRight;
-	functionCreateAndUpdateObject = createAndUpdateObject;
-	functionUpdateBlockPosition = updateBlockPosition;
-	functionDecrementMouseDown = decrementMouseDown;
-	functionIncrementMouseDown = incrementMouseDown;
-}
-function keyHandler(evt) {
-	switch (evt.keyCode) {
-		case 37:
-		case 65:
-			evt.preventDefault();
-			shiftLeft();
-			break;
-		case 39:
-		case 68:
-			evt.preventDefault();
-			shiftRight();
-			break;
-	}
-}
 
-function shiftLeft() {
-	editShift -= editShiftChange;
-	updateEditShift(-editShiftChange);
-}
-
-function shiftRight() {
-	editShift += editShiftChange;
-	updateEditShift(editShiftChange);
-}
-
-function updateEditShift(shift) {
-	for (var i = 0; i < physicalObjectArray.length; i++) {
-		physicalObjectArray[i].updateObject(shift);
-	}
-	for (var i = 0; i < enemyObjectArray.length; i++) {
-			enemyObjectArray[i].justShifting(shift);
-	}
-}
-
-function createObject() {
-	let obj = tool.blocks[tool.tool];
-	obj.left = tool.mouseX;
-	obj.top = tool.mouseY;
-	switch (obj.constructor.name) {
-		case "PhysicalObject":
-			physicalObjectArray.push(new PhysicalObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
-			break;
-		case "Deleter":
-			obj.searchAndDestroy();
-			break;
-		case "SpikesObject":
-			physicalObjectArray.push(new SpikesObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
-			break;
-		case 'MilkBarrelObject':
-			enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, obj.left, obj.top - 2 * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, true));
-			break;
-		case "CrabObject":
-			enemyObjectArray.push(new CrabObject(crab_image, obj.left, obj.top - blockSizeY, blockSizeX * 3, blockSizeY * 2, -5));
-			break;
-		case "GoalObject":
-			physicalObjectArray.push(new GoalObject(obj.img, obj.left, 0, 10 * blockSizeX, blockSizeY * 17));
-			break;
-	}
-}
-
-function createAndUpdateObject() {
-	let obj = tool.blocks[tool.tool];
-	obj.left = tool.mouseX;
-	obj.top = tool.mouseY;
-	obj.right = obj.left + blockSizeX;
-	obj.bottom = obj.top + blockSizeY;
-	createObject();
-}
-
-function updateBlockPosition() {
-
-	let oldX = tool.mouseX;
-	let oldY = tool.mouseY;
-	tool.mouseX = Math.round(event.clientX * factorX - rect.left * factorX - blockSizeX / 2);
-	tool.mouseY = Math.round(event.clientY * factorY - rect.top - blockSizeY / 2);
-	tool.mouseX = Math.floor((tool.mouseX + blockSizeX / 2) / blockSizeX) * blockSizeX - (shift % 50);
-	tool.mouseY = Math.floor((tool.mouseY + blockSizeY / 2) / blockSizeY) * blockSizeY;
-
-	if (mouseDown > 0 && (oldX != tool.mouseX || oldY != tool.mouseY)) {
-		createObject();
-	}
-}
-
-function incrementMouseDown() {
-	++mouseDown;
-}
-function decrementMouseDown() {
-	--mouseDown;
-}
 function addListener() {
 	document.addEventListener('keydown', function (evt) {
 		if (evt.keyCode == 39 || evt.keyCode == 68) {
@@ -170,39 +54,7 @@ function addListener() {
 
 
 }
-function edit() {
-	tool = new Tool();
-	if (editing) {
-		tool = new Tool();
-		console.log("add Editing Listener")
-		canvas.style.cursor = "none";
-		document.removeEventListener("keyup", functionKeyUp);
-		document.removeEventListener("keydown", functionKeyDown);
-		document.addEventListener("keydown", functionKeyHandler);
-		canvas.addEventListener("mousedown", functionIncrementMouseDown);
-		canvas.addEventListener("mouseup", functionDecrementMouseDown);
-		canvas.addEventListener("mousemove", functionUpdateBlockPosition);
-		canvas.addEventListener("mousedown", functionCreateAndUpdateObject);
-		window.addEventListener("wheel", event => {
-			tool.changeTool(event);
-		}, false);
-	} else {
-		console.log("remove Editing Listener")
-		canvas.style.cursor = 'default';
-		document.removeEventListener("keydown", keyHandler);
-		document.addEventListener("keyup", functionKeyUp);
-		document.addEventListener("keydown", functionKeyDown);
-		canvas.removeEventListener("mousedown", functionIncrementMouseDown);
-		canvas.removeEventListener("mouseup", functionDecrementMouseDown);
-		canvas.removeEventListener("mousedown", functionCreateAndUpdateObject);
-		canvas.removeEventListener("mousemove", functionUpdateBlockPosition);
-		shift = 0;
-		updateEditShift(-editShift + 50);
-		editShift = 0;
-		setPlayerData();
-		tool = undefinded;
-	}
-}
+
 
 function loadLevel(levelName) {
     
@@ -274,7 +126,7 @@ function updateShift() {
 			if (playerSpeed == 1.08 || playerSpeed == -1.08) {
 			return 0;
 		}
-		shift += possibleShiftChange;
+			shift += possibleShiftChange;
 			minimalShift += minimalShiftChange;
 			return possibleShiftChange;
 		}
@@ -286,7 +138,7 @@ function updateShift() {
 }
 function draw() {
 
-    ctx.drawImage(background, backgroundPosition, 0);
+    ctx.drawImage(background, 0, 0);
 	drawMovingObjects();
 
 	for (var i = 0; i < physicalObjectArray.length; i++) {

@@ -142,6 +142,7 @@
     <Content Include="images\Ziel.png" />
     <Content Include="Impressum.html" />
     <Content Include="javascript\Deleter.js" />
+    <Content Include="javascript\Editor.js" />
     <Content Include="javascript\EnemyObject.js" />
     <Content Include="javascript\GameCanvas_Main.js" />
     <Content Include="css\GameCanvas_Sheet.css" />

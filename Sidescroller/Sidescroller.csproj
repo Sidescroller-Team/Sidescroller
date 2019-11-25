@@ -92,6 +92,7 @@
     <Content Include="images\blockPixel2.png" />
     <Content Include="images\Defeatscreen.png" />
     <Content Include="images\deletePicture.png" />
+    <Content Include="images\edit.png" />
     <Content Include="images\game_schiff 2.png" />
     <Content Include="images\game_schiff.png" />
     <Content Include="images\grauer_schleier.png" />
@@ -118,6 +119,7 @@
     <Content Include="images\musik_an.png" />
     <Content Include="images\musik_aus.png" />
     <Content Include="images\Next_level_gewonnen.png" />
+    <Content Include="images\pause.png" />
     <Content Include="images\Piratenschiff.png" />
     <Content Include="images\Piratenschiff_Wasser.png" />
     <Content Include="images\piratMenue.png" />

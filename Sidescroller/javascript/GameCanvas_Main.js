@@ -240,7 +240,6 @@ function gameLoop() {
 	}
 	draw();
 
-	//timeout muss man wahrscheinlich noch bearbeiten.....
     if (main_character.alive && !win) {
         setTimeout(gameLoop, 20);
     }

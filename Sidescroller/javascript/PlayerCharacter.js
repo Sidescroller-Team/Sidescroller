@@ -30,7 +30,7 @@ var frame_running_change = 0;
 var functionKeyDown = keyDown;
 var functionKeyUp = keyUp;
 
-//setzt die Position des Spielers, da nicht im Object mit Variablen definiert werden darf
+//setzt die Position des Spielers
 function setPlayerData() {
     main_character.height = 4 * blockSizeY;
     main_character.width = 2 * blockSizeX;

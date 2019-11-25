@@ -13,7 +13,6 @@ let editShiftChange = 50;
 
 
 function initializeEditingTools() {
-	console.log("_initializeEditingTools")
 	tool = new Tool();
 	canvas = document.querySelector('canvas');
 	factorX = (canvas.width / canvas.offsetWidth);
@@ -125,7 +124,6 @@ function edit() {
 	tool = new Tool();
 	if (editing) {
 		tool = new Tool();
-		console.log("add Editing Listener")
 		canvas.style.cursor = "none";
 		document.removeEventListener("keyup", functionKeyUp);
 		document.removeEventListener("keydown", functionKeyDown);
@@ -138,7 +136,6 @@ function edit() {
 			tool.changeTool(event);
 		}, false);
 	} else {
-		console.log("remove Editing Listener")
 		canvas.style.cursor = 'default';
 		document.removeEventListener("keydown", keyHandler);
 		document.addEventListener("keyup", functionKeyUp);

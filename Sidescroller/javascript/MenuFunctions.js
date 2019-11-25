@@ -42,7 +42,7 @@ function drawWinningScreen() {
             case 32:
                 location.reload();
                 break;
-            case 78: //muss noch geändert werden nach Levelauswahl
+            case 78: 
                 goToNextLevel();
                 break;
         }

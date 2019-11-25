@@ -143,10 +143,10 @@ function draw() {
     ctx.drawImage(impressumButton, 5.5 * blockSizeX, 17 * blockSizeY, 3 * blockSizeX, 0.5 * blockSizeY);
     ctx.drawImage(datenschutzButton, 9.5 * blockSizeX,17 * blockSizeY, 3.5 * blockSizeX, 0.5 * blockSizeY);
     if (musik == "true") {
-        ctx.drawImage(musik_an, blockSizeX * 14, blockSizeY * 15);
+        ctx.drawImage(musik_an, blockSizeX * 14, blockSizeY * 15.5);
     }
     if (musik == "false") {
-        ctx.drawImage(musik_aus, blockSizeX * 14, blockSizeY * 15);
+        ctx.drawImage(musik_aus, blockSizeX * 14, blockSizeY * 15.5);
     }
     if (levelAuswahlActive == true) {
         drawLevelauswahl();

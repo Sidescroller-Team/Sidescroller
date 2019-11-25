@@ -60,6 +60,8 @@ var homeImageWin;
 var nextLevelImage;
 
 var deletePicture;
+var editPicture;
+var pausePicture;
 
 //nur ein rahmen um die einzelnen quadrate
 var quadrat;
@@ -85,7 +87,9 @@ function fillImages() {
     datenschutzButton = new Image();
 	steuerungButton = new Image();
 
-	deletePicture = new Image();
+    deletePicture = new Image();
+    editPicture = new Image();
+	pausePicture = new Image();
 
 	musik_an = new Image();
     musik_aus = new Image();
@@ -172,7 +176,9 @@ function fillImages() {
     spikes.src = 'images/spikes.png';
     background.src = 'images/hintergrund_Spiel_PNG.png';
     goalImage.src = 'images/Ziel.png';
-	deletePicture.src = 'images/deletePicture.png';
+    deletePicture.src = 'images/deletePicture.png';
+    editPicture.src = 'images/edit.png';
+    pausePicture.src = 'images/pause.png';
 
     defeatScreen.src = 'images/Defeatscreen.png';
     reloadImage.src = 'images/Wiederholungssymbol.png';

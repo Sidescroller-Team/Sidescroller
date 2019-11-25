@@ -322,6 +322,9 @@ function draw() {
     for (var i = 0; i < enemyObjectArray.length; i++) {
         enemyObjectArray[i].draw();
     }
+    if (stop && !editing) {
+        ctx.drawImage(pausePicture, 28 * blockSizeX, 0, 4 * blockSizeX, 1 * blockSizeY);
+    }
     //damit der Pirat nicht gemalt wird wenn man gewonne hat
     if (win) {
         drawWinningScreen();
@@ -329,7 +332,8 @@ function draw() {
 		if (!editing) {
 			drawPlayer();
 		} else {
-	tool.blocks[tool.tool].draw();
+            tool.blocks[tool.tool].draw();
+            ctx.drawImage(editPicture, 28 * blockSizeX, 0, 4 * blockSizeX, 1 * blockSizeY);
 
 		}
 	}

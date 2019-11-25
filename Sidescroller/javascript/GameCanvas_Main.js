@@ -309,7 +309,42 @@ function draw() {
             ctx.drawImage(editPicture, 28 * blockSizeX, 0, 4 * blockSizeX, 1 * blockSizeY);
 
 		}
-	}
+    }
+    ctx.drawImage(levelLayout, 11 * blockSizeX, 0 * blockSizeY, 3.5 * blockSizeX, 1 * blockSizeY);
+    switch (level) {
+        case "level/easyNiklasG.txt":
+            ctx.drawImage(level1Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/easyNiklasK.txt":
+            ctx.drawImage(level2Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/easyTimo.txt":
+            ctx.drawImage(level3Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/mediumNiklasG.txt":
+            ctx.drawImage(level4Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/mediumNiklasK.txt":
+            ctx.drawImage(level5Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/mediumTimo.txt":
+            ctx.drawImage(level6Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/hardNiklasG.txt":
+            ctx.drawImage(level7Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/hardNiklasK.txt":
+            ctx.drawImage(level8Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/hardTimo.txt":
+            ctx.drawImage(level9Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);
+            break;
+        case "level/bastelLevel.txt":
+            ctx.drawImage(editPicture, 15 * blockSizeX, 0 * blockSizeY, 3.5 * blockSizeX, 1 * blockSizeY);
+            break;
+      
+
+    }
 }
 
 function createWorldObjects() {

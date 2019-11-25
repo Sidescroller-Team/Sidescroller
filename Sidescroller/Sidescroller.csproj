@@ -115,6 +115,7 @@
     <Content Include="images\levelauswahlButtons\level7_png.png" />
     <Content Include="images\levelauswahlButtons\level8_png.png" />
     <Content Include="images\levelauswahlButtons\level9_png.png" />
+    <Content Include="images\levelLayout.png" />
     <Content Include="images\Logo.png" />
     <Content Include="images\milch_laufen.png" />
     <Content Include="images\musik_an.png" />

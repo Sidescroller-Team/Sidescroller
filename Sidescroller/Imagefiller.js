@@ -4,6 +4,7 @@ var main_character_image;
 var death_pirate_image;
 
 var mainMenue;
+var logo;
 var buttonSpielstart;
 var buttonLevelauswahl;
 var kisteHauptmenue;
@@ -77,6 +78,7 @@ function fillImages() {
     crab_image = new Image();
 
     mainMenue = new Image();
+    logo = new Image();
     buttonSpielstart = new Image();
     buttonLevelauswahl = new Image();
     kisteHauptmenue = new Image();
@@ -138,6 +140,7 @@ function fillImages() {
     crab_image.src = 'images/krabbe_gehen.png';
 
     mainMenue.src = 'images/hintergrund_menue.png';
+    logo.src = 'images/Logo.png';
     buttonSpielstart.src = 'images/Button_Spiel_Starten_PNG.png';
     buttonLevelauswahl.src = 'images/Button_Levelauswahl_PNG.png';
     kisteHauptmenue.src = 'images/KisteMitButtonsKrabbeSchaufel.png';

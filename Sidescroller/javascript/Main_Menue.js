@@ -141,7 +141,8 @@ function draw() {
     ctx.drawImage(piratMenue, 21.6 * blockSizeX, 5.2 * blockSizeY, 4.4 * blockSizeX, 10 * blockSizeY);
     ctx.drawImage(steuerungButton, 1.5 * blockSizeX, 17 * blockSizeY, 3 * blockSizeX, 0.5 * blockSizeY);
     ctx.drawImage(impressumButton, 5.5 * blockSizeX, 17 * blockSizeY, 3 * blockSizeX, 0.5 * blockSizeY);
-    ctx.drawImage(datenschutzButton, 9.5 * blockSizeX,17 * blockSizeY, 3.5 * blockSizeX, 0.5 * blockSizeY);
+    ctx.drawImage(datenschutzButton, 9.5 * blockSizeX, 17 * blockSizeY, 3.5 * blockSizeX, 0.5 * blockSizeY);
+    ctx.drawImage(logo, 6.5 * blockSizeX, 0 * blockSizeY);
     if (musik == "true") {
         ctx.drawImage(musik_an, blockSizeX * 14, blockSizeY * 15.5);
     }

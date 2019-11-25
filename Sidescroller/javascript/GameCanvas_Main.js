@@ -156,7 +156,7 @@ function draw() {
 
 		}
     }
-    ctx.drawImage(levelLayout, 11 * blockSizeX, 0 * blockSizeY, 3.5 * blockSizeX, 1 * blockSizeY);
+    ctx.drawImage(levelLayout, 11.3 * blockSizeX, 0 * blockSizeY, 3.5 * blockSizeX, 1 * blockSizeY);
     switch (level) {
         case "level/easyNiklasG.txt":
             ctx.drawImage(level1Button, 15 * blockSizeX, 0 * blockSizeY, 1 * blockSizeX, 1 * blockSizeY);

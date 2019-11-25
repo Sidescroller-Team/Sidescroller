@@ -1,18 +1,17 @@
-﻿var levelRawData;
-var levelRowArray;
+﻿let levelRawData;
+let levelRowArray;
 
-var mouseDown = 0;
-var minimalShift = 0;
-var shift = 0;
-var start = false;
-var win = false;
-var stop = false;
-var editing = false;
-var physicalObjectArray = [];
-var enemyObjectArray = [];
 
-var actualShiftChange;
-var stop = false;
+let minimalShift = 0;
+let shift = 0;
+let start = false;
+let win = false;
+let stop = false;
+let editing = false;
+let physicalObjectArray = [];
+let enemyObjectArray = [];
+
+let actualShiftChange;
 
 
 
@@ -59,12 +58,10 @@ function addListener() {
 function loadLevel(levelName) {
     
 	console.log("loadLevel")
-	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+	let xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
 
 	xmlhttp.onreadystatechange = function () {
 		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
-
-		
 		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			levelRawData = xmlhttp.responseText;
@@ -91,16 +88,15 @@ function loadLevel(levelName) {
 function update() {
 
 	actualShiftChange = updateShift();
-
 	playerNotAutoshifting();
-    for (var i = 0; i < physicalObjectArray.length; i++) {
+    for (let i = 0; i < physicalObjectArray.length; i++) {
 		physicalObjectArray[i].updateObject(actualShiftChange);
 		if (physicalObjectArray[i].left >= -800 && physicalObjectArray[i].left <= 1650) {
 			physicalObjectArray[i].testCollisionPlayer(main_character);
 		}
 			physicalObjectArray[i].testCollisionEnemy(enemyObjectArray);
     }
-    for (var i = 0; i < enemyObjectArray.length; i++) {
+    for (let i = 0; i < enemyObjectArray.length; i++) {
 
 		if (enemyObjectArray[i].alive && enemyObjectArray[i].left > -1600) {
             enemyObjectArray[i].updateObject(actualShiftChange);
@@ -141,10 +137,10 @@ function draw() {
     ctx.drawImage(background, 0, 0);
 	drawMovingObjects();
 
-	for (var i = 0; i < physicalObjectArray.length; i++) {
+	for (let i = 0; i < physicalObjectArray.length; i++) {
 		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top, physicalObjectArray[i].right - physicalObjectArray[i].left, physicalObjectArray[i].bottom - physicalObjectArray[i].top);
     }
-    for (var i = 0; i < enemyObjectArray.length; i++) {
+    for (let i = 0; i < enemyObjectArray.length; i++) {
         enemyObjectArray[i].draw();
     }
     if (stop && !editing) {
@@ -202,8 +198,8 @@ function draw() {
 function createWorldObjects() {
 	console.log("start creating world")
 	console.log(levelRowArray.length);
-	for (var y = 0; y < levelRowArray.length; y++) {
-		for (var x = 0; x < levelRowArray[y].length; x++) {	
+	for (let y = 0; y < levelRowArray.length; y++) {
+		for (let x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 
 				case '1':
 					physicalObjectArray.push(new PhysicalObject(sandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));

@@ -1,4 +1,5 @@
-﻿let tool;
+﻿let mouseDown = 0;
+let tool;
 let canvas;
 let factorX;
 let factorY;

@@ -32,17 +32,17 @@
     }
 
     fromAbove(object) {
-        console.log("war von oben");
+        //console.log("war von oben");
         object.alive = false;
     }
 
     fromLeftSide(object) {
-        console.log("war von seite");
+        //console.log("war von seite");
         object.alive = false;
     }
 
     fromRightSide(object) {
-        console.log("war von seite");
+        //console.log("war von seite");
         object.alive = false;
     }
 }

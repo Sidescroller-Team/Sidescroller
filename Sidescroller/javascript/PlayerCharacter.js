@@ -39,27 +39,32 @@ function setPlayerData() {
 }
 
 function keyDown(evt) {
-	evt.preventDefault();
 	switch (evt.keyCode) {
 		case 37:
+	evt.preventDefault();
 			controller.left = true;
 			controller.forward = false;
 			break;
 		case 65:
+	evt.preventDefault();
 			controller.left = true;
 			controller.forward = false;
 			break;
 		case 38:
+	evt.preventDefault();
 			controller.up = true;
 			break;
 		case 87:
+	evt.preventDefault();
 			controller.up = true;
 			break;
 		case 39:
+	evt.preventDefault();
 			controller.right = true;
 			controller.forward = true;
 			break;
 		case 68:
+	evt.preventDefault();
 			controller.right = true;
 			controller.forward = true;
 			break;
@@ -100,10 +105,7 @@ document.addEventListener('keyup', functionKeyUp)
 function updatePlayer() {
 
 	if (jumpingOnRightWall()) {
-		console.log("jumpingright");
-		//main_character.jumpingpower = 40;
 		main_character.add_jumpingpower = 22;
-		console.log(main_character.jumpingpower, main_character.add_jumpingpower);
 		main_character.speed -= 25;
 		main_character.jumping = true;
 		controller.blockPermanentJump = true;
@@ -114,9 +116,7 @@ function updatePlayer() {
 		}
 
 	} if (jumpingOnLeftWall()) {
-		console.log("jumpingLeft");
 		main_character.add_jumpingpower = 22;
-        //main_character.jumpingpower = 40
 		main_character.speed += 25;
 		controller.forward = true;
 		if (musik == "true") {
@@ -157,8 +157,7 @@ function updatePlayer() {
 	main_character.jumpingpower -= main_character.gravity; //gravity
 	main_character.x_position += main_character.speed;
 	main_character.y_position -= main_character.jumpingpower;
-//	console.log("jp: " + main_character.jumpingpower)
-	if (main_character.jumpingpower == -2.5) {
+if (main_character.jumpingpower == -2.5) {
 		main_character.speed *= 0.9; //friction
 	} else {
 		main_character.speed *= 0.9; //friction

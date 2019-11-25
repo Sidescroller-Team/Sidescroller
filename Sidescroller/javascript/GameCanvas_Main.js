@@ -37,7 +37,6 @@ function init() {
 	addListener();
 	loadLevel(level);
 	if (level == 'level/bastelLevel.txt') {
-	console.log("Bastellevel: " +level);
 		editing = true;
 		stop = true;
 		edit();
@@ -61,14 +60,15 @@ function initializeEditingTools() {
 	functionIncrementMouseDown = incrementMouseDown;
 }
 function keyHandler(evt) {
-	console.log("keyHandler: " + evt.keyCode);
 	switch (evt.keyCode) {
 		case 37:
 		case 65:
+			evt.preventDefault();
 			shiftLeft();
 			break;
 		case 39:
 		case 68:
+			evt.preventDefault();
 			shiftRight();
 			break;
 	}
@@ -76,45 +76,36 @@ function keyHandler(evt) {
 
 function shiftLeft() {
 	editShift -= editShiftChange;
-	console.log("editShift" + editShift);
 	updateEditShift(-editShiftChange);
 }
 
 function shiftRight() {
 	editShift += editShiftChange;
-	console.log("editShift" + editShift)
 	updateEditShift(editShiftChange);
 }
 
 function updateEditShift(shift) {
-
-	console.log("Schiebe: " +shift)
 	for (var i = 0; i < physicalObjectArray.length; i++) {
 		physicalObjectArray[i].updateObject(shift);
 	}
 	for (var i = 0; i < enemyObjectArray.length; i++) {
 			enemyObjectArray[i].justShifting(shift);
 	}
-	
 }
 
 function createObject() {
-	console.log("_createObject")
 	let obj = tool.blocks[tool.tool];
 	obj.left = tool.mouseX;
 	obj.top = tool.mouseY;
 	switch (obj.constructor.name) {
 		case "PhysicalObject":
 			physicalObjectArray.push(new PhysicalObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
-			console.log("created: physicalObjects");
 			break;
 		case "Deleter":
-			console.log("Fuck")
 			obj.searchAndDestroy();
 			break;
 		case "SpikesObject":
 			physicalObjectArray.push(new SpikesObject(obj.img, obj.left, obj.top, blockSizeX, blockSizeY));
-			console.log("created: SpikesObjects");
 			break;
 		case 'MilkBarrelObject':
 			enemyObjectArray.push(new MilkBarrelObject(milch_fass_image, obj.left, obj.top - 2 * blockSizeY, blockSizeX * 2, blockSizeY * 3, -5, true));
@@ -158,16 +149,7 @@ function decrementMouseDown() {
 	--mouseDown;
 }
 function addListener() {
-	window.addEventListener('resize', function () {
-		//@TODO
-		//aktuell Welt und Größen statisch, erfolgt später
-		//canvas.width = window.innerWidth;
-		//canvas.height = window.innerHeight;
-
-	})
 	document.addEventListener('keydown', function (evt) {
-		//console.log(evt.keyCode)
-
 		if (evt.keyCode == 39 || evt.keyCode == 68) {
 			start = true;
 		}
@@ -177,7 +159,6 @@ function addListener() {
 		if (evt.keyCode == 67) {
 			stop = !stop;
 			editing = !editing;
-			console.log(editing)
 			edit();
 		}
 		if (musik == "true") {
@@ -193,9 +174,8 @@ function edit() {
 	tool = new Tool();
 	if (editing) {
 		tool = new Tool();
-		canvas.style.cursor = "none";
 		console.log("add Editing Listener")
-		console.log(functionKeyHandler, canvas, "keydown");
+		canvas.style.cursor = "none";
 		document.removeEventListener("keyup", functionKeyUp);
 		document.removeEventListener("keydown", functionKeyDown);
 		document.addEventListener("keydown", functionKeyHandler);
@@ -207,8 +187,8 @@ function edit() {
 			tool.changeTool(event);
 		}, false);
 	} else {
-		canvas.style.cursor = 'default';
 		console.log("remove Editing Listener")
+		canvas.style.cursor = 'default';
 		document.removeEventListener("keydown", keyHandler);
 		document.addEventListener("keyup", functionKeyUp);
 		document.addEventListener("keydown", functionKeyDown);
@@ -216,7 +196,6 @@ function edit() {
 		canvas.removeEventListener("mouseup", functionDecrementMouseDown);
 		canvas.removeEventListener("mousedown", functionCreateAndUpdateObject);
 		canvas.removeEventListener("mousemove", functionUpdateBlockPosition);
-		console.log("Shift", shift, "editShift", editShift);
 		shift = 0;
 		updateEditShift(-editShift + 50);
 		editShift = 0;
@@ -261,12 +240,8 @@ function update() {
 
 	actualShiftChange = updateShift();
 
-	//console.log(shift,main_character.x_position);
 	playerNotAutoshifting();
     for (var i = 0; i < physicalObjectArray.length; i++) {
-       /* if (counter++ == 0) {
-            console.log("x " + main_character.x_position + " y " + main_character.width)
-        }*/
 		physicalObjectArray[i].updateObject(actualShiftChange);
 		if (physicalObjectArray[i].left >= -800 && physicalObjectArray[i].left <= 1650) {
 			physicalObjectArray[i].testCollisionPlayer(main_character);
@@ -290,7 +265,6 @@ function update() {
 }
 
 function updateShift() {
-	//console.log("updateShift");
 	let pos = main_character.x_position;
 	let playerSpeed = main_character.speed;
 	if (pos >= 250) {
@@ -316,9 +290,7 @@ function draw() {
 	drawMovingObjects();
 
 	for (var i = 0; i < physicalObjectArray.length; i++) {
-		//console.log(i)
 		ctx.drawImage(physicalObjectArray[i].img, physicalObjectArray[i].left, physicalObjectArray[i].top, physicalObjectArray[i].right - physicalObjectArray[i].left, physicalObjectArray[i].bottom - physicalObjectArray[i].top);
-	
     }
     for (var i = 0; i < enemyObjectArray.length; i++) {
         enemyObjectArray[i].draw();
@@ -338,12 +310,8 @@ function draw() {
 
 		}
 	}
-		}
-/* @TODO
- * Die Welt wird akutell komplett gezeichnet, also über das Canvas hinaus
- * sichtbar ist alles was sich innerhalb von 0 <= x <= 1600 && 0 <= y <= 900 befindet 
- * die Variable shift wird bei jedem drücken der links-rechts tasten größer / kleiner um die Welt zu verschieben
- */
+}
+
 function createWorldObjects() {
 	console.log("start creating world")
 	console.log(levelRowArray.length);
@@ -359,15 +327,6 @@ function createWorldObjects() {
 				case 'e':
 					physicalObjectArray.push(new PhysicalObject(endSandBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
 					break;
-				case 'b':
-					physicalObjectArray.push(new PhysicalObject(earthBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-					break;
-				case 'f':
-					physicalObjectArray.push(new PhysicalObject(grassBlock, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));	
-                    break;
-                case 'l':
-                    physicalObjectArray.push(new PhysicalObject(lava, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
-                    break;
                 case 's':
                     physicalObjectArray.push(new SpikesObject(spikes, x * blockSizeX, y * blockSizeY, blockSizeX, blockSizeY));
                     break;
@@ -397,7 +356,7 @@ function createWorldObjects() {
 
 function gameLoop() {
 	if (start && !stop) {
-			update();
+		update();
 	}
 	if (editing) {
 		tool.updateTool();		

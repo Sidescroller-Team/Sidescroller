@@ -15,7 +15,6 @@ function init() {
 
 function addListeners() {
     document.addEventListener('keydown', function (evt) {
-        console.log(evt.keyCode);
         switch (evt.keyCode) {
             case 13: //Enter-Taste zum starten des ersten levels
                 sessionStorage.setItem('level', 'level/easyNiklasG.txt');
@@ -132,7 +131,6 @@ function loadMainMenue() {
 
 function draw() {
     ctx.clearRect(0, 0, 1000, 200);
-    console.log("draw");
     ctx.drawImage(mainMenue, 0, 0);
     drawMovingObjects();
     ctx.drawImage(buttonSpielstart, 11.2 * blockSizeX, 4 * blockSizeY, 9.6 * blockSizeX, 1.5 * blockSizeY);

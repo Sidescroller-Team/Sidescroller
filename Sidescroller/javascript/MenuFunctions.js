@@ -11,7 +11,6 @@
     addButtonListener("defeat");
 
     document.addEventListener('keydown', function (evt) {
-        console.log(evt.keyCode);
         switch (evt.keyCode) {
             case 13:
                 window.location.href = "index.html";
@@ -36,7 +35,6 @@ function drawWinningScreen() {
     addButtonListener("winning");
 
     document.addEventListener('keydown', function (evt) {
-        console.log(evt.keyCode);
         switch (evt.keyCode) {
             case 13:
                 window.location.href = "index.html";

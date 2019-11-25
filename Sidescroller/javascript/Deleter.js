@@ -6,11 +6,11 @@
 
 
 	searchAndDestroy() {
-		console.log(this.left, this.top)
+		
 		for (let i = 0; i < physicalObjectArray.length; i++) {
 
 			if (physicalObjectArray[i].left == this.left && physicalObjectArray[i].top == this.top) {
-				console.log("found!");
+				console.log("found and delete at: " + this.left + "/" + this.top);
 				physicalObjectArray.splice(i, 1);
 			}
 		}

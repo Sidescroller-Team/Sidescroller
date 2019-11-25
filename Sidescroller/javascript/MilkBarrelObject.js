@@ -33,7 +33,6 @@
             return;
         }
         else if (this.left <= objectRight && this.right >= objectLeft && this.bottom <= objectTop + object.jumpingpower + 5 && this.bottom - objectTop > - object.jumpingpower) {
-			console.log("bottom");
             this.fromBottom(object);
             return;
         }

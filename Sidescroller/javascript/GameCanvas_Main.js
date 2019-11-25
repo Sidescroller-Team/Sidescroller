@@ -45,7 +45,6 @@ function init() {
 }
 
 function initializeEditingTools() {
-	console.log("_initializeEditingTools")
 	tool = new Tool();
 	canvas = document.querySelector('canvas');
 	factorX = (canvas.width / canvas.offsetWidth);
@@ -174,7 +173,6 @@ function edit() {
 	tool = new Tool();
 	if (editing) {
 		tool = new Tool();
-		console.log("add Editing Listener")
 		canvas.style.cursor = "none";
 		document.removeEventListener("keyup", functionKeyUp);
 		document.removeEventListener("keydown", functionKeyDown);
@@ -187,7 +185,6 @@ function edit() {
 			tool.changeTool(event);
 		}, false);
 	} else {
-		console.log("remove Editing Listener")
 		canvas.style.cursor = 'default';
 		document.removeEventListener("keydown", keyHandler);
 		document.addEventListener("keyup", functionKeyUp);
@@ -206,17 +203,13 @@ function edit() {
 
 function loadLevel(levelName) {
     
-	console.log("loadLevel")
 	var xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
 
 	xmlhttp.onreadystatechange = function () {
-		console.log("state: " + xmlhttp.readyState + " status: " + xmlhttp.status);
-
-		
+	
 		//nachdem das Level geladen ist, beginnt das Spiel (gameloop & draw)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			levelRawData = xmlhttp.responseText;
-			console.log(levelRawData);
 			let separator = "\n";
 			if (levelRawData.includes("\r\n")) {
 				separator = "\r\n";
@@ -225,8 +218,6 @@ function loadLevel(levelName) {
 			}
 			levelRowArray = levelRawData.split(separator);
 			countBlocksY = levelRowArray.length;
-			console.log("levelRowArray:" + levelRowArray.length);
-			console.log("level loaded");
 			createWorldObjects();
 			gameLoop();
 		}
@@ -348,8 +339,6 @@ function draw() {
 }
 
 function createWorldObjects() {
-	console.log("start creating world")
-	console.log(levelRowArray.length);
 	for (var y = 0; y < levelRowArray.length; y++) {
 		for (var x = 0; x < levelRowArray[y].length; x++) {	
 			switch (levelRowArray[y].charAt(x)) { 
@@ -385,8 +374,6 @@ function createWorldObjects() {
 			}
 		}
 	}   
-	console.log("end creating world");
-	console.log(physicalObjectArray.length + " Objects created");
 }
 
 function gameLoop() {

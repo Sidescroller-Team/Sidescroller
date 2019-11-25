@@ -104,6 +104,7 @@ document.addEventListener('keyup', functionKeyUp)
 //Bewegung der Figur
 function updatePlayer() {
 
+    //bei Walljump
 	if (jumpingOnRightWall()) {
 		main_character.add_jumpingpower = 22;
 		main_character.speed -= 25;
@@ -114,8 +115,9 @@ function updatePlayer() {
 			document.getElementById('wall_jump_sound').volume = 0.3;
 			document.getElementById('wall_jump_sound').play();
 		}
-
-	} if (jumpingOnLeftWall()) {
+    }
+    //bei Walljump
+    if (jumpingOnLeftWall()) {
 		main_character.add_jumpingpower = 22;
 		main_character.speed += 25;
 		controller.forward = true;
@@ -124,7 +126,7 @@ function updatePlayer() {
 			document.getElementById('wall_jump_sound').play();
 		}
     }
-
+    //normaler Sprung
     if (controller.up && main_character.jumping == false && !controller.blockPermanentJump) {
         main_character.add_jumpingpower += 22;
         main_character.jumping = true;
@@ -138,7 +140,6 @@ function updatePlayer() {
     if (controller.left) {
         main_character.speed -= 1.2;
     }
-
     if (controller.right) {
         main_character.speed += 1.2;
     }
@@ -153,16 +154,15 @@ function updatePlayer() {
 	if ((main_character.fallingRight || main_character.fallingLeft) && main_character.jumpingpower <= 0) {
 		main_character.gravity = 0.5;
 
-	}
-	main_character.jumpingpower -= main_character.gravity; //gravity
+    }
+    //dauerhafte Schwerkraft
+    main_character.jumpingpower -= main_character.gravity;
+
 	main_character.x_position += main_character.speed;
-	main_character.y_position -= main_character.jumpingpower;
-if (main_character.jumpingpower == -2.5) {
-		main_character.speed *= 0.9; //friction
-	} else {
-		main_character.speed *= 0.9; //friction
-	}
-		main_character.jumpingpower *= 0.92; //friction
+    main_character.y_position -= main_character.jumpingpower;
+
+	main_character.speed *= 0.9;
+	main_character.jumpingpower *= 0.92;
 
 	main_character.gravity = main_character.normalGravity;
 
@@ -178,7 +178,8 @@ if (main_character.jumpingpower == -2.5) {
     if (main_character.x_position > blockSizeX * 31) {
         main_character.speed = 0;
         main_character.x_position = blockSizeX * 31;
-	}
+    }
+
 	main_character.fallingLeft = false;
     main_character.fallingRight = false;
     main_character.killingBarrel = false;
@@ -218,7 +219,7 @@ function drawPlayer() {
     }
 }
 
-
+//damit sich der Spieler nicht automatisch zur Welt mitbewegt
 function playerNotAutoshifting() {
     main_character.x_position -= actualShiftChange;
 	}

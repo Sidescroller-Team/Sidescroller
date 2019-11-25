@@ -15,7 +15,6 @@ function setConfigs() {
 	game_field = document.getElementById("mainCan");
 	countBlocksY = 18;
 	countBlocksX = Math.floor(countBlocksY * 16 / 9);
-	console.log(countBlocksX + " x " + countBlocksY + " blocks")
 
 	blockSizeX = 1600 / countBlocksX;
 	blockSizeY = 900 / countBlocksY;
